@@ -21,63 +21,45 @@
             </div>
         </div>
         
-        <div class="container mx-auto mt-6 mb-3"style="width: 1471.5px; height: 275px;">
-          <div class="bg-[#80AF81] text-white p-3 rounded-lg shadow-md">
-            <div class="flex justify-between">
-              <div>
-                <div class="p-1 mt-3 mr-3 ml-3 mb-3">
-                <img class=" rounded-lg" style="width: 275px; height: 275px;" src="image/SW2.jpeg" alt="User Avatar">
-                </div>
-              </div>
-              <div class="bg-[#508D4E] p-2 mt-4 mx-3 mb-3 rounded-lg" style="width: 1200px; height: 275px;">
-                <h1 class="text-2xl font-bold ml-3 mt-3 text-left">Selamat Datang,</h1>
-                <h1 class="text-2xl font-bold ml-3 text-left">Smith Welson B.Sc., M.Cs.</h1>
-                <p class="text-base font-sans ml-3 mt-5 text-left">NIP. 198405021007083020</p>
-                <p class="text-base font-sans ml-3 text-left">smithwelson@lecturer.Undip.ac.id</p>
-                <div class="border-t border-white ml-3 mt-3" style="width: 1100px;"></div>
-                <p class="text-bold font-outfit ml-3 mt-3 text-left">Universitas Diponegoro</p>
-                <p class="text-bold font-outfit ml-3 text-left">Fakultas Sains dan Matematika</p>
-                <p class="text-bold font-outfit ml-3 text-left">Departemen Informatika</p>
-              </div>
-              </div>
-            </div>
-          </div>
+        <div class="container mx-auto mt-6 mb-3" style="width: 100%;">
+  <div class="bg-[#80AF81] text-white p-3 rounded-lg shadow-md">
+    <div class="flex justify-between">
+      <div>
+        <div class="p-1 mt-3 mr-3 ml-3 mb-3">
+          <img class="rounded-lg" style="width: 290px; height: 275px;" src="images/profilee.jpeg" alt="User Avatar">
         </div>
+      </div>
+      <div class="bg-[#508D4E] p-2 mt-4 mx-3 mb-3 rounded-lg" style="width: calc(100% - 300px);">
+        <h1 class="text-2xl font-bold ml-3 mt-3 text-left">Selamat Datang,</h1>
+        <h1 class="text-2xl font-bold ml-3 text-left">Smith Welson B.Sc., M.Cs.</h1>
+        <p class="text-base font-sans ml-3 mt-5 text-left">NIP. 198405021007083020</p>
+        <p class="text-base font-sans ml-3 text-left">smithwelson@lecturer.Undip.ac.id</p>
+        <div class="border-t border-white ml-3 mt-3" style="width: 100%;"></div>
+        <p class="text-bold font-outfit ml-3 mt-3 text-left">Universitas Diponegoro</p>
+        <p class="text-bold font-outfit ml-3 text-left">Fakultas Sains dan Matematika</p>
+        <p class="text-bold font-outfit ml-3 text-left">Departemen Informatika</p>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="container mt-6 ml-0 mx-auto w-1/2">
+  <div class="bg-[#80AF81] rounded-lg shadow-md p-6">
+    <h1 class="text-2xl font-bold text-white mb-4">LAYANAN AKADEMIK</h1>
+    <!-- Flexbox Container -->
+    <div class="flex gap-4">
+      <!-- Kolom Kiri -->
+      <div class="flex-1 bg-[#508D4E] p-4 rounded-lg">
+        <button onclick="window.location.href='/dekan/pengajuan_jadwal'" class="text-lg font-bold text-center text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN JADWAL KULIAH</button>
+      </div>
+      <!-- Kolom Kanan -->
+      <div class="flex-1 bg-[#508D4E] p-4 rounded-lg">
+        <button onclick="window.location.href='/dekan/pengajuan_ruangan'" class="text-lg font-bold text-center text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN RUANG KULIAH</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <!-- LAYANAN AKADEMIK -->
-        <div class="container mt-9 ml-6 mr-6">
-          <div class="bg-[#80AF81] ml-0 rounded-lg shadow-md p-6" style="width: 800px; height: 275px;">
-            <div class="flex justify-between">
-              <div>
-                <h1 class="text-2xl font-bold text-white">LAYANAN AKADEMIK</h1>
-                <!-- Kolom Kiri -->
-                <div class="bg-[#508D4E] p-1 mt-4 ml-6 rounded-lg" style="width: 330px; height: 50px;">
-                  <h1 class="text-lg font-bold text-right mr-3 mt-1.5 text-white">LIST RUANG KULIAH</h1>
-                </div>
-                <div class="bg-[#508D4E] p-1 mt-4 ml-6 rounded-lg" style="width: 330px; height: 50px;">
-                  <h1 class="text-lg font-bold text-right mr-3 mt-1.5 text-white">LIST RUANG KULIAH</h1>
-                </div>
-                <div class="bg-[#508D4E] p-1 mt-4 ml-6 rounded-lg" style="width: 330px; height: 50px;">
-                  
-                </div>
-              </div>
-              <!-- Kolom Kanan -->
-              <div>
-                <div class="bg-[#508D4E] p-1 mt-12 mr-6 rounded-lg" style="width: 330px; height: 50px;">
-                  <h1 class="text-lg font-bold text-right mr-3 mt-1.5 text-white">LIST RUANG KULIAH</h1>
-                </div>
-                <div class="bg-[#508D4E] p-1 mt-4 rounded-lg" style="width: 330px; height: 50px;">
-                  <h1 class="text-lg font-bold text-right mr-3 mt-1.5 text-white">LIST RUANG KULIAH</h1>
-                </div>
-                <div class="bg-[#508D4E] p-1 mt-4 rounded-lg" style="width: 330px; height: 50px;">
-                
-                </div>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- Footer -->
         <div class="mt-6 bg-[#508D4E] text-white p-4 rounded-lg shadow-md text-center">
