@@ -31,7 +31,6 @@ class AuthController extends Controller
 
             // Redirect based on the user's single role
             $role = $roles->first()->role ?? null;
-
             return $this->redirectToDashboard($role);
         } else {
             return redirect('/')->withErrors('Username atau Password tidak ditemukan!')->withInput();
@@ -70,12 +69,20 @@ class AuthController extends Controller
     }
 
     public function handleRoleSelection(Request $request)
-        {
-            $request->validate([
-                'role' => 'required',
-            ]);
+    {
+        $request->validate([
+            'role' => 'required',
+        ]);
 
-            $role = $request->input('role');
-            return $this->redirectToDashboard($role);
-        }
+        $role = $request->input('role');
+        return $this->redirectToDashboard($role);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }       
 }
