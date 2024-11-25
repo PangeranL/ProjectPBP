@@ -32,22 +32,22 @@ Route::middleware(['auth'])->post('/selectRole', [AuthController::class, 'handle
 // Dashboard Routes for Specific Roles
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/mahasiswa', function () {
-        return view('dashboard.mahasiswa');
+        return view('mahasiswa.mahasiswa');
     })->name('mahasiswaDash');
 
     Route::get('/dashboard/bagianakademik', function () {
-        return view('dashboard.bagianakademik');
+        return view('bagianAkademik.bagianakademik');
     })->name('bagianAkademikDash');
 
     Route::get('/dashboard/dekan', function () {
-        return view('dashboard.dekan');
+        return view('dekan.dekan');
     })->name('dekanDash');
 
     Route::get('/dashboard/kaprodi', function () {
-        return view('dashboard.kaprodi');
+        return view('kaprodi.kaprodi');
     })->name('kaprodiDash');
 
     Route::get('/dashboard/pembimbingakademik', function () {
-        return view('dashboard.pembimbingakademik');
+        return view('pembimbingAkademik.pembimbingakademik');
     })->name('pembimbingAkademikDash');
 });
