@@ -47,3 +47,11 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard.pembimbingakademik');
     })->name('pembimbingAkademikDash');
 });
+
+Route ::get('/dekan/pengajuan_ruangan', function(){
+    return view('dekan.pengajuan_ruangan');
+});
+
+Route ::get('/dekan/pengajuan_jadwal', function(){
+    return view('dekan.pengajuan_jadwal');
+});
