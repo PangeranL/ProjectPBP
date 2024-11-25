@@ -12,9 +12,17 @@
             <img src="{{ asset('images/UNDIP.png') }}" alt="Universitas Diponegoro" class="w-14 mr-2">
             <h1 class="text-xl">DIPONEGORO UNIVERSITY</h1>
         </div>
-        <div class="flex items-center">
-            <span class="mr-4">Doel</span>
-            <img class="w-10 h-10 rounded-full" src="{{ asset('images/dora.jpg') }}" alt="User Avatar">
+        <div class="relative">
+            <!-- Profile Section -->
+            <button onclick="toggleDropdown()" class="flex items-center focus:outline-none">
+                <span class="mr-4">Doel</span>
+                <img class="w-10 h-10 rounded-full" src="{{ asset('images/dora.jpg') }}" alt="User Avatar">
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded shadow-lg">
+                <a type="submit" class="block w-full text-left px-4 py-2 hover:bg-green-100" href="/logout">Logout</a>
+            </div>
         </div>
     </div>
 
@@ -92,11 +100,24 @@
             </table>
         </div>
     </div>
-
     <!-- Footer -->
     <div class="bg-green-700 text-white h-16 flex items-center justify-center fixed bottom-0 w-full">
         <h3 class="text-center">TIM IT SIKAT © 2024 UNDIP, All Right Reserved.</h3>
     </div>
+    <script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdownMenu');
+        dropdown.classList.toggle('hidden');
+    }
 
+    // Close dropdown when clicking outside
+    window.addEventListener('click', function (e) {
+        const dropdown = document.getElementById('dropdownMenu');
+        const button = dropdown.previousElementSibling;
+        if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+</script>
 </body>
 </html>
