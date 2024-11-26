@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\IRSController;
+use App\Http\Controllers\KHSController;
+use App\Http\Controllers\BuatIrsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,4 +52,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/pembimbingakademik', function () {
         return view('pembimbingAkademik.pembimbingakademik');
     })->name('pembimbingAkademikDash');
+<<<<<<< HEAD
 });
+=======
+});
+
+Route ::get('/dekan/pengajuan_ruangan', function(){
+    return view('dekan.pengajuan_ruangan');
+});
+
+Route ::get('/dekan/pengajuan_jadwal', function(){
+    return view('dekan.pengajuan_jadwal');
+});
+
+Route::get('/buat_irs', [BuatIrsController::class, 'index'])->name('buat_irs');
+
+Route::get('/irs', [IRSController::class, 'index'])->name('irs');
+
+Route::get('/khs', [KHSController::class, 'index'])->name('khs');
+>>>>>>> c4a7e6e0d8bdb401ba509c6cee473fc711b83653
