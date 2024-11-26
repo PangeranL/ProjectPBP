@@ -67,3 +67,10 @@ Route::get('/buat_irs', [BuatIrsController::class, 'index'])->name('buat_irs');
 Route::get('/irs', [IRSController::class, 'index'])->name('irs');
 
 Route::get('/khs', [KHSController::class, 'index'])->name('khs');
+
+// Bagian Kaprodi
+use App\Http\Controllers\KaprodiController;
+
+Route::get('/Dashboard', [KaprodiController::class, 'index']);
+Route::get('/Menyusun', [KaprodiController::class, 'susun']);
+Route::get('/Buat', [KaprodiController::class, 'buat']);
