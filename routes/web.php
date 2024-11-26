@@ -54,7 +54,6 @@ Route::middleware(['auth'])->group(function () {
     })->name('pembimbingAkademikDash');
 });
 
-
 Route ::get('/dekan/pengajuan_ruangan', function(){
     return view('dekan.pengajuan_ruangan');
 });
