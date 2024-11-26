@@ -72,5 +72,7 @@ Route::get('/khs', [KHSController::class, 'index'])->name('khs');
 use App\Http\Controllers\KaprodiController;
 
 Route::get('/Dashboard', [KaprodiController::class, 'index']);
-Route::get('/Menyusun', [KaprodiController::class, 'susun']);
-Route::get('/Buat', [KaprodiController::class, 'buat']);
+Route::get('/TabelMK', [KaprodiController::class, 'tabelmatkul']);
+Route::get('/TabelJD', [KaprodiController::class, 'tabeljadwal']);
+Route::get('/SusunMK', [KaprodiController::class, 'susunmatkul']);
+Route::get('/SusunJD', [KaprodiController::class, 'susunjadwal']);

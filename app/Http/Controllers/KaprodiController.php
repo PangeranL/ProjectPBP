@@ -28,13 +28,20 @@ class KaprodiController
         // return view('Kaprodi/dashboardkaprodi');
 
     }
-    public function susun()
-    {
-        return view('kaprodi/menyusun');
+
+    public function tabelmatkul(){
+        return view('kaprodi/tabelmatkul');
     }
 
-    public function buat()
-    {
-        return view('kaprodi/buat');
+    public function tabeljadwal(){
+        return view('kaprodi/tabeljadwal');
+    }
+
+    public function susunjadwal(){
+        return view('kaprodi/susunjadwal');
+    }
+
+    public function susunmatkul(){
+        return view('kaprodi/susunmatkul');
     }
 }
