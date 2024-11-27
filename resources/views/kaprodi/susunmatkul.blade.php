@@ -28,39 +28,28 @@
                     <img src="/images/profil.png">
                     <span>Profil</span>
                 </a>
-                <a href="/Menyusun" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
-                    <img src="/images/menyusun.png">
-                    <span>Menyusun Jadwal</span>
+
+                <a href="/TabelMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                    <img src="/images/table.png" alt="">
+                    <span>Input Mata Kuliah</span>
                 </a>
-                <a href="#" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
-                    <img src="/images/monitoring.png">
-                    <span>Monitoring IRS</span>
+                <a href="TabelJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                    <img src="/images/table.png" alt="">
+                    <span>Input Jadwal Kuliah</span>
                 </a>
             </nav>
         </div>
 
         <!-- Main Content -->
         <div class="flex-1 p-8">
-            <div class="text-3xl font-semibold mb-8" style="color: #508D4E">Menyusun Jadwal</div>
+            <div class="text-3xl font-semibold mb-8" style="color: #508D4E">Mengatur Ketentuan Mata Kuliah</div>
             <div class="p-5 rounded-lg mb-8" style = "background-color: #D6EFD8; height: 692px">
-                <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2" style="margin-left:1px;"> 
-                    <a href="/Menyusun" class="flex items-center space-x-2 hover:bg-white p-2 rounded">  
-                    <img src="/images/atur.png" alt="">
-                    <button style="color: #508D4E">Pengaturan Ketentuan Mata Kuliah</button>
-                    </a>
-                    <div class="flex justify-between" style="margin-left: 50px; width:15%">
-                        <a href="/Buat" class="flex items-center space-x-2 hover:bg-white p-2 rounded">
-                        <img src="/images/buat.png" alt="">
-                        <button style="color: #508D4E">Buat Jadwal</button>
-                        </a>
-                    </div>
-                </div>
-                <div class="w-full h-1 mt-4" style="border: 2px solid #508D4E;"></div>
-                <div class="flex justify-between; items-center" style="margin-left: 5px; margin-top: 15px; width:37%">
+                <div class="flex justify-between; items-center" style="margin-left: 5px; width:37%">
                     <img src="/images/atur.png" style="width: 35px" alt="">
                     <p class="font-semibold" style="color: #508D4E; font-size: 20px; margin-left: 5px">Pengaturan Ketentuan Mata Kuliah</p>
                 </div>
-
+                <div class="w-full h-1 mt-4" style="border: 2px solid #508D4E;"></div>
+                
                 <div>
                     <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Tahun Ajaran
                         <select name="" id="" style="width: 30%; margin-left: 100px">
@@ -119,14 +108,21 @@
                             <option value="">Dr. Helmie Arif Wibawa S.Si., M.Cs.</option>
                         </select>
                     </div>
-                    <div class="flex justify-between" style="margin-left: 209px; margin-top: 15px; width: 24%">
-                        <img src="/image/add.png" alt="">
-                        <button style="color: #508D4E">Tambah Dosen Pengampu</button>
+
+                    <div class="font-semibold" style="color: #508D4E; margin-top: 15px; margin-left: 5px;">
+                        <select name="" id="" style="width: 30%; margin-left: 203px">
+                        <option value="">Edy Suharto S.T., M.Kom</option>
+                            <option value="">Guruh Aryotejo S.Kom., M.Sc</option>
+                            <option value="">Dr.Eng. Adi Wibowo S.Si., M.Kom.</option>
+                            <option value="">Rismiyati B.Eng, M.Cs</option>
+                            <option value="">Sandy Kurniawan S.Kom., M.Kom.</option>
+                            <option value="">Dr. Helmie Arif Wibawa S.Si., M.Cs.</option>
+                        </select>
                     </div>
-                    <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2" style="margin-left:10px; margin-top: 40px">   
-                        <button class="bg-red-500 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full">RESET</button>
-                        <div class="flex justify-between" style="margin-left: 50px; width:12.5%">
-                            <button class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">SIMPAN</button>
+
+                    <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2" style="margin-left:10px; margin-top: 40px"> 
+                        <div class="flex justify-between" style="width:12.5%">
+                            <a href="/TabelMK"class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">SIMPAN</a>
                         </div>
                     </div>
                 </div>
