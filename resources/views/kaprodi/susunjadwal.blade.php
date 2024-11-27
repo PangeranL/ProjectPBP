@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIKAT - Buat Jadwal Kuliah</title>
+    <title>SIKAT - Pengaturan Mata Kuliah</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="{{asset('/css/dashboard.css')}}" rel="stylesheet">
 </head>
@@ -28,43 +28,29 @@
                     <img src="/images/profil.png">
                     <span>Profil</span>
                 </a>
-                <a href="/Menyusun" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
-                    <img src="/images/menyusun.png">
-                    <span>Menyusun Jadwal</span>
+
+                <a href="/TabelMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                    <img src="/images/table.png" alt="">
+                    <span>Input Mata Kuliah</span>
                 </a>
-                <a href="#" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
-                    <img src="/images/monitoring.png">
-                    <span>Monitoring IRS</span>
+                <a href="TabelJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                    <img src="/images/table.png" alt="">
+                    <span>Input Jadwal Kuliah</span>
                 </a>
             </nav>
         </div>
 
         <!-- Main Content -->
         <div class="flex-1 p-8">
-            <div class="text-3xl font-semibold mb-8" style="color: #508D4E">Menyusun Jadwal</div>
+            <div class="text-3xl font-semibold mb-8" style="color: #508D4E">Menyusun Jadwal Kuliah</div>
             <div class="p-5 rounded-lg mb-8" style = "background-color: #D6EFD8; height: 692px">
-                <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2" style="margin-left:1px;"> 
-                    <a href="/Menyusun" class="flex items-center space-x-2 hover:bg-white p-2 rounded">  
-                    <img src="/images/atur.png" alt="">
-                    <button style="color: #508D4E">Pengaturan Ketentuan Mata Kuliah</button>
-                    </a>
-                    <div class="flex justify-between" style="margin-left: 50px; width:15%">
-                        <a href="/Buat" class="flex items-center space-x-2 hover:bg-white p-2 rounded">
-                        <img src="/images/buat.png" alt="">
-                        <button style="color: #508D4E">Buat Jadwal</button>
-                        </a>
-                    </div>
+                <div class="flex justify-between; items-center" style="margin-left: 5px; width:37%">
+                    <img src="/images/atur.png" style="width: 35px" alt="">
+                    <p class="font-semibold" style="color: #508D4E; font-size: 20px; margin-left: 5px">Pengaturan Jadwal Kuliah</p>
                 </div>
                 <div class="w-full h-1 mt-4" style="border: 2px solid #508D4E;"></div>
-                <div class="flex justify-between; items-center" style="margin-left: 5px; margin-top: 15px; width:37%">
-                    <img src="/images/buat.png" style="width: 35px" alt="">
-                    <p class="font-semibold" style="color: #508D4E; font-size: 20px; margin-left: 5px">Buat Jadwal</p>
-                </div>
-
-    
-                <div>
-
-                    <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Tahun Ajaran
+                
+                <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Tahun Ajaran
                         <select name="" id="" style="width: 30%; margin-left: 100px">
                             <option value="">Semester Ganjil 2025/2026</option>
                             <option value="">Semester Genap 2025/2026</option>
@@ -87,16 +73,6 @@
                             <option value="">Algoritma Pemrograman</option>
                             <option value="">Dasar Pemrograman</option>
                         </select>
-                    </div>
-
-
-                    <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Kode Mata Kuliah
-                        <input type="text" style="width: 30%; margin-left: 67.5px">
-                    </div>
-
-
-                    <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Jumlah SKS
-                        <input type="text" style="width: 30%; margin-left: 108.5px">
                     </div>
 
                     <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Kelas
@@ -137,7 +113,7 @@
                         <input type="time" style="width: 30%; margin-left: 105px">
                     </div>
                     <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2" style="margin-left:10px; margin-top: 40px">   
-                        <button class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">TAMBAH JADWAL</button>
+                        <a href="/TabelJD"class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">TAMBAH JADWAL</a>
                     </div>
                 </div>
             </div>
