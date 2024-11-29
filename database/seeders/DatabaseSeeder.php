@@ -336,6 +336,48 @@ class DatabaseSeeder extends Seeder
             'semester' => 5,
         ]);
 
+        $MK = matakuliah::create([
+            'kodeMK' => 'PAIK1111',
+            'namaMK' => 'Pemrograman Berorientasi Objek',
+            'sks' => 3,
+            'semester' => 4,
+        ]);
+
+        $MK = matakuliah::create([
+            'kodeMK' => 'PAIK2222',
+            'namaMK' => 'Kewirausahaan',
+            'sks' => 2,
+            'semester' => 4,
+        ]);
+
+        $MK = matakuliah::create([
+            'kodeMK' => 'PAIK3333',
+            'namaMK' => 'Struktur Data',
+            'sks' => 4,
+            'semester' => 4 ,
+        ]);
+
+        $MK = matakuliah::create([
+            'kodeMK' => 'PAIK4444',
+            'namaMK' => 'Keamanan dan Jaringan Komputer',
+            'sks' => 2,
+            'semester' => 5,
+        ]);
+
+        $MK = matakuliah::create([
+            'kodeMK' => 'PAIK5555',
+            'namaMK' => 'Olahraga',
+            'sks' => 1,
+            'semester' => 5,
+        ]);
+
+        $MK = matakuliah::create([
+            'kodeMK' => 'PAIK6666',
+            'namaMK' => 'Grafika Komputasi Visual',
+            'sks' => 3,
+            'semester' => 5,
+        ]);
+
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK6404',
             'nidn' => '24010123456789',
@@ -408,6 +450,78 @@ class DatabaseSeeder extends Seeder
             'ruang' => 'A303',
         ]);
 
+        $Jadwal = jadwal::create([
+            'kodeMK' => 'PAIK1111',
+            'nidn' => '24010123456789',
+            'kelas' => 'A',
+            'hari' => 'Senin',
+            'mulai' => '13.00',
+            'selesai' => '15.30',
+            'thnAjar'=> 'Genap 2023/2024',
+            'kuota' => '50',
+            'ruang' => 'A303',
+        ]);
+
+        $Jadwal = jadwal::create([
+            'kodeMK' => 'PAIK2222',
+            'nidn' => '24020123456789',
+            'kelas' => 'D',
+            'hari' => 'Selasa',
+            'mulai' => '13.00',
+            'selesai' => '14.40',
+            'thnAjar'=> 'Genap 2023/2024',
+            'kuota' => '50',
+            'ruang' => 'A303',
+        ]);
+
+        $Jadwal = jadwal::create([
+            'kodeMK' => 'PAIK3333',
+            'nidn' => '24040123456789',
+            'kelas' => 'A',
+            'hari' => 'Senin',
+            'mulai' => '07.00',
+            'selesai' => '10.20',
+            'thnAjar'=> 'Genap 2023/2024',
+            'kuota' => '100',
+            'ruang' => 'E101',
+        ]);
+
+        $Jadwal = jadwal::create([
+            'kodeMK' => 'PAIK4444',
+            'nidn' => '24030123456789',
+            'kelas' => 'C',
+            'hari' => 'Selasa',
+            'mulai' => '07.00',
+            'selesai' => '08.40',
+            'thnAjar'=> 'Genap 2023/2024',
+            'kuota' => '50',
+            'ruang' => 'A303',
+        ]);
+
+        $Jadwal = jadwal::create([
+            'kodeMK' => 'PAIK5555',
+            'nidn' => '24040123456789',
+            'kelas' => 'A',
+            'hari' => 'Rabu',
+            'mulai' => '07.00',
+            'selesai' => '07.50',
+            'thnAjar'=> 'Genap 2023/2024',
+            'kuota' => '50',
+            'ruang' => 'A303',
+        ]);
+
+        $Jadwal = jadwal::create([
+            'kodeMK' => 'PAIK6666',
+            'nidn' => '24062123456789',
+            'kelas' => 'A',
+            'hari' => 'Kamis',
+            'mulai' => '13.00',
+            'selesai' => '15.30',
+            'thnAjar'=> 'Genap 2023/2024',
+            'kuota' => '50',
+            'ruang' => 'A303',
+        ]);
+
         $IRS = irs::create([
             'smt' => 4,
             'nim' => '24160122131000',
@@ -418,10 +532,124 @@ class DatabaseSeeder extends Seeder
             'ruang' => 'A303',
         ]);
 
+        $Jadwal = irs::create([
+            'kodeMK' => 'PAIK1111',
+            'nidn' => '24010123456789',
+            'smt' => 4,
+            'nim' => '24160122131000',
+            'kelas' => 'A',
+            'totalSKS' => 3,
+            'ruang' => 'A303',
+        ]);
+
+        $Jadwal = irs::create([
+            'kodeMK' => 'PAIK2222',
+            'nidn' => '24020123456789',
+            'kelas' => 'D',
+            'smt' => 4,
+            'nim' => '24160122131000',
+            'totalSKS' => 2,
+            'ruang' => 'A303',
+        ]);
+
+        $Jadwal = irs::create([
+            'kodeMK' => 'PAIK3333',
+            'nidn' => '24040123456789',
+            'kelas' => 'A',
+            'smt' => 4,
+            'nim' => '24160122131000',
+            'totalSKS' => 4,
+            'ruang' => 'E101',
+        ]);
+
+        $Jadwal = irs::create([
+            'kodeMK' => 'PAIK4444',
+            'nidn' => '24030123456789',
+            'kelas' => 'C',
+            'smt' => 4,
+            'nim' => '24160122131000',
+            'totalSKS' => 2,
+            'ruang' => 'A303',
+        ]);
+
+        $Jadwal = irs::create([
+            'kodeMK' => 'PAIK5555',
+            'nidn' => '24040123456789',
+            'kelas' => 'A',
+            'smt' => 4,
+            'nim' => '24160122131000',
+            'totalSKS' => 1,
+            'ruang' => 'A303',
+        ]);
+
+        $Jadwal = irs::create([
+            'kodeMK' => 'PAIK6666',
+            'nidn' => '24062123456789',
+            'kelas' => 'A',
+            'smt' => 4,
+            'nim' => '24160122131000',
+            'totalSKS' => 3,
+            'ruang' => 'A303',
+        ]);
+
         $KHS = khs::create([
             'smt' => 4,
             'nim' => '24160122131000',
             'kodeMK'=> 'PAIK3201',
+            'nilai'=> 'E',
+            'ips' => '0.0',
+            'ipk' => '1.90',
+        ]);
+
+        $Jadwal = khs::create([
+            'kodeMK' => 'PAIK1111',
+            'smt' => 4,
+            'nim' => '24160122131000',
+            'nilai'=> 'E',
+            'ips' => '0.0',
+            'ipk' => '1.90',
+        ]);
+
+        $Jadwal = khs::create([
+            'kodeMK' => 'PAIK2222',
+            'nim' => '24160122131000',
+            'smt' => 4,
+            'nilai'=> 'E',
+            'ips' => '0.0',
+            'ipk' => '1.90',
+        ]);
+
+        $Jadwal = khs::create([
+            'kodeMK' => 'PAIK3333',
+            'nim' => '24160122131000',
+            'smt' => 4,
+            'nilai'=> 'E',
+            'ips' => '0.0',
+            'ipk' => '1.90',
+        ]);
+
+        $Jadwal = khs::create([
+            'kodeMK' => 'PAIK4444',
+            'nim' => '24160122131000',
+            'smt' => 4,
+            'nilai'=> 'E',
+            'ips' => '0.0',
+            'ipk' => '1.90',
+        ]);
+
+        $Jadwal = khs::create([
+            'kodeMK' => 'PAIK5555',
+            'nim' => '24160122131000',
+            'smt' => 4,
+            'nilai'=> 'E',
+            'ips' => '0.0',
+            'ipk' => '1.90',
+        ]);
+
+        $Jadwal = khs::create([
+            'kodeMK' => 'PAIK6666',
+            'nim' => '24160122131000',
+            'smt' => 4,
             'nilai'=> 'E',
             'ips' => '0.0',
             'ipk' => '1.90',
