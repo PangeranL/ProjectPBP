@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reqruang', function (Blueprint $table) {
+            $table->id(); // Add auto-incrementing 'id' as primary key
             $table->char('nama', 4);
             $table->string('prodi', 30);
             $table->integer('kuota');
             $table->enum('status', ['menunggu', 'diterima', 'ditolak']);
-            $table->primary(['nama']);
+            // Remove the old primary key definition
             $table->foreign('prodi')->references('nama')->on('prodi')->onDelete('cascade');
             $table->foreign('nama')->references('nama')->on('ruang')->onDelete('cascade');
             $table->timestamps();

@@ -105,7 +105,8 @@
 
                 <!-- Buttons -->
                 <div class="flex justify-end gap-4">
-                    <button onclick="toggleModal()" class="bg-gray-400 text-white px-4 py-2 rounded-md">Cancel</button>
+                    <!-- Cancel button now has type="button" to prevent form submission -->
+                    <button type="button" onclick="toggleModal()" class="bg-gray-400 text-white px-4 py-2 rounded-md">Cancel</button>
                     <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md">Submit</button>
                 </div>
             </form>
