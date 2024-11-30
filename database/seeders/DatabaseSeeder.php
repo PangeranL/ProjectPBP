@@ -13,13 +13,13 @@ use App\Models\bagianAkademik;
 use App\Models\pembimbingAkademik;
 use App\Models\dekan;
 use App\Models\kaprodi;
-use App\Models\fakultas;
 use App\Models\prodi;
 use App\Models\ruang;
 use App\Models\matakuliah;
 use App\Models\jadwal;
 use App\Models\irs;
 use App\Models\khs;
+use App\Models\Kuota;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,6 +28,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call([
+            KuotaSeeder::class
+        ]);
+
+
         $userAcc = useracc::create([
             #admin
             'email' => 'adwin@adminz.undip.ac.id',
@@ -112,50 +118,14 @@ class DatabaseSeeder extends Seeder
             'role' => 'Pembimbing Akademik',
         ]);
 
-        $fak = fakultas::create([
-            'nama' => 'Sains dan Matematika',
-        ]);
-
-        $fak = fakultas::create([
-            'nama' => 'Ekonomi dan Bisnis',
-        ]);
-
-        $fak = fakultas::create([
-            'nama' => 'Kedokteran',
-        ]);
-
-        $fak = fakultas::create([
-            'nama' => 'Hukum',
-        ]);
-
-        $fak = fakultas::create([
-            'nama' => 'Perikanan dan Ilmu Kelautan',
-        ]);
-
         $Prodi = prodi::create([
             'nama' => 'Informatika',
-            'fakultas' => 'Sains dan Matematika',
-        ]);
-
-        $Prodi = prodi::create([
-            'nama' => 'Manajemen',
-            'fakultas' => 'Ekonomi dan Bisnis',
         ]);
 
         $Prodi = prodi::create([
             'nama' => 'Bioteknologi',
-            'fakultas' => 'Sains dan Matematika',
         ]);
 
-        $Prodi = prodi::create([
-            'nama' => 'Kedokteran Gigi',
-            'fakultas' => 'Kedokteran',
-        ]);
-
-        $Prodi = prodi::create([
-            'nama' => 'Hukum',
-            'fakultas' => 'Hukum',
-        ]);
 
         $Dosen = dosen::create([
             'nidn' => '24060123456789',
@@ -266,33 +236,21 @@ class DatabaseSeeder extends Seeder
 
         $Ruangan = ruang::create([
             'nama' => 'E101',
-            'kuota' => 100,
-            'fakultas' => 'Sains dan Matematika',
         ]);
 
         $Ruangan = ruang::create([
             'nama' => 'A303',
-            'kuota' => 50,
-            'fakultas' => 'Sains dan Matematika',
         ]);
 
         $Ruangan = ruang::create([
             'nama' => 'B102',
-            'kuota' => 50,
-            'fakultas' => 'Sains dan Matematika',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'E101',
-            'kuota' => 75,
-            'fakultas' => 'Hukum',
         ]);
 
         $Ruangan = ruang::create([
             'nama' => 'A101',
-            'kuota' => 60,
-            'fakultas' => 'Ekonomi dan Bisnis',
         ]);
+
+
 
         $MK = matakuliah::create([
             'kodeMK' => 'PAIK6404',

@@ -17,13 +17,7 @@ class prodi extends Authenticatable
 
     protected $fillable = [
         'nama',
-        'fakultas',
     ];
-
-    public function fakultas()
-    {
-        return $this->belongsTo(fakultas::class);
-    }
 
     public function ruangan(){
         return $this->hasMany(ruang::class);

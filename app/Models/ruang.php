@@ -3,26 +3,28 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class ruang extends Authenticatable
+class Ruang extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'nama';
+    protected $primaryKey = 'name'; 
+
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $table = 'ruang';
 
     protected $fillable = [
-        'nama',
+        'nama',   
         'prodi',
-        'fakultas',
-        'kuota,',
+        'kuota',
     ];
 
-    public function prodi(){
-        return $this->belongsTo(prodi::class);
+    // Define relationship with 'Prodi' model
+    public function prodi()
+    {
+        return $this->belongsTo(Prodi::class);
     }
 }
