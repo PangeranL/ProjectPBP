@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IRSController;
 use App\Http\Controllers\KHSController;
 use App\Http\Controllers\BuatIrsController;
+use App\Http\Controllers\HerregistrasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,25 +64,20 @@ Route ::get('/bagianAkademik/list_ruang_kuliah', function(){
     return view('bagianAkademik.list_ruang_kuliah');
 });
 
-// Route ::get('/bagianAkademik/list_pengajuan_ruang_kuliah', function(){
-//     // $ruangs  = DB::table('ruang')-> get();
-//     return view('bagianAkademik.list_pengajuan_ruang_kuliah');
-// });
+;
 use App\Http\Controllers\RuangController;
 
 Route::get('/ruang', [RuangController::class, 'index'])->name('ruang.index');
 Route::post('/ruang', [RuangController::class, 'store'])->name('ruang.store');
 
-// use App\Http\Controllers\BagianAkademikController;
 
-// // Route to show the list of Ruang Kuliah and handle the modal popup
-// Route::get('/list-pengajuan-ruang-kuliah', [BagianAkademikController::class, 'showListRuangKuliah'])->name('list.ruang.kuliah');
+use App\Http\Controllers\UpdateStatusRuangController;
 
-// // Route to handle the form submission from the modal popup
-// Route::post('/submit-ruang-kuliah', [BagianAkademikController::class, 'submitRuangKuliah'])->name('submit.ruang.kuliah');
+// Route untuk menampilkan daftar pengajuan ruang
+Route::get('/dekan/ruang',[UpdateStatusRuangController::class, 'index'])->name('ruang.index');
 
-// Define the route to show the ruang form
-
+// Route untuk menyetujui atau menolak pengajuan ruang
+Route::put('/ruang/{id}/status', [UpdateStatusRuangController::class, 'updateStatus'])->name('ruang.updateStatus');
 
 
 
