@@ -20,6 +20,7 @@ return new class extends Migration
             $table->char('kelas', 1);
             $table->integer('totalSKS');
             $table->char('ruang', 4);
+            $table->integer('status')->nullable();
             $table->foreign('kelas')->references('kelas')->on('jadwal')->onDelete('cascade');
             $table->foreign('ruang')->references('ruang')->on('jadwal')->onDelete('cascade');
             $table->foreign('nim')->references('nim')->on('mahasiswa')->onDelete('cascade');

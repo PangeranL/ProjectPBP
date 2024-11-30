@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\khs;
-use App\Http\Models\irs;
+use App\Models\khs;
+use App\Models\irs;
+use App\Models\irshasil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PAController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+
+    public function showUnverifiedIRS(){
+    // Ambil data irshasil dengan status null
+    $unverifiedIRS = irshasil::whereNull('status')->get();
+
+    return view('pembimbingakademik.verifIRS', compact('unverifiedIRS'));
     }
 
     /**

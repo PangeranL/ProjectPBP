@@ -20,6 +20,18 @@ class khs extends Model
         'smt',
     ];
 
+    protected static function booted()
+    {
+        static::creating(function ($khs) {
+            if (!$khs->smt){
+                $mahasiswa = Mahasiswa::where('nim', $khs->nim)->first();
+                if ($mahasiswa) {
+                    $khs->smt = $mahasiswa->smt; // Isi smt otomatis
+                }
+            }
+        });
+    }
+
     public function mahasiswa()
     {
         return $this->belongsTo(Mahasiswa::class, 'nim', 'nim');
