@@ -6,7 +6,6 @@ use App\Http\Controllers\IRSController;
 use App\Http\Controllers\KHSController;
 use App\Http\Controllers\BuatIrsController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,10 +88,21 @@ Route::post('/ruang', [RuangController::class, 'store'])->name('ruang.store');
 
 
 Route::get('/buat_irs', [BuatIrsController::class, 'index'])->name('buat_irs');
-
 Route::get('/irs', [IRSController::class, 'index'])->name('irs');
-
 Route::get('/khs', [KHSController::class, 'index'])->name('khs');
+Route::middleware('auth')->group(function () {
+    // Route untuk halaman utama herregistrasi
+    Route::get('/herregistrasi', [HerregistrasiController::class, 'index'])->name('herregistrasi.index');
+    
+    // Route untuk mengubah status menjadi Aktif
+    Route::post('/herregistrasi/aktif', [HerregistrasiController::class, 'setAktif'])->name('herregistrasi.setAktif');
+    
+    // Route untuk mengubah status menjadi Cuti
+    Route::post('/herregistrasi/cuti', [HerregistrasiController::class, 'setCuti'])->name('herregistrasi.setCuti');
+    
+    // Route untuk membatalkan status
+    Route::post('/herregistrasi/batalkan', [HerregistrasiController::class, 'batalkanStatus'])->name('herregistrasi.batalkanStatus');
+});
 
 // Bagian Kaprodi
 use App\Http\Controllers\KaprodiController;
