@@ -13,12 +13,7 @@ return new class extends Migration
     {
         Schema::create('ruang', function (Blueprint $table) {
             $table->char('nama', 4);
-            $table->integer('kuota');
-            $table->string('prodi', 30)->nullable();
-            $table->string('fakultas', 30);
-            $table->primary(['nama', 'fakultas']);
-            $table->foreign('prodi')->references('nama')->on('prodi')->onDelete('cascade');
-            $table->foreign('fakultas')->references('nama')->on('fakultas')->onDelete('cascade');
+            $table->primary(['nama']);
             $table->timestamps();
         });
     }

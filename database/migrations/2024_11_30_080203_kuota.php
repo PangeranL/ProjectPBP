@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fakultas', function (Blueprint $table) {
-            $table->string('nama', 30)->primary();
+        Schema::create('kuota', function (Blueprint $table) {
+            $table->integer('Kuota_kelas')->primary();  // Define 'Kuota_kelas' as the primary key
             $table->timestamps();
         });
     }
@@ -22,6 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fakultas');
+        Schema::dropIfExists('kuota');
     }
 };
+

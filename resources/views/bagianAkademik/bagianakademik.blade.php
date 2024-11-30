@@ -43,20 +43,7 @@
                 <h1 class="text-2xl font-bold text-white mb-4">LAYANAN AKADEMIK</h1>
                 <div class="grid grid-cols-2 gap-4">
                     <!-- List Ruang Kuliah -->
-                    <a href="/list-ruang-kuliah" class="bg-[#508D4E] p-4 rounded-lg flex items-center hover:bg-[#406f3f]">
-                        <img class="w-10 h-10 rounded-full mr-3" src="image/list.png" alt="List Icon">
-                        <h1 class="text-lg font-bold text-white">LIST RUANG KULIAH</h1>
-                    </a>
-                    <!-- List Pengajuan Ruang -->
-                    <a href="/list-pengajuan-ruang-kuliah" class="bg-[#508D4E] p-4 rounded-lg flex items-center hover:bg-[#406f3f]">
-                        <img class="w-10 h-10 rounded-full mr-3" src="image/list.png" alt="List Icon">
-                        <h1 class="text-lg font-bold text-white">LIST PENGAJUAN RUANG</h1>
-                    </a>
-                    <!-- Pengajuan Ruang -->
-                    <a href="/pengajuan-ruang-kuliah" class="bg-[#508D4E] p-4 rounded-lg flex items-center hover:bg-[#406f3f]">
-                        <img class="w-9 h-9 mr-3 p-1" src="image/request.png" alt="Request Icon">
-                        <h1 class="text-lg font-bold text-white ml-3">PENGAJUAN RUANG</h1>
-                    </a>
+                    <button onclick="window.location.href='/bagianAkademik/list_ruang_kuliah'" class="text-lg font-bold text-center text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN RUANG KULIAH</button>
                 </div>
             </div>
         </div>

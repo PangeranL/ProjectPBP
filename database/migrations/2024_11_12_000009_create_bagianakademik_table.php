@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('address', 50);
             $table->string('email', 50);
             $table->string('fakultas', 30);
-            $table->foreign('fakultas')->references('nama')->on('fakultas')->onDelete('cascade');
             $table->foreign('email')->references('email')->on('useracc')->onDelete('cascade');
             $table->timestamps();
         });

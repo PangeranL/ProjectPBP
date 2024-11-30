@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IRSController;
 use App\Http\Controllers\KHSController;
 use App\Http\Controllers\BuatIrsController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +59,34 @@ Route ::get('/dekan/pengajuan_ruangan', function(){
 Route ::get('/dekan/pengajuan_jadwal', function(){
     return view('dekan.pengajuan_jadwal');
 });
+
+Route ::get('/bagianAkademik/list_ruang_kuliah', function(){
+    return view('bagianAkademik.list_ruang_kuliah');
+});
+
+// Route ::get('/bagianAkademik/list_pengajuan_ruang_kuliah', function(){
+//     // $ruangs  = DB::table('ruang')-> get();
+//     return view('bagianAkademik.list_pengajuan_ruang_kuliah');
+// });
+use App\Http\Controllers\RuangController;
+
+Route::get('/ruang', [RuangController::class, 'index'])->name('ruang.index');
+Route::post('/ruang', [RuangController::class, 'store'])->name('ruang.store');
+
+// use App\Http\Controllers\BagianAkademikController;
+
+// // Route to show the list of Ruang Kuliah and handle the modal popup
+// Route::get('/list-pengajuan-ruang-kuliah', [BagianAkademikController::class, 'showListRuangKuliah'])->name('list.ruang.kuliah');
+
+// // Route to handle the form submission from the modal popup
+// Route::post('/submit-ruang-kuliah', [BagianAkademikController::class, 'submitRuangKuliah'])->name('submit.ruang.kuliah');
+
+// Define the route to show the ruang form
+
+
+
+
+
 
 Route::get('/buat_irs', [BuatIrsController::class, 'index'])->name('buat_irs');
 

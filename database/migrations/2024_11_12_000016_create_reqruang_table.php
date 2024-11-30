@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('reqruang', function (Blueprint $table) {
             $table->char('nama', 4);
             $table->string('prodi', 30);
+            $table->integer('kuota');
             $table->enum('status', ['menunggu', 'diterima', 'ditolak']);
             $table->primary(['nama']);
             $table->foreign('prodi')->references('nama')->on('prodi')->onDelete('cascade');

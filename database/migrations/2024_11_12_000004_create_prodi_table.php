@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('prodi', function (Blueprint $table) {
             $table->string('nama', 30)->primary();
-            $table->string('fakultas', 30);
-            $table->foreign('fakultas')->references('nama')->on('fakultas')->onDelete('cascade');
             $table->timestamps();
         });
     }
