@@ -232,6 +232,7 @@ class DatabaseSeeder extends Seeder
             'address' => 'Jl. Mulawarman Tenggara I No. 10',
             'email' => 'ganz@students.undip.ac.id',
             'nidnWali' => '24050123456789',
+            'thnmasuk' => 2022,
         ]);
 
         $Ruangan = ruang::create([

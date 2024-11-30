@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('address', 50);
             $table->char('nidnWali', 14);
             $table->string('email', 50);
+            $table->integer('thnmasuk');
+            $table->integer('smt');
             $table->foreign('email')->references('email')->on('useracc')->onDelete('cascade');
             $table->foreign('nidnWali')->references('nidn')->on('pembimbingakademik')->onDelete('cascade');
             $table->timestamps();
