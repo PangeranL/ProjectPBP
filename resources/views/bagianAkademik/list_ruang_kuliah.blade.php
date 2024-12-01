@@ -5,14 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Ruang Kuliah</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Agar footer selalu berada di bawah */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex: 1;
+        }
+    </style>
 </head>
+
 <body class="bg-[#D6EFD8]">
     <!-- Header -->
     <div class="bg-[#508D4E] text-white p-4 flex justify-between items-center">
         <h1 class="text-2xl font-bold">UNIVERSITAS DIPONEGORO</h1>
         <div class="flex items-center">
             <span class="mr-4 font-semibold">Smith Welson</span>
-            <img class="w-12 h-12 rounded-full" src="{{ asset('images/SW2.png')}}" alt="User Avatar">
+            <img class="w-12 h-12 rounded-full" src="image/SW2.png" alt="User Avatar">
         </div>
     </div>
 
@@ -35,10 +49,10 @@
     <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-4">
         <div class="w-1/4 text-center text-sm">Informatika</div>
         <div class="w-1/4 text-center">
-            <a onclick="window.location.href='{{ url('/bagianakademik/detail_list_ruang_kuliah')}}'" 
+            <button onclick="window.location.href='{{ url('/ruang')}}'"" 
             class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
             Detail
-            </a>
+            </button>
         </div>
     </div>
     
@@ -103,8 +117,9 @@
     </div>
     
     <!-- Footer -->
-    <footer class="bg-[#508D4E] text-white text-center py-3 mt-8">
+    <footer class="bg-[#508D4E] text-white text-center py-3 mt-14">
         <p>TIM IT SIKAT © 2024 UNDIP, All rights reserved.</p>
     </footer>
+
 </body>
 </html>

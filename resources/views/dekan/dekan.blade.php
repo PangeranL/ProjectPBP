@@ -49,12 +49,12 @@
     <!-- Flexbox Container -->
     <div class="flex gap-4">
       <!-- Kolom Kiri -->
-      <div class="flex-1 bg-[#508D4E] p-4 rounded-lg">
-        <button onclick="window.location.href='/dekan/pengajuan_jadwal'" class="text-lg font-bold text-center text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN JADWAL KULIAH</button>
+      <div class="flex-1 p-4 rounded-lg">
+        <button onclick="window.location.href='/dekan/pengajuan_jadwal'" class="text-lg font-bold text-right text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN JADWAL KULIAH</button>
       </div>
       <!-- Kolom Kanan -->
-      <div class="flex-1 bg-[#508D4E] p-4 rounded-lg">
-        <button onclick="window.location.href='/dekan/pengajuan_ruangan'" class="text-lg font-bold text-center text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN RUANG KULIAH</button>
+      <div class="flex-1 p-4 rounded-lg">
+        <button onclick="window.location.href='/dekan/pengajuan_ruangan'" class="text-lg font-bold text-right text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN RUANG KULIAH</button>
       </div>
     </div>
   </div>
