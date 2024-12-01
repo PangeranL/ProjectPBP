@@ -19,7 +19,10 @@ class matakuliah extends Authenticatable
         'kodeMK',
         'namaMK',
         'sks',
-        'semester'
+        'semester',
+        'nidn_dosen1',
+        'nidn_dosen2',
+        'nidn_dosen3'
     ];
 
     public function Jadwal()

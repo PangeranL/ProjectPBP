@@ -49,7 +49,7 @@
 
         <!-- Main Content -->
         <div class="flex-1 p-8">
-            <div class="text-3xl font-semibold mb-8" style="color: #508D4E">Tabel Input Mata Kuliah</div>
+            <div class="text-3xl font-semibold mb-8" style="color: #508D4E">Tabel Kelas</div>
             <div class="p-5 rounded-lg mb-8" style = "background-color: #D6EFD8; height: 692px">
                 <div class="flex justify-between">
                     <div class="font-semibold" style="color: #508D4E; margin-left: 5px; width: 200px">Semester
@@ -65,27 +65,14 @@
                      <thead class="bg-teal-700" style="color: #00000">
                         <tr>
                             <th class="border px-4 py-2">No</th>
-                            <th class="border px-4 py-2">Nama Mata Kuliah</th>
-                            <th class="border px-4 py-2">Kode Mata Kuliah</th>
-                            <th class="border px-4 py-2">SKS</th>
-                            <th class="border px-4 py-2">Dosen Pengampu</th>
+                            <th class="border px-4 py-2">Kelas</th>
+                            <th class="border px-4 py-2">Hari</th>
+                            <th class="border px-4 py-2">Waktu Mulai</th>
+                            <th class="border px-4 py-2">Waktu Selesai</th>
+                            <th class="border px-4 py-2">Ruang</th>
                         </tr>
                     </thead>
                 <tbody>
-                    @forelse($mataKuliah as $key =>$value)
-                    <tr>
-                        <td class="border px-4 py-2">{{$key + 1}}</td>
-                        <td class="border px-4 py-2">{{$value -> namaMK}}</td>
-                        <td class="border px-4 py-2">{{$value -> kodeMK}}</td>
-                        <td class="border px-4 py-2">{{$value -> sks}}</td>
-                        <td class="border px-4 py-2">{{$value -> dosen1 -> name ?? ''}} <br>
-                                                     {{$value -> dosen2 -> name ?? ''}}
-                                                     {{$value -> dosen3 -> name ?? ''}}
-                    </td>
-                    </tr>
-                    @empty
-                    @endforelse
-                </tbody>
                 </table>
             </div>       
         </div>

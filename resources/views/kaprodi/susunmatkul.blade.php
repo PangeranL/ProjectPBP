@@ -29,11 +29,11 @@
                     <span>Profil</span>
                 </a>
 
-                <a href="/TabelMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                <a href="/kaprodi/inputMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/table.png" alt="">
                     <span>Input Mata Kuliah</span>
                 </a>
-                <a href="TabelJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                <a href="/kaprodi/inputJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/table.png" alt="">
                     <span>Input Jadwal Kuliah</span>
                 </a>
@@ -51,83 +51,78 @@
                 <div class="w-full h-1 mt-4" style="border: 2px solid #508D4E;"></div>
                 
                 <div>
-                    <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Tahun Ajaran
-                        <select name="" id="" style="width: 30%; margin-left: 100px">
-                            <option value="">Semester Ganjil 2025/2026</option>
-                            <option value="">Semester Genap 2025/2026</option>
-                        </select>
-                    </div>
-                    <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Semester
-                        <select name="" id="" style="width: 30%; margin-left: 126px">
-                            <option value="">Semester 1</option>
-                            <option value="">Semester 2</option>
-                            <option value="">Semester 3</option>
-                        </select>
-                    </div>
+                    <form action="/kaprodi/inputMK" method="POST">
+                        @csrf
+                        <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Semester
+                        <input type="number" name="semester" id="semester" style="margin-left: 126px; width: 30%">
+                            @error('semester')
+                                <div>{{$message}}</div>
+                            @enderror
+                        </div>
                     <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Mata Kuliah
-                        <select name="" id="" style="width: 30%; margin-left: 110.5px">
-                            <option value="">Basis Data</option>
-                            <option value="">Algoritma Pemrograman</option>
-                            <option value="">Dasar Pemrograman</option>
-                        </select>
+                    <input type="text" name="namaMK" id="namaMK" style="margin-left: 110px; width: 30%">
+                        @error('namaMK')
+                            <div>{{$message}}</div>
+                        @enderror
                     </div>
                     <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Kode Mata Kuliah
-                        <select name="" id="" style="width: 30%; margin-left: 67.5px">
-                            <option value="">PAIK6501</option>
-                            <option value="">PAIK6303</option>
-                            <option value="">PAIK6304</option>
-                        </select>
+                    <input type="text" name="kodeMK" id="kodeMK" style="margin-left: 67px; width: 30%">
+                        @error('kodeMK')
+                            <div>{{$message}}</div>
+                        @enderror
                     </div>
                     <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Jumlah SKS
-                        <select name="" id="" style="width: 30%; margin-left: 108.5px">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                        </select>
+                    <input type="number" name="sks" id="sks" style="margin-left: 107.5px; width: 30%">
+                        @error('sks')
+                            <div>{{$message}}</div>
+                        @enderror
                     </div>
                     <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Dosen Pengampu
-                        <select name="" id="" style="width: 30%; margin-left: 65.5px">
-                            <option value="">Edy Suharto S.T., M.Kom</option>
-                            <option value="">Guruh Aryotejo S.Kom., M.Sc</option>
-                            <option value="">Dr.Eng. Adi Wibowo S.Si., M.Kom.</option>
-                            <option value="">Rismiyati B.Eng, M.Cs</option>
-                            <option value="">Sandy Kurniawan S.Kom., M.Kom.</option>
-                            <option value="">Dr. Helmie Arif Wibawa S.Si., M.Cs.</option>
+                        <select name="nidn_dosen1" id="nidn_dosen1" style="width: 30%; margin-left: 65px">
+                        @forelse ($dosens as $item)
+                        <option value="{{$item -> nidn}}">{{$item -> name}}</option>
+                        @empty
+                        @endforelse
                         </select>
+                        @error('nidn_dosen1')
+                            <div>{{$message}}</div>
+                        @enderror
                     </div>
+                    
                     <div class="font-semibold" style="color: #508D4E; margin-top: 15px; margin-left: 5px;">
-                        <select name="" id="" style="width: 30%; margin-left: 203px">
-                        <option value="">Edy Suharto S.T., M.Kom</option>
-                            <option value="">Guruh Aryotejo S.Kom., M.Sc</option>
-                            <option value="">Dr.Eng. Adi Wibowo S.Si., M.Kom.</option>
-                            <option value="">Rismiyati B.Eng, M.Cs</option>
-                            <option value="">Sandy Kurniawan S.Kom., M.Kom.</option>
-                            <option value="">Dr. Helmie Arif Wibawa S.Si., M.Cs.</option>
+                        <select name="nidn_dosen2" id="nidn_dosen2" style="width: 30%; margin-left: 202px">
+                        @forelse ($dosens as $item)
+                        <option value="{{$item -> nidn}}">{{$item -> name}}</option>
+                        @empty
+                        @endforelse
                         </select>
+                        @error('nidn_dosen2')
+                            <div>{{$message}}</div>
+                        @enderror
                     </div>
 
                     <div class="font-semibold" style="color: #508D4E; margin-top: 15px; margin-left: 5px;">
-                        <select name="" id="" style="width: 30%; margin-left: 203px">
-                        <option value="">Edy Suharto S.T., M.Kom</option>
-                            <option value="">Guruh Aryotejo S.Kom., M.Sc</option>
-                            <option value="">Dr.Eng. Adi Wibowo S.Si., M.Kom.</option>
-                            <option value="">Rismiyati B.Eng, M.Cs</option>
-                            <option value="">Sandy Kurniawan S.Kom., M.Kom.</option>
-                            <option value="">Dr. Helmie Arif Wibawa S.Si., M.Cs.</option>
+                        <select name="nidn_dosen3" id="nidn_dosen3" style="width: 30%; margin-left: 202px">
+                        @forelse ($dosens as $item)
+                        <option value="{{$item -> nidn}}">{{$item -> name}}</option>
+                        @empty
+                        @endforelse
                         </select>
+                        @error('nidn_dosen3')
+                            <div>{{$message}}</div>
+                        @enderror
                     </div>
 
                     <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2" style="margin-left:10px; margin-top: 40px"> 
                         <div class="flex justify-between" style="width:12.5%">
-                            <a href="/TabelMK"class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">SIMPAN</a>
+                            <button type="submit" class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">SIMPAN</button>
                         </div>
                     </div>
+                    </form> 
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
+

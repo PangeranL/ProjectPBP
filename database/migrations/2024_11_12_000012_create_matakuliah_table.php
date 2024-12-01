@@ -17,6 +17,12 @@ return new class extends Migration
             $table->integer('sks');
             $table->integer('semester');
             $table->timestamps();
+            $table->char('nidn_dosen1')->nullable();
+            $table->foreign('nidn_dosen1')->references('nidn')->on('dosen');
+            $table->char('nidn_dosen2')->nullable();
+            $table->foreign('nidn_dosen2')->references('nidn')->on('dosen');
+            $table->char('nidn_dosen3')->nullable();
+            $table->foreign('nidn_dosen3')->references('nidn')->on('dosen');
         });
     }
 
