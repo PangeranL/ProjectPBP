@@ -241,7 +241,27 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $Ruangan = ruang::create([
+            'nama' => 'E102',
+        ]);
+
+        $Ruangan = ruang::create([
+            'nama' => 'E103',
+        ]);
+
+        $Ruangan = ruang::create([
+            'nama' => 'A301',
+        ]);
+
+        $Ruangan = ruang::create([
+            'nama' => 'A302',
+        ]);
+
+        $Ruangan = ruang::create([
             'nama' => 'A303',
+        ]);
+
+        $Ruangan = ruang::create([
+            'nama' => 'B101',
         ]);
 
         $Ruangan = ruang::create([
@@ -249,7 +269,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $Ruangan = ruang::create([
+            'nama' => 'B103',
+        ]);
+
+        $Ruangan = ruang::create([
             'nama' => 'A101',
+        ]);
+
+        $Ruangan = ruang::create([
+            'nama' => 'A102',
+        ]);
+
+        $Ruangan = ruang::create([
+            'nama' => 'A103',
         ]);
 
 

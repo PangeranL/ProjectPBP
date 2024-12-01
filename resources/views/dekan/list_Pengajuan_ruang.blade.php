@@ -49,7 +49,9 @@
                 <div class="w-1/4 text-center">Kuota</div>
                 <div class="w-1/4 text-center">Status</div>
             </div>
-
+        </div>
+        
+        <div class="bg-[#ffffff] rounded-lg shadow-md p-4 w-3/4 mt-10 mx-auto">
             <!-- Table Data -->
             @foreach ($reqRuangs as $reqRuang)
                 <div class="flex justify-between items-center text-black text-sm py-2 mt-5">
@@ -58,7 +60,12 @@
                     <div class="w-1/4 text-center">{{ $reqRuang->kuota }}</div>
                     <div class="w-1/4 text-center">
                         @if($reqRuang->status == 'diterima' || $reqRuang->status == 'ditolak')
-                            <span class="text-sm font-semibold text-green-500">{{ ucfirst($reqRuang->status) }}</span>
+                        <span class="px-2 py-1 container rounded-lg text-sm font-bold
+                    
+                        {{ strtolower($reqRuang->status) == 'diterima' ? 'bg-green-500 text-white' : '' }}
+                        {{ strtolower($reqRuang->status) == 'ditolak' ? 'bg-red-500 text-white' : '' }}">
+                        {{ ucfirst($reqRuang->status) }}
+                    </span>
                         @else
                             <!-- Form untuk setujui dan tolak -->
                             <form action="{{ route('ruang.updateStatus', $reqRuang->id) }}" method="POST">
@@ -70,6 +77,7 @@
                                 <button type="submit" name="status" value="ditolak" class="px-4 py-2 bg-red-500 text-white rounded-lg">Tolak</button>
                             </form>
                         @endif
+                        
                     </div>
                 </div>
             @endforeach
