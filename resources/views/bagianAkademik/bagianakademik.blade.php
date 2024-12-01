@@ -21,7 +21,7 @@
             <div class="bg-[#80AF81] text-white p-6 rounded-lg shadow-md flex">
                 <!-- Left Section -->
                 <div class="mr-6">
-                    <img class="rounded-lg" style="width: 300px; height: 324px;" src="{{ asset('images/SW2.png')}}" alt="User Avatar">
+                    <img class="rounded-lg" style="width: 300px; height: 324px;" src="{{asset('images/SW2.png')}}" alt="User Avatar">
                 </div>
                 <!-- Right Section -->
                 <div class="bg-[#508D4E] p-4 rounded-lg flex-1">
