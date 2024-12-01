@@ -27,5 +27,13 @@ class irshasil extends Model
                 }
             }
         });
+
+        static::updated(function ($irshasil) {
+            if ($irshasil->status) {
+                IRS::where('nim', $irshasil->nim)
+                    ->where('smt', $irshasil->smt)
+                    ->update(['status' => $irshasil->status]);
+            }
+        });
     }
 }

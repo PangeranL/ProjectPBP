@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\khs;
 use App\Models\irs;
 use App\Models\irshasil;
+use App\Models\matakuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,12 @@ class PAController extends Controller
     // Ambil data irshasil dengan status null
     $unverifiedIRS = irshasil::whereNull('status')->get();
 
-    return view('pembimbingakademik.verifIRS', compact('unverifiedIRS'));
+    return view('pembimbingakademik.daftarIRS', compact('unverifiedIRS'));
+    }
+
+    public function isiIRS($nim, $smt){
+        $isi = irs::with('jadwal.matakuliah')->where('nim', $nim)->where('smt', $smt)->get();
+        return view('pembimbingakademik.verifIRS', compact('isi', 'nim', 'smt'));
     }
 
     /**

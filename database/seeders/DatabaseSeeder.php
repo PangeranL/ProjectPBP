@@ -627,5 +627,27 @@ class DatabaseSeeder extends Seeder
             'ips' => '0.0',
             'ipk' => '1.90',
         ]);
+
+        $irshasil = irshasil::create([
+            'nim' => '24160122131000',
+        ]);
+
+        $IRS = irs::create([
+            'nim' => '24160122131000',
+            'kodeMK'=> 'PAIK6404',
+            'nidn' => '24010123456789',
+            'kelas' => 'A',
+            'totalSKS' => 3,
+            'ruang' => 'A303',
+        ]);
+
+        $IRS = irs::create([
+            'kodeMK' => 'PAIK1234',
+            'nidn' => '24020123456789',
+            'nim' => '24160122131000',
+            'kelas' => 'D',
+            'totalSKS' => 3,
+            'ruang' => 'A303',
+        ]);
     }
 }

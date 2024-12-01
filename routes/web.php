@@ -29,7 +29,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::middleware(['auth'])->get('/selectRole', [AuthController::class, 'showRoleSelectionPage'])->name('selectRole');
 Route::middleware(['auth'])->post('/selectRole', [AuthController::class, 'handleRoleSelection'])->name('handleRoleSelection');
 
-Route::middleware(['auth'])->get('verifIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
+Route::middleware(['auth'])->get('daftarIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
+Route::middleware(['auth'])->get('verifIRS/{nim}/{smt}', [PAController::class, 'isiIRS'])->name('verifIRS');
 
 // Dashboard Routes for Specific Roles
 Route::middleware(['auth'])->group(function () {

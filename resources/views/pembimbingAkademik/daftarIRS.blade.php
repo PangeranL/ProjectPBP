@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar IRS</title>
+    <title>SIKAT - Verifikasi IRS</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-100">
@@ -25,33 +25,31 @@
             </div>
         </div>
     </div>
+    <!-- Main Content -->
     <div class="mt-24 px-8">
-        <h2 class="text-lg font-bold mb-4">Daftar IRS untuk NIM: {{ $nim }}, Semester: {{ $smt }}</h2>
+        <!-- Verifikasi IRS Section -->
         <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4">Verifikasi IRS</h3>
             <table class="table-auto w-full text-left border-collapse">
                 <thead>
                     <tr>
-                        <th class="border px-4 py-2">Kode Mata Kuliah</th>
-                        <th class="border px-4 py-2">Nama Mata Kuliah</th>
-                        <th class="border px-4 py-2">Kelas</th>
-                        <th class="border px-4 py-2">Total SKS</th>
-                        <th class="border px-4 py-2">Ruang</th>
+                        <th class="border px-4 py-2">NIM</th>
+                        <th class="border px-4 py-2">Semester</th>
+                        <th class="border px-4 py-2">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($isi as $irs)
+                    <!-- Loop untuk menampilkan data unverified IRS -->
+                    @foreach ($unverifiedIRS as $irs)
                         <tr>
-                            <td class="border px-4 py-2">{{ $irs->kodeMK }}</td>
-                            <td class="border px-4 py-2">{{ $irs->jadwal->matakuliah->namaMK }}</td>
-                            <td class="border px-4 py-2">{{ $irs->kelas }}</td>
-                            <td class="border px-4 py-2">{{ $irs->totalSKS }}</td>
-                            <td class="border px-4 py-2">{{ $irs->ruang }}</td>
+                            <td class="border px-4 py-2">{{ $irs->nim }}</td>
+                            <td class="border px-4 py-2">{{ $irs->smt }}</td>
+                            <td class="border px-4 py-2 text-center">
+                                <!-- Tambahkan aksi untuk verifikasi IRS jika diperlukan -->
+                                <a href="{{ route('verifIRS', ['nim' => $irs->nim, 'smt' => $irs->smt]) }}" class="text-blue-500">Verifikasi</a>
+                            </td>
                         </tr>
-                    @empty
-                        <tr>
-                            <td class="border px-4 py-2 text-center" colspan="5">Tidak ada data IRS.</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -61,19 +59,19 @@
         <h3 class="text-center">TIM IT SIKAT © 2024 UNDIP, All Right Reserved.</h3>
     </div>
     <script>
-    function toggleDropdown() {
-        const dropdown = document.getElementById('dropdownMenu');
-        dropdown.classList.toggle('hidden');
-    }
-
-    // Close dropdown when clicking outside
-    window.addEventListener('click', function (e) {
-        const dropdown = document.getElementById('dropdownMenu');
-        const button = dropdown.previousElementSibling;
-        if (!dropdown.contains(e.target) && !button.contains(e.target)) {
-            dropdown.classList.add('hidden');
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('hidden');
         }
-    });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function (e) {
+            const dropdown = document.getElementById('dropdownMenu');
+            const button = dropdown.previousElementSibling;
+            if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
     </script>
 </body>
 </html>
