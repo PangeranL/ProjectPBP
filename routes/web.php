@@ -7,6 +7,10 @@ use App\Http\Controllers\KHSController;
 use App\Http\Controllers\BuatIrsController;
 use App\Http\Controllers\HerregistrasiController;
 use App\Http\Controllers\PAController;
+use App\Http\Controllers\inputMKController;
+use App\Http\Controllers\inputJDController;
+use App\Http\Controllers\KaprodiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +33,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::middleware(['auth'])->get('/selectRole', [AuthController::class, 'showRoleSelectionPage'])->name('selectRole');
 Route::middleware(['auth'])->post('/selectRole', [AuthController::class, 'handleRoleSelection'])->name('handleRoleSelection');
 
-Route::middleware(['auth'])->get('daftarIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
-Route::middleware(['auth'])->get('verifIRS/{nim}/{smt}', [PAController::class, 'isiIRS'])->name('verifIRS');
-Route::middleware(['auth'])->post('IRSterverifikasi', [PAController::class, 'IRSterverifikasi'])->name('IRSterverifikasi');
+Route::middleware(['auth'])->get('verifIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
 
 // Dashboard Routes for Specific Roles
 Route::middleware(['auth'])->group(function () {
@@ -105,10 +107,13 @@ Route::middleware('auth')->group(function () {
 });
 
 // Bagian Kaprodi
-use App\Http\Controllers\KaprodiController;
 
 Route::get('/Dashboard', [KaprodiController::class, 'index']);
 Route::get('/TabelMK', [KaprodiController::class, 'tabelmatkul']);
-Route::get('/TabelJD', [KaprodiController::class, 'tabeljadwal']);
+Route::get('kaprodi/TabelJD', [KaprodiController::class, 'tabeljadwal'])->name('kaprodi.tablejadwal');
 Route::get('/SusunMK', [KaprodiController::class, 'susunmatkul']);
-Route::get('/SusunJD', [KaprodiController::class, 'susunjadwal']);
+Route::get('kaprodi/SusunJD', [KaprodiController::class, 'susunjadwal'])->name('kaprodi.susunjadwal');
+Route::resource('/kaprodi/inputMK', inputMKController::class);
+Route::post('/kaprodi/susunmatkul/store',[KaprodiController::class, 'store']);
+Route::resource('/kaprodi/inputJD', inputJDController::class);
+

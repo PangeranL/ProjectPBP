@@ -27,17 +27,13 @@
                     <img src="/images/profil.png">
                     <span>Profil</span>
                 </a>
-                <a href="/Menyusun" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
-                    <img src="/images/menyusun.png">
-                    <span>Menyusun Jadwal</span>
-                </a>
 
-                </a>
-                <a href="/TabelMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                <a href="/kaprodi/inputMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/table.png" alt="">
                     <span>Input Mata Kuliah</span>
                 </a>
-                <a href="TabelJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                
+                <a href="/kaprodi/inputJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/table.png" alt="">
                     <span>Input Jadwal Kuliah</span>
                 </a>
@@ -69,3 +65,4 @@
     </div>
 </body>
 </html>
+
