@@ -14,7 +14,6 @@ class irs extends Model
     protected $fillable = [
         'nim',
         'kodeMK',
-        'nidn',
         'kelas',
         'totalSKS',
         'ruang',
@@ -42,11 +41,6 @@ class irs extends Model
     public function jadwal()
     {
         return $this->belongsTo(Jadwal::class, 'kodeMK', 'kodeMK');
-    }
-
-    public function Nidn()
-    {
-        return $this->belongsTo(Jadwal::class, 'nidn', 'nidn');
     }
 
     public function Ruang()

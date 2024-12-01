@@ -29,4 +29,19 @@ class matakuliah extends Authenticatable
     {
         return $this->hasMany(jadwal::class);
     }
+
+    public function Dosen()
+    {
+        return $this->belongsTo(Dosen::class, 'nidn_dosen1', 'nidn');
+    }
+
+    public function pengampu2()
+    {
+        return $this->belongsTo(Dosen::class, 'nidn_dosen2', 'nidn');
+    }
+
+    public function pengampu3()
+    {
+        return $this->belongsTo(Dosen::class, 'nidn_dosen2', 'nidn');
+    }
 }

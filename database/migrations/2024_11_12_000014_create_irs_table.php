@@ -15,8 +15,7 @@ return new class extends Migration
             $table->integer('smt');
             $table->char('nim', 14);
             $table->char('kodeMK', 8);
-            $table->char('nidn', 14);
-            $table->primary(['nim', 'smt', 'kodeMK', 'nidn']);
+            $table->primary(['nim', 'smt', 'kodeMK']);
             $table->char('kelas', 1);
             $table->integer('totalSKS');
             $table->char('ruang', 4);
@@ -25,7 +24,6 @@ return new class extends Migration
             $table->foreign('ruang')->references('ruang')->on('jadwal')->onDelete('cascade');
             $table->foreign('nim')->references('nim')->on('mahasiswa')->onDelete('cascade');
             $table->foreign('kodeMK')->references('kodeMK')->on('jadwal')->onDelete('cascade');
-            $table->foreign('nidn')->references('nidn')->on('jadwal')->onDelete('cascade');
             $table->timestamps();
         });
     }
