@@ -19,7 +19,7 @@ return new class extends Migration
             $table->char('nilai', 1)->nullable();
             $table->float('ips');
             $table->float('ipk');
-            $table->foreign('nim')->references('nim')->on('mahasiswa')->onDelete('cascade');
+            $table->foreign('nim')->references('nim')->on('irs')->onDelete('cascade');
             $table->foreign('kodeMK')->references('kodeMK')->on('irs')->onDelete('cascade');
             $table->timestamps();
         });

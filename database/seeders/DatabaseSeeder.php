@@ -20,6 +20,7 @@ use App\Models\jadwal;
 use App\Models\irs;
 use App\Models\khs;
 use App\Models\Kuota;
+use App\Models\irshasil;
 
 class DatabaseSeeder extends Seeder
 {
@@ -232,6 +233,7 @@ class DatabaseSeeder extends Seeder
             'address' => 'Jl. Mulawarman Tenggara I No. 10',
             'email' => 'ganz@students.undip.ac.id',
             'nidnWali' => '24050123456789',
+            'thnmasuk' => 2022,
         ]);
 
         $Ruangan = ruang::create([
@@ -480,6 +482,12 @@ class DatabaseSeeder extends Seeder
             'ruang' => 'A303',
         ]);
 
+        $irshasil = irshasil::create([
+            'smt' => 4,
+            'nim' => '24160122131000',
+            'status' => 1,
+        ]);
+
         $IRS = irs::create([
             'smt' => 4,
             'nim' => '24160122131000',
@@ -488,9 +496,10 @@ class DatabaseSeeder extends Seeder
             'kelas' => 'C',
             'totalSKS' => 4,
             'ruang' => 'A303',
+            'status' => 1,
         ]);
 
-        $Jadwal = irs::create([
+        $IRS = irs::create([
             'kodeMK' => 'PAIK1111',
             'nidn' => '24010123456789',
             'smt' => 4,
@@ -498,9 +507,10 @@ class DatabaseSeeder extends Seeder
             'kelas' => 'A',
             'totalSKS' => 3,
             'ruang' => 'A303',
+            'status' => 1,
         ]);
 
-        $Jadwal = irs::create([
+        $IRS = irs::create([
             'kodeMK' => 'PAIK2222',
             'nidn' => '24020123456789',
             'kelas' => 'D',
@@ -508,9 +518,10 @@ class DatabaseSeeder extends Seeder
             'nim' => '24160122131000',
             'totalSKS' => 2,
             'ruang' => 'A303',
+            'status' => 1,
         ]);
 
-        $Jadwal = irs::create([
+        $IRS = irs::create([
             'kodeMK' => 'PAIK3333',
             'nidn' => '24040123456789',
             'kelas' => 'A',
@@ -518,9 +529,10 @@ class DatabaseSeeder extends Seeder
             'nim' => '24160122131000',
             'totalSKS' => 4,
             'ruang' => 'E101',
+            'status' => 1,
         ]);
 
-        $Jadwal = irs::create([
+        $IRS = irs::create([
             'kodeMK' => 'PAIK4444',
             'nidn' => '24030123456789',
             'kelas' => 'C',
@@ -528,9 +540,10 @@ class DatabaseSeeder extends Seeder
             'nim' => '24160122131000',
             'totalSKS' => 2,
             'ruang' => 'A303',
+            'status' => 1,
         ]);
 
-        $Jadwal = irs::create([
+        $IRS = irs::create([
             'kodeMK' => 'PAIK5555',
             'nidn' => '24040123456789',
             'kelas' => 'A',
@@ -538,9 +551,10 @@ class DatabaseSeeder extends Seeder
             'nim' => '24160122131000',
             'totalSKS' => 1,
             'ruang' => 'A303',
+            'status' => 1,
         ]);
 
-        $Jadwal = irs::create([
+        $IRS = irs::create([
             'kodeMK' => 'PAIK6666',
             'nidn' => '24062123456789',
             'kelas' => 'A',
@@ -548,6 +562,7 @@ class DatabaseSeeder extends Seeder
             'nim' => '24160122131000',
             'totalSKS' => 3,
             'ruang' => 'A303',
+            'status' => 1,
         ]);
 
         $KHS = khs::create([
@@ -559,7 +574,7 @@ class DatabaseSeeder extends Seeder
             'ipk' => '1.90',
         ]);
 
-        $Jadwal = khs::create([
+        $KHS = khs::create([
             'kodeMK' => 'PAIK1111',
             'smt' => 4,
             'nim' => '24160122131000',
@@ -568,7 +583,7 @@ class DatabaseSeeder extends Seeder
             'ipk' => '1.90',
         ]);
 
-        $Jadwal = khs::create([
+        $KHS = khs::create([
             'kodeMK' => 'PAIK2222',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -577,7 +592,7 @@ class DatabaseSeeder extends Seeder
             'ipk' => '1.90',
         ]);
 
-        $Jadwal = khs::create([
+        $KHS = khs::create([
             'kodeMK' => 'PAIK3333',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -586,7 +601,7 @@ class DatabaseSeeder extends Seeder
             'ipk' => '1.90',
         ]);
 
-        $Jadwal = khs::create([
+        $KHS = khs::create([
             'kodeMK' => 'PAIK4444',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -595,7 +610,7 @@ class DatabaseSeeder extends Seeder
             'ipk' => '1.90',
         ]);
 
-        $Jadwal = khs::create([
+        $KHS = khs::create([
             'kodeMK' => 'PAIK5555',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -604,7 +619,7 @@ class DatabaseSeeder extends Seeder
             'ipk' => '1.90',
         ]);
 
-        $Jadwal = khs::create([
+        $KHS = khs::create([
             'kodeMK' => 'PAIK6666',
             'nim' => '24160122131000',
             'smt' => 4,

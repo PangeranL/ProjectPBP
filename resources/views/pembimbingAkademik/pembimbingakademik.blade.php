@@ -52,7 +52,7 @@
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Kelas Online</button>
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Jadwal Mengajar</button>
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Akses IRS</button>
-                <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Verifikasi IRS</button>
+                <a href="/verifIRS" class="bg-green-700 text-white text-center py-2 px-4 rounded shadow">Verifikasi IRS</a>
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Berita</button>
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Surat Elektronik</button>
             </div>

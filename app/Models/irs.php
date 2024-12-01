@@ -19,7 +19,20 @@ class irs extends Model
         'totalSKS',
         'ruang',
         'smt',
+        'status'
     ];
+
+    protected static function booted()
+    {
+        static::creating(function ($irs) {
+            if (!$irs->smt){
+                $mahasiswa = Mahasiswa::where('nim', $irs->nim)->first();
+                if ($mahasiswa) {
+                    $irs->smt = $mahasiswa->smt; // Isi smt otomatis
+                }
+            }
+        });
+    }
 
     public function mahasiswa()
     {

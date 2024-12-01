@@ -6,6 +6,7 @@ use App\Http\Controllers\IRSController;
 use App\Http\Controllers\KHSController;
 use App\Http\Controllers\BuatIrsController;
 use App\Http\Controllers\HerregistrasiController;
+use App\Http\Controllers\PAController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::middleware(['auth'])->get('/selectRole', [AuthController::class, 'showRoleSelectionPage'])->name('selectRole');
 Route::middleware(['auth'])->post('/selectRole', [AuthController::class, 'handleRoleSelection'])->name('handleRoleSelection');
 
+Route::middleware(['auth'])->get('verifIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
 
 // Dashboard Routes for Specific Roles
 Route::middleware(['auth'])->group(function () {
