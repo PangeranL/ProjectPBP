@@ -27,7 +27,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="mt-24 px-8">
+    <div class="mt-24 px-8 pb-20">
         <!-- Profile Section -->
         <div class="bg-white p-6 rounded-lg shadow-md">
             <div class="flex items-center space-x-4">
@@ -52,7 +52,7 @@
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Kelas Online</button>
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Jadwal Mengajar</button>
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Akses IRS</button>
-                <a href="/verifIRS" class="bg-green-700 text-white text-center py-2 px-4 rounded shadow">Verifikasi IRS</a>
+                <a href="/daftarIRS" class="bg-green-700 text-white text-center py-2 px-4 rounded shadow">Verifikasi IRS</a>
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Berita</button>
                 <button class="bg-green-700 text-white py-2 px-4 rounded shadow">Surat Elektronik</button>
             </div>
@@ -105,19 +105,19 @@
         <h3 class="text-center">TIM IT SIKAT © 2024 UNDIP, All Right Reserved.</h3>
     </div>
     <script>
-    function toggleDropdown() {
-        const dropdown = document.getElementById('dropdownMenu');
-        dropdown.classList.toggle('hidden');
-    }
-
-    // Close dropdown when clicking outside
-    window.addEventListener('click', function (e) {
-        const dropdown = document.getElementById('dropdownMenu');
-        const button = dropdown.previousElementSibling;
-        if (!dropdown.contains(e.target) && !button.contains(e.target)) {
-            dropdown.classList.add('hidden');
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('hidden');
         }
-    });
-</script>
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function (e) {
+            const dropdown = document.getElementById('dropdownMenu');
+            const button = dropdown.previousElementSibling;
+            if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>

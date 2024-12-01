@@ -10,6 +10,8 @@ class irshasil extends Model
     use HasFactory;
 
     protected $table = 'irshasil';
+    protected $primaryKey = ['nim', 'smt'];
+    public $incrementing = false;
 
     protected $fillable = [
         'nim',

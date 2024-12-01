@@ -19,11 +19,29 @@ class matakuliah extends Authenticatable
         'kodeMK',
         'namaMK',
         'sks',
-        'semester'
+        'semester',
+        'nidn_dosen1',
+        'nidn_dosen2',
+        'nidn_dosen3'
     ];
 
     public function Jadwal()
     {
         return $this->hasMany(jadwal::class);
+    }
+
+    public function Dosen()
+    {
+        return $this->belongsTo(Dosen::class, 'nidn_dosen1', 'nidn');
+    }
+
+    public function pengampu2()
+    {
+        return $this->belongsTo(Dosen::class, 'nidn_dosen2', 'nidn');
+    }
+
+    public function pengampu3()
+    {
+        return $this->belongsTo(Dosen::class, 'nidn_dosen2', 'nidn');
     }
 }

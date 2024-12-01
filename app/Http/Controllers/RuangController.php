@@ -35,7 +35,7 @@ class RuangController extends Controller
             'nama' => $validated['ruangKuliah'],
             'kuota' => $validated['kuota'],
             'prodi' => $validated['prodi'],
-            'status' => 'menunggu',  // Default status for a new request
+            'status' => 'pending',  // Default status for a new request
         ]);
 
         // Redirect to the list of ruang (rooms)

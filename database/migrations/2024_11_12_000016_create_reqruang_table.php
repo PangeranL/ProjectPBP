@@ -16,7 +16,7 @@ return new class extends Migration
             $table->char('nama', 4);
             $table->string('prodi', 30);
             $table->integer('kuota');
-            $table->enum('status', ['menunggu', 'diterima', 'ditolak']);
+            $table->enum('status', ['pending', 'diterima', 'ditolak']);
             // Remove the old primary key definition
             $table->foreign('prodi')->references('nama')->on('prodi')->onDelete('cascade');
             $table->foreign('nama')->references('nama')->on('ruang')->onDelete('cascade');
