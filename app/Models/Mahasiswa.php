@@ -24,7 +24,9 @@ class Mahasiswa extends Model
         'email',
         'nidnWaali',
         'thnmasuk',
+        'status',
         'smt',
+        'foto',
     ];
 
     public function mahasiswa()
