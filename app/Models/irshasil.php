@@ -10,6 +10,8 @@ class irshasil extends Model
     use HasFactory;
 
     protected $table = 'irshasil';
+    protected $primaryKey = ['nim', 'smt'];
+    public $incrementing = false;
 
     protected $fillable = [
         'nim',
@@ -25,14 +27,6 @@ class irshasil extends Model
                 if ($mahasiswa) {
                     $irshasil->smt = $mahasiswa->smt; // Isi smt otomatis
                 }
-            }
-        });
-
-        static::updated(function ($irshasil) {
-            if ($irshasil->status) {
-                IRS::where('nim', $irshasil->nim)
-                    ->where('smt', $irshasil->smt)
-                    ->update(['status' => $irshasil->status]);
             }
         });
     }

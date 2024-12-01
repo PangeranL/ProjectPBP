@@ -8,6 +8,7 @@ use App\Models\irshasil;
 use App\Models\matakuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PAController extends Controller
 {
@@ -22,6 +23,39 @@ class PAController extends Controller
     public function isiIRS($nim, $smt){
         $isi = irs::with('jadwal.matakuliah')->where('nim', $nim)->where('smt', $smt)->get();
         return view('pembimbingakademik.verifIRS', compact('isi', 'nim', 'smt'));
+    }
+
+    public function IRSterverifikasi(Request $request){
+        $validated = $request->validate([
+            'nim' => 'required|string',
+            'smt' => 'required|integer',
+            'status' => 'required|in:0,1',
+        ]);
+
+        $irs = DB::table('irshasil')->where('nim', $validated['nim'])->where('smt', $validated['smt'])->first();
+        if ($irs) {
+            DB::beginTransaction();
+            try {
+                DB::table('irshasil')
+                    ->where('nim', $validated['nim'])
+                    ->where('smt', $validated['smt'])
+                    ->update(['status' => $validated['status']]);
+
+                DB::table('irs')
+                    ->where('nim', $validated['nim'])
+                    ->where('smt', $validated['smt'])
+                    ->update(['status' => $validated['status']]);
+    
+                DB::commit();
+                return redirect()->route('showVerif')
+                                 ->with('success', 'IRS Berhasil Diverifikasi!');
+            } catch (\Exception) {
+                DB::rollBack();
+                return redirect()->route('showVerif')
+                                 ->with('error', 'Terjadi Kesalahan Saat Memperbarui Status!');
+            }
+        }
+        return redirect()->route('showVerif')->with('error', 'IRS Tidak Ditemukan!');
     }
 
     /**

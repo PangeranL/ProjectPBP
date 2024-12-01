@@ -31,6 +31,7 @@ Route::middleware(['auth'])->post('/selectRole', [AuthController::class, 'handle
 
 Route::middleware(['auth'])->get('daftarIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
 Route::middleware(['auth'])->get('verifIRS/{nim}/{smt}', [PAController::class, 'isiIRS'])->name('verifIRS');
+Route::middleware(['auth'])->post('IRSterverifikasi', [PAController::class, 'IRSterverifikasi'])->name('IRSterverifikasi');
 
 // Dashboard Routes for Specific Roles
 Route::middleware(['auth'])->group(function () {

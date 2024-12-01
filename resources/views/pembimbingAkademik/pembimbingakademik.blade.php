@@ -27,7 +27,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="mt-24 px-8">
+    <div class="mt-24 px-8 pb-20">
         <!-- Profile Section -->
         <div class="bg-white p-6 rounded-lg shadow-md">
             <div class="flex items-center space-x-4">

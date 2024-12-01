@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar IRS</title>
+    <title>Verifikasi IRS</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-100">
@@ -54,6 +54,20 @@
                     @endforelse
                 </tbody>
             </table>
+            <div class="flex justify-end mt-5 space-x-5">
+            <form action="{{ route('IRSterverifikasi') }}" method="POST">
+                @csrf
+                <input type="hidden" name="nim" value="{{ $irs->nim }}">
+                <input type="hidden" name="smt" value="{{ $irs->smt }}">
+                <button type="submit" name="status" value="1" class="flex bg-green-700 justify-center text-white w-20 py-2 px-4 rounded shadow mb-5">Setuju</button>
+            </form>
+            <form action="{{ route('IRSterverifikasi') }}" method="POST">
+                @csrf
+                <input type="hidden" name="nim" value="{{ $irs->nim }}">
+                <input type="hidden" name="smt" value="{{ $irs->smt }}">
+                <button type="submit" name="status" value="0" class="flex bg-red-700 justify-center w-20 text-white py-2 px-4 rounded shadow mb-5">Tolak</button>
+            </form>
+            </div>
         </div>
     </div>
     <!-- Footer -->

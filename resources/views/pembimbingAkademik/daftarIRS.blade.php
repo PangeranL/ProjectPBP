@@ -12,6 +12,16 @@
             <img src="{{ asset('images/UNDIP.png') }}" alt="Universitas Diponegoro" class="w-14 mr-2">
             <h1 class="text-xl">DIPONEGORO UNIVERSITY</h1>
         </div>
+        @if(session('success'))
+            <div class="bg-green-500 text-white p-4 mb-4 rounded">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="bg-red-500 text-white p-4 mb-4 rounded">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="relative">
             <!-- Profile Section -->
             <button onclick="toggleDropdown()" class="flex items-center focus:outline-none">
