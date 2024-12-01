@@ -3,27 +3,50 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class matakuliah extends Authenticatable
+class Dosen extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'kodeMK';
+    // Tentukan tabel yang digunakan oleh model ini
+    protected $table = 'dosen';
+
+    // Tentukan primary key dan setel menjadi char
+    protected $primaryKey = 'nidn';
     public $incrementing = false;
-    protected $keyType = 'string';
+    protected $keyType = 'char';  // Karena 'nidn' adalah char
 
-    protected $table = 'matakuliah';
-
+    // Kolom yang bisa diisi melalui mass assignment
     protected $fillable = [
-        'kodeMK',
-        'namaMK',
-        'sks',
-        'semester'
+        'nidn',
+        'name',
+        'dob',
+        'phone',
+        'address',
+        'prodi',
     ];
 
-    public function Jadwal()
+    // Relasi dengan tabel 'prodi' (belongsTo)
+    public function prodi()
     {
-        return $this->hasMany(jadwal::class);
+        return $this->belongsTo(Prodi::class, 'prodi', 'nama');
+    }
+
+    // Jika Anda memiliki relasi lain (misalnya untuk relasi dosen dengan matakuliah atau relasi lainnya), tambahkan di sini
+
+    public function pengampu1()
+    {
+        return $this->hasMany(matakuliah::class, nidn_dosen1);
+    }
+
+    public function pengampu2()
+    {
+        return $this->hasMany(matakuliah::class, nidn_dosen2);
+    }
+
+    public function pengampu3()
+    {
+        return $this->hasMany(matakuliah::class, nidn_dosen3);
     }
 }

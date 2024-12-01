@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24060123456789',
-            'name' => 'Julianto Hari Hungaria',
+            'name' => 'Dr. Aris Puji, S.Si., M.T.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -139,7 +139,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24050123456789',
-            'name' => 'Doel',
+            'name' => 'Dr. Aris, S.Si., M.Kom.',
             'dob' => '1987-03-11',
             'phone' => '084653221990',
             'address' => 'Jl. Jabodetabek IV No. 01',
@@ -148,7 +148,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24010123456789',
-            'name' => 'Doni',
+            'name' => 'Dr. Sutikno, S.T., M.Cs.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -157,7 +157,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24020123456789',
-            'name' => 'Rumi',
+            'name' => ' Drs. Eko Adi, M.Komp.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -166,7 +166,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24030123456789',
-            'name' => 'Siti',
+            'name' => 'Beta Noranita, S.Si., M.Kom.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -175,7 +175,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24040123456789',
-            'name' => 'Dina',
+            'name' => ' Khadijah, S.Kom., M.Cs.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -184,7 +184,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '22060123456789',
-            'name' => 'Ronald',
+            'name' => 'Rismiyati, B.Eng, M.Cs',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -193,7 +193,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24062123456789',
-            'name' => 'Inul',
+            'name' => 'Nurdin Bahtiar, S.Si., M.T.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -241,27 +241,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $Ruangan = ruang::create([
-            'nama' => 'E102',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'E103',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'A301',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'A302',
-        ]);
-
-        $Ruangan = ruang::create([
             'nama' => 'A303',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'B101',
         ]);
 
         $Ruangan = ruang::create([
@@ -269,19 +249,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $Ruangan = ruang::create([
-            'nama' => 'B103',
-        ]);
-
-        $Ruangan = ruang::create([
             'nama' => 'A101',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'A102',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'A103',
         ]);
 
 
@@ -659,27 +627,6 @@ class DatabaseSeeder extends Seeder
             'ips' => '0.0',
             'ipk' => '1.90',
         ]);
-
-        $irshasil = irshasil::create([
-            'nim' => '24160122131000',
-        ]);
-
-        $IRS = irs::create([
-            'nim' => '24160122131000',
-            'kodeMK'=> 'PAIK6404',
-            'nidn' => '24010123456789',
-            'kelas' => 'A',
-            'totalSKS' => 3,
-            'ruang' => 'A303',
-        ]);
-
-        $IRS = irs::create([
-            'kodeMK' => 'PAIK1234',
-            'nidn' => '24020123456789',
-            'nim' => '24160122131000',
-            'kelas' => 'D',
-            'totalSKS' => 3,
-            'ruang' => 'A303',
-        ]);
     }
 }
+
