@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Models\matakuliah;
+use App\Models\matakuliah;
 
 class inputJDController extends Controller
 {
@@ -21,7 +21,7 @@ class inputJDController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
