@@ -12,7 +12,7 @@
           <h1 class="text-2xl font-bold">UNIVERSITAS DIPONEGORO</h1>
           <div class="flex items-center">
               <span class="mr-4 font-semibold">Smith Welson</span>
-              <img class="w-12 h-12 rounded-full" src="image/SW2.png" alt="User Avatar">
+              <img class="w-12 h-12 rounded-full" src="{{ asset('images/SW2.png')}}" alt="User Avatar">
           </div>
       </div>
 
@@ -21,7 +21,7 @@
             <div class="bg-[#80AF81] text-white p-6 rounded-lg shadow-md flex">
                 <!-- Left Section -->
                 <div class="mr-6">
-                    <img class="rounded-lg" style="width: 290px; height: 275px;" src="image/SW2.png" alt="User Avatar">
+                    <img class="rounded-lg" style="width: 300px; height: 324px;" src="{{ asset('images/SW2.png')}}" alt="User Avatar">
                 </div>
                 <!-- Right Section -->
                 <div class="bg-[#508D4E] p-4 rounded-lg flex-1">
@@ -43,7 +43,9 @@
                 <h1 class="text-2xl font-bold text-white mb-4">LAYANAN AKADEMIK</h1>
                 <div class="grid grid-cols-2 gap-4">
                     <!-- List Ruang Kuliah -->
-                    <button onclick="window.location.href='/bagianAkademik/list_ruang_kuliah'" class="text-lg font-bold text-center text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN RUANG KULIAH</button>
+                    <button onclick="window.location.href='/bagianakademik/list_ruang_kuliah'" class="text-lg font-bold text-right text-white bg-green-600 py-2 px-4 rounded-lg w-full">LIST RUANG KULIAH</button>
+                    <button onclick="window.location.href='/bagianakademik/list_pengajuan_ruang_kuliah'" class="text-lg font-bold text-right text-white bg-green-600 py-2 px-4 rounded-lg w-full">LIST PENGAJUAN RUANG</button>
+                    <button onclick="window.location.href='/bagianakademik/pengajuan_ruang_kuliah'" class="text-lg font-bold text-right text-white bg-green-600 py-2 px-4 rounded-lg w-full">PENGAJUAN RUANG KULIAH</button>
                 </div>
             </div>
         </div>

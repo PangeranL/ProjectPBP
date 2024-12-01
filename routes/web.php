@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('mahasiswaDash');
 
     Route::get('/dashboard/bagianakademik', function () {
-        return view('bagianAkademik.bagianakademik');
+        return view('bagianakademik.bagianakademik');
     })->name('bagianAkademikDash');
 
     Route::get('/dashboard/dekan', function () {
@@ -60,8 +60,20 @@ Route ::get('/dekan/pengajuan_jadwal', function(){
     return view('dekan.pengajuan_jadwal');
 });
 
-Route ::get('/bagianAkademik/list_ruang_kuliah', function(){
-    return view('bagianAkademik.list_ruang_kuliah');
+Route ::get('/bagianakademik/list_ruang_kuliah', function(){
+    return view('bagianakademik.list_ruang_kuliah');
+});
+
+Route ::get('/bagianakademik/list_pengajuan_ruang_kuliah', function(){
+    return view('bagianakademik.list_pengajuan_ruang_kuliah');
+});
+
+Route ::get('/bagianakademik/detail_list_ruang_kuliah', function(){
+    return view('bagianakademik.detail_list_ruang_kuliah');
+});
+
+Route ::get('/bagianakademik/list_ruang_kuliah', function(){
+    return view('bagianakademik.list_ruang_kuliah');
 });
 
 ;

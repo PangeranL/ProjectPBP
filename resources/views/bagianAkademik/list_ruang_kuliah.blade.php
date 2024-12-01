@@ -12,13 +12,13 @@
         <h1 class="text-2xl font-bold">UNIVERSITAS DIPONEGORO</h1>
         <div class="flex items-center">
             <span class="mr-4 font-semibold">Smith Welson</span>
-            <img class="w-12 h-12 rounded-full" src="image/SW2.png" alt="User Avatar">
+            <img class="w-12 h-12 rounded-full" src="{{ asset('images/SW2.png')}}" alt="User Avatar">
         </div>
     </div>
 
     <!-- Title Section -->
     <div class="flex items-center justify-between px-6 mt-10">
-        <a href="/dashboard-bagian-akademik" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
+        <a href="/dashboard/bagianakademik" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
         <h1 class="text-3xl font-bold text-center flex-grow mr-16">LIST RUANG KULIAH</h1>
     </div>
 
@@ -35,7 +35,7 @@
     <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-4">
         <div class="w-1/4 text-center text-sm">Informatika</div>
         <div class="w-1/4 text-center">
-            <a onclick="window.location.href='{{ url('/ruang')}}'"" 
+            <a onclick="window.location.href='{{ url('/bagianakademik/detail_list_ruang_kuliah')}}'"" 
             class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
             Detail
             </a>

@@ -12,7 +12,7 @@
         <h1 class="text-2xl font-bold">UNIVERSITAS DIPONEGORO</h1>
         <div class="flex items-center">
             <span class="mr-4 font-semibold">Smith Welson</span>
-            <img class="w-12 h-12 rounded-full" src="image/SW2.png" alt="User Avatar">
+            <img class="w-12 h-12 rounded-full" src="{{ asset('images/SW2.png')}}" alt="User Avatar">
         </div>
     </header>
 
@@ -45,7 +45,7 @@
     <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
         <div class="w-1/4 text-center text-sm">Matematika</div>
         <div class="w-1/4 text-center">
-            <a href="request-ruang-kuliah" 
+            <a href="/bagianakademik/request-ruang-kuliah" 
             class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
             Request
             </a>

@@ -13,13 +13,13 @@
         <h1 class="text-2xl font-bold">UNIVERSITAS DIPONEGORO</h1>
         <div class="flex items-center">
             <span class="mr-4 font-semibold">Smith Welson</span>
-            <img class="w-12 h-12 rounded-full" src="image/SW2.png" alt="User Avatar">
+            <img class="w-12 h-12 rounded-full" src="{{ asset('images/SW2.png')}}" alt="User Avatar">
         </div>
     </div>
 
     <!-- Title Section -->
     <div class="flex items-center justify-between px-6 mt-10">
-        <a href="/list-ruang-kuliah" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
+        <a href="/bagianakademik/list_ruang_kuliah" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
         <h1 class="text-3xl font-bold text-center flex-grow mr-16">LIST RUANG KULIAH</h1>
     </div>
 
