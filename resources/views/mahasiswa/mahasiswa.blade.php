@@ -71,10 +71,10 @@
                 </div>
             </div>
 
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-7">
-                <div class="bg-[#ffffff] rounded-lg shadow-md p-6 sm:w-2/3 lg:w-1/2">
+            <div class="container mx-auto py-7">
+                <div class="bg-[#ffffff] rounded-lg shadow-md p-6 sm:w-1/4 lg:w-1/2">
                     <h1 class="text-2xl font-bold text-black mb-4">Registrasi Akademik</h1>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
                         <!-- Button -->
                         <button onclick="window.location.href='{{ url('/herregistrasi') }}'" class="text-sm font-bold text-black bg-gray-200 p-4 rounded-lg shadow-md py-2 flex items-center space-x-3">
                             <!-- Logo Gambar di sebelah kiri -->
@@ -109,7 +109,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="bg-green-700 text-white p-4 shadow-md text-center">
+    <div class="bg-green-700 text-white container mx-auto p-6 rounded-lg shadow-md text-center">
         <p>TIM IT SIKAT © 2024 UNDIP, All rights reserved.</p>
     </div>
 </body>

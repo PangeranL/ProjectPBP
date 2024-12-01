@@ -78,7 +78,7 @@
     @endif
 
     <!-- Footer -->
-    <div class="bg-green-700 text-white p-4 shadow-md text-center">
+    <div class="bg-green-700 text-white container mx-auto p-6 rounded-lg shadow-md text-center">
         <p>TIM IT SIKAT © 2024 UNDIP, All rights reserved.</p>
     </div>
 </body>
