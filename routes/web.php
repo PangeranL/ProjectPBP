@@ -91,11 +91,11 @@ Route::get('/dekan/ruang',[UpdateStatusRuangController::class, 'index'])->name('
 // Route untuk menyetujui atau menolak pengajuan ruang
 Route::put('/ruang/{id}/status', [UpdateStatusRuangController::class, 'updateStatus'])->name('ruang.updateStatus');
 
-
-
-
-
-Route::get('/buat_irs', [BuatIrsController::class, 'index'])->name('buat_irs');
+Route::get('/irsan/{nim}/{smt}', [BuatIrsController::class, 'irsan'])->name('irsan');
+Route::get('/buatIRS/{nim}/{smt}', [BuatIrsController::class, 'create'])->name('buatIRS');
+Route::post('/simpanIRS', [BuatIrsController::class, 'store'])->name('simpanIRS');
+Route::get('/editIRS/{nim}/{smt}/{kodeMK}', [BuatIrsController::class, 'edit'])->name('editIRS');
+Route::post('/updateIRS/{nim}/{smt}/{kodeMK}', [BuatIrsController::class, 'update'])->name('updateIRS');
 Route::get('/irs', [IRSController::class, 'index'])->name('irs');
 Route::get('/khs', [KHSController::class, 'index'])->name('khs');
 Route::middleware('auth')->get('/dashboard/mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard');

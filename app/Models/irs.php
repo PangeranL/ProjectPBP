@@ -11,11 +11,13 @@ class irs extends Model
 
     protected $table = 'irs';
 
+    protected $primaryKey = ['nim', 'smt', 'kodeMK'];
+    public $incrementing = false;
+
     protected $fillable = [
         'nim',
         'kodeMK',
         'kelas',
-        'totalSKS',
         'ruang',
         'smt',
         'status'

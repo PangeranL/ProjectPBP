@@ -17,7 +17,6 @@ return new class extends Migration
             $table->char('kodeMK', 8);
             $table->primary(['nim', 'smt', 'kodeMK']);
             $table->char('kelas', 1);
-            $table->integer('totalSKS');
             $table->char('ruang', 4);
             $table->integer('status')->nullable();
             $table->foreign('kelas')->references('kelas')->on('jadwal')->onDelete('cascade');
