@@ -17,7 +17,6 @@ class jadwal extends Model
     
     protected $fillable = [
         'kodeMK',
-        'nidn',
         'ruang',
         'hari',
         'mulai',
@@ -30,11 +29,6 @@ class jadwal extends Model
     public function matakuliah()
     {
         return $this->belongsTo(matakuliah::class, 'kodeMK', 'kodeMK');
-    }
-
-    public function dosen()
-    {
-        return $this->belongsTo(dosen::class, 'nidn', 'nidn');
     }
 
     public function ruang()

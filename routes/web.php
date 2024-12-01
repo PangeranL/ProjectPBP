@@ -6,6 +6,7 @@ use App\Http\Controllers\IRSController;
 use App\Http\Controllers\KHSController;
 use App\Http\Controllers\BuatIrsController;
 use App\Http\Controllers\HerregistrasiController;
+use App\Http\Controllers\DashboardMahasiswaController;
 use App\Http\Controllers\PAController;
 use App\Http\Controllers\inputMKController;
 use App\Http\Controllers\inputJDController;
@@ -33,13 +34,18 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::middleware(['auth'])->get('/selectRole', [AuthController::class, 'showRoleSelectionPage'])->name('selectRole');
 Route::middleware(['auth'])->post('/selectRole', [AuthController::class, 'handleRoleSelection'])->name('handleRoleSelection');
 
-Route::middleware(['auth'])->get('verifIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
+Route::middleware(['auth'])->get('daftarIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
+Route::middleware(['auth'])->get('verifIRS/{nim}/{smt}', [PAController::class, 'isiIRS'])->name('verifIRS');
+Route::middleware(['auth'])->post('daftarIRS', [PAController::class, 'IRSterverifikasi'])->name('IRSterverifikasi');
+Route::middleware(['auth'])->get('lihatKHS/{nim}/{smt}', [PAController::class, 'KHS'])->name('lihatKHS');
 
 // Dashboard Routes for Specific Roles
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard/mahasiswa', function () {
-        return view('mahasiswa.mahasiswa');
-    })->name('mahasiswaDash');
+    // Route::get('/dashboard/mahasiswa', function () {
+    //     return view('mahasiswa.mahasiswa');
+    // })->name('mahasiswaDash');
+
+    Route::get('/dashboard/mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard');
 
     Route::get('/dashboard/bagianakademik', function () {
         return view('bagianAkademik.bagianakademik');
@@ -92,18 +98,10 @@ Route::put('/ruang/{id}/status', [UpdateStatusRuangController::class, 'updateSta
 Route::get('/buat_irs', [BuatIrsController::class, 'index'])->name('buat_irs');
 Route::get('/irs', [IRSController::class, 'index'])->name('irs');
 Route::get('/khs', [KHSController::class, 'index'])->name('khs');
+Route::middleware('auth')->get('/dashboard/mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard');
 Route::middleware('auth')->group(function () {
-    // Route untuk halaman utama herregistrasi
     Route::get('/herregistrasi', [HerregistrasiController::class, 'index'])->name('herregistrasi.index');
-    
-    // Route untuk mengubah status menjadi Aktif
-    Route::post('/herregistrasi/aktif', [HerregistrasiController::class, 'setAktif'])->name('herregistrasi.setAktif');
-    
-    // Route untuk mengubah status menjadi Cuti
-    Route::post('/herregistrasi/cuti', [HerregistrasiController::class, 'setCuti'])->name('herregistrasi.setCuti');
-    
-    // Route untuk membatalkan status
-    Route::post('/herregistrasi/batalkan', [HerregistrasiController::class, 'batalkanStatus'])->name('herregistrasi.batalkanStatus');
+    Route::post('/herregistrasi/update', [HerregistrasiController::class, 'updateStatus'])->name('herregistrasi.update');
 });
 
 // Bagian Kaprodi
