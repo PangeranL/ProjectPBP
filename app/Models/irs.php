@@ -39,7 +39,7 @@ class irs extends Model
         return $this->belongsTo(Mahasiswa::class, 'nim', 'nim');
     }
 
-    public function KodeMK()
+    public function jadwal()
     {
         return $this->belongsTo(Jadwal::class, 'kodeMK', 'kodeMK');
     }
