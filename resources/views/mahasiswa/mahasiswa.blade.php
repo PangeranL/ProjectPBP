@@ -76,12 +76,13 @@
                     <h1 class="text-2xl font-bold text-white mb-4">LAYANAN AKADEMIK</h1>
                     <div class="grid grid-cols-2 gap-4">
                         <!-- List Ruang Kuliah -->
-                        <button onclick="window.location.href='{{ url('/herregistrasi')}}'" class="text-sm font-bold text-white bg-green-600 py-2 rounded-lg w-full flex items-center space-x-3">
+                        <button onclick="window.location.href='{{ url('/herregistrasi') }}'" class="text-sm font-bold text-white bg-green-600 py-2 rounded-lg w-full flex items-center space-x-3">
                             <!-- Logo Gambar di sebelah kiri -->
                             <img src="{{ asset('images/list.png')}}" alt="Logo" class="w-12 h-12">
                             <!-- Teks nempel kanan -->
                             <span class="mr-2">Her Registrasi</span>
                         </button>
+                        <a class="text-sm font-bold text-white bg-green-600 py-2 rounded-lg w-full flex items-center pl-5 space-x-3" href="{{ route('irsan', ['nim' => $mhs->nim, 'smt' => $mhs->smt]) }}">Buat IRS</a>
                     </div>
                 </div>
             </div>

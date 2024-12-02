@@ -34,6 +34,6 @@ class khs extends Model
 
     public function irs()
     {
-        return $this->belongsTo(irs::class, 'kodeMK', 'kodeMK');
+        return $this->belongsTo(irs::class, ['kodeMK', 'smt'], ['kodeMK', 'smt']);
     }
 }
