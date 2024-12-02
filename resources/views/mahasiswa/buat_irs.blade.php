@@ -41,7 +41,7 @@
     <div class="mt-24 px-8">
         <!-- Verifikasi IRS Section -->
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-lg font-bold mb-4">Buat IRS</h3>
+            <h3 class="text-lg font-bold text-black mb-4">Buat IRS</h3>
             <div class="bg-white mt-4 p-6 rounded-lg shadow-md">
                 <form action="{{ route('simpanIRS') }}" method="POST">
                     @csrf
