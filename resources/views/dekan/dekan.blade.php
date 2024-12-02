@@ -26,7 +26,7 @@
     <div class="flex justify-between">
       <div>
         <div class="p-1 mt-3 mr-3 ml-3 mb-3">
-          <img class="rounded-lg" style="width: 290px; height: 275px;" src="images/profilee.jpeg" alt="User Avatar">
+          <img class="rounded-lg" style="width: 290px; height: 275px;" src="{{ asset('images/profilee.jpeg') }}" alt="User Avatar">
         </div>
       </div>
       <div class="bg-[#508D4E] p-2 mt-4 mx-3 mb-3 rounded-lg" style="width: calc(100% - 300px);">
