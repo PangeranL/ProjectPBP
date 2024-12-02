@@ -9,35 +9,44 @@ class Dosen extends Model
 {
     use HasFactory;
 
+    // Tentukan tabel yang digunakan oleh model ini
     protected $table = 'dosen';
 
+    // Tentukan primary key dan setel menjadi char
     protected $primaryKey = 'nidn';
     public $incrementing = false;
-    protected $keyType = 'char';
+    protected $keyType = 'char';  // Karena 'nidn' adalah char
 
+    // Kolom yang bisa diisi melalui mass assignment
     protected $fillable = [
         'nidn',
-        'nama',
+        'name',
         'dob',
         'phone',
         'address',
         'prodi',
     ];
 
-    public function Dekan()
+    // Relasi dengan tabel 'prodi' (belongsTo)
+    public function prodi()
     {
-        return $this->hasOne(dekan::class);
+        return $this->belongsTo(Prodi::class, 'prodi', 'nama');
     }
 
-    public function PA(){
-        return $this->hasOne(pembimbingAkademik::class);
+    // Jika Anda memiliki relasi lain (misalnya untuk relasi dosen dengan matakuliah atau relasi lainnya), tambahkan di sini
+
+    public function pengampu1()
+    {
+        return $this->hasMany(matakuliah::class);
     }
 
-    public function Kaprodi(){
-        return $this->hasOne(kaprodi::class);
+    public function pengampu2()
+    {
+        return $this->hasMany(matakuliah::class);
     }
 
-    public function prodi(){
-        return $this->belongsTo(prodi::class);
+    public function pengampu3()
+    {
+        return $this->hasMany(matakuliah::class);
     }
 }

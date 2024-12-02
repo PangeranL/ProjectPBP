@@ -35,17 +35,12 @@
                     <img src="/images/profil.png">
                     <span>Profil</span>
                 </a>
-                <a href="/Menyusun" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
-                    <img src="/images/menyusun.png">
-                    <span>Menyusun Jadwal</span>
-                </a>
 
-                </a>
-                <a href="/TabelMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                <a href="/kaprodi/inputMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/table.png" alt="">
                     <span>Input Mata Kuliah</span>
                 </a>
-                <a href="TabelJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                <a href="/kaprodi/inputJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/table.png" alt="">
                     <span>Input Jadwal Kuliah</span>
                 </a>
@@ -69,7 +64,7 @@
                             <option value="">2</option></option>
                         </select>
                     </div>
-                    <a href="/SusunJD" class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full" style="margin-top: 10px">TAMBAH</a>
+                    <a href="/kaprodi/SusunJD" class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full" style="margin-top: 10px">TAMBAH</a>
                 </div>
                 
                 <table class="w-full border text-center table-auto" style="margin-top: 10px">
@@ -84,13 +79,20 @@
                         </tr>
                     </thead>
                 <tbody>
+                    @forelse($mataKuliah as $key =>$value)
                     <tr>
-                        <td class="border px-4 py-2"></td>
-                        <td class="border px-4 py-2"></td>
-                        <td class="border px-4 py-2"></td>
-                        <td class="border px-4 py-2"></td>
-                        <td class="border px-4 py-2"></td>
+                        <td class="border px-4 py-2">{{$key + 1}}</td>
+                        <td class="border px-4 py-2">{{$value -> namaMK}}</td>
+                        <td class="border px-4 py-2">{{$value -> kodeMK}}</td>
+                        <td class="border px-4 py-2">{{$value -> sks}}</td>
+                        <td class="border px-4 py-2">{{$value -> semester}}</td>
+                        <td class="border px-4 py-2">
+                            <a href="/kaprodi/inputJD/create" class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full" style="margin-top: 10px">Detail</a>
+                        </td>
                     </tr>
+                    @empty
+                    tidak ada data 
+                    @endforelse
                 </tbody>
                 </table>
             </div>       
@@ -98,3 +100,4 @@
     </div>
 </body>
 </html>
+

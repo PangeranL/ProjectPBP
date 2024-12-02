@@ -29,11 +29,11 @@
                     <span>Profil</span>
                 </a>
 
-                <a href="/TabelMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                <a href="/kaprodi/inputMK" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/table.png" alt="">
                     <span>Input Mata Kuliah</span>
                 </a>
-                <a href="TabelJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
+                <a href="/kaprodi/inputJD" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/table.png" alt="">
                     <span>Input Jadwal Kuliah</span>
                 </a>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="w-full h-1 mt-4" style="border: 2px solid #508D4E;"></div>
                 
-                <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Tahun Ajaran
+                     <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Tahun Ajaran
                         <select name="" id="" style="width: 30%; margin-left: 100px">
                             <option value="">Semester Ganjil 2025/2026</option>
                             <option value="">Semester Genap 2025/2026</option>
@@ -107,13 +107,20 @@
                         </select>
                     </div>
 
+                    <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;" >Kuota
+                    <input type="number" name="" id="" style="margin-left: 152.5px; width: 30%">
+                    </div>
                     
                     <div>
                         <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Waktu Mulai
                         <input type="time" style="width: 30%; margin-left: 105px">
-                    </div>
+                        </div>
+                        <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Waktu Selesai
+                        <input type="time" style="width: 30%; margin-left: 92px">
+                        </div>
                     <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2" style="margin-left:10px; margin-top: 40px">   
-                        <a href="/TabelJD"class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">TAMBAH JADWAL</a>
+                        <a href="{{route('kaprodi.tablejadwal')}}"class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">TAMBAH JADWAL</a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -121,3 +128,4 @@
     </div>
 </body>
 </html>
+

@@ -6,7 +6,12 @@ use App\Http\Controllers\IRSController;
 use App\Http\Controllers\KHSController;
 use App\Http\Controllers\BuatIrsController;
 use App\Http\Controllers\HerregistrasiController;
+use App\Http\Controllers\DashboardMahasiswaController;
 use App\Http\Controllers\PAController;
+use App\Http\Controllers\inputMKController;
+use App\Http\Controllers\inputJDController;
+use App\Http\Controllers\KaprodiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +36,16 @@ Route::middleware(['auth'])->post('/selectRole', [AuthController::class, 'handle
 
 Route::middleware(['auth'])->get('daftarIRS', [PAController::class, 'showUnverifiedIRS'])->name('showVerif');
 Route::middleware(['auth'])->get('verifIRS/{nim}/{smt}', [PAController::class, 'isiIRS'])->name('verifIRS');
-Route::middleware(['auth'])->post('IRSterverifikasi', [PAController::class, 'IRSterverifikasi'])->name('IRSterverifikasi');
+Route::middleware(['auth'])->post('daftarIRS', [PAController::class, 'IRSterverifikasi'])->name('IRSterverifikasi');
+Route::middleware(['auth'])->get('lihatKHS/{nim}/{smt}', [PAController::class, 'KHS'])->name('lihatKHS');
 
 // Dashboard Routes for Specific Roles
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard/mahasiswa', function () {
-        return view('mahasiswa.mahasiswa');
-    })->name('mahasiswaDash');
+    // Route::get('/dashboard/mahasiswa', function () {
+    //     return view('mahasiswa.mahasiswa');
+    // })->name('mahasiswaDash');
+
+    Route::get('/dashboard/mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard');
 
     Route::get('/dashboard/bagianakademik', function () {
         return view('bagianAkademik.bagianakademik');
@@ -71,8 +79,17 @@ Route ::get('/bagianAkademik/list_ruang_kuliah', function(){
 ;
 use App\Http\Controllers\RuangController;
 
+use App\Models\jadwal;
+
 Route::get('/ruang', [RuangController::class, 'index'])->name('ruang.index');
 Route::post('/ruang', [RuangController::class, 'store'])->name('ruang.store');
+use App\Http\Controllers\JadwalController;
+
+// Route for displaying the list of jadwals (Pengajuan Jadwal Kuliah)
+Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
+
+// Route for updating the status of a specific jadwal
+Route::post('/jadwal/{id}/update-status', [JadwalController::class, 'updateStatus'])->name('jadwal.updateStatus');  
 
 
 use App\Http\Controllers\UpdateStatusRuangController;
@@ -83,32 +100,27 @@ Route::get('/dekan/ruang',[UpdateStatusRuangController::class, 'index'])->name('
 // Route untuk menyetujui atau menolak pengajuan ruang
 Route::put('/ruang/{id}/status', [UpdateStatusRuangController::class, 'updateStatus'])->name('ruang.updateStatus');
 
-
-
-
-
-Route::get('/buat_irs', [BuatIrsController::class, 'index'])->name('buat_irs');
+Route::get('/irsan/{nim}/{smt}', [BuatIrsController::class, 'irsan'])->name('irsan');
+Route::get('/buatIRS/{nim}/{smt}', [BuatIrsController::class, 'create'])->name('buatIRS');
+Route::post('/simpanIRS', [BuatIrsController::class, 'store'])->name('simpanIRS');
+Route::get('/editIRS/{nim}/{smt}/{kodeMK}', [BuatIrsController::class, 'edit'])->name('editIRS');
+Route::post('/updateIRS/{nim}/{smt}/{kodeMK}', [BuatIrsController::class, 'update'])->name('updateIRS');
 Route::get('/irs', [IRSController::class, 'index'])->name('irs');
 Route::get('/khs', [KHSController::class, 'index'])->name('khs');
+Route::middleware('auth')->get('/dashboard/mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard');
 Route::middleware('auth')->group(function () {
-    // Route untuk halaman utama herregistrasi
     Route::get('/herregistrasi', [HerregistrasiController::class, 'index'])->name('herregistrasi.index');
-    
-    // Route untuk mengubah status menjadi Aktif
-    Route::post('/herregistrasi/aktif', [HerregistrasiController::class, 'setAktif'])->name('herregistrasi.setAktif');
-    
-    // Route untuk mengubah status menjadi Cuti
-    Route::post('/herregistrasi/cuti', [HerregistrasiController::class, 'setCuti'])->name('herregistrasi.setCuti');
-    
-    // Route untuk membatalkan status
-    Route::post('/herregistrasi/batalkan', [HerregistrasiController::class, 'batalkanStatus'])->name('herregistrasi.batalkanStatus');
+    Route::post('/herregistrasi/update', [HerregistrasiController::class, 'updateStatus'])->name('herregistrasi.update');
 });
 
 // Bagian Kaprodi
-use App\Http\Controllers\KaprodiController;
 
 Route::get('/Dashboard', [KaprodiController::class, 'index']);
 Route::get('/TabelMK', [KaprodiController::class, 'tabelmatkul']);
-Route::get('/TabelJD', [KaprodiController::class, 'tabeljadwal']);
+Route::get('kaprodi/TabelJD', [KaprodiController::class, 'tabeljadwal'])->name('kaprodi.tablejadwal');
 Route::get('/SusunMK', [KaprodiController::class, 'susunmatkul']);
-Route::get('/SusunJD', [KaprodiController::class, 'susunjadwal']);
+Route::get('kaprodi/SusunJD', [KaprodiController::class, 'susunjadwal'])->name('kaprodi.susunjadwal');
+Route::resource('/kaprodi/inputMK', inputMKController::class);
+Route::post('/kaprodi/susunmatkul/store',[KaprodiController::class, 'store']);
+Route::resource('/kaprodi/inputJD', inputJDController::class);
+

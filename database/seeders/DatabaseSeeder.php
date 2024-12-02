@@ -127,10 +127,9 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Bioteknologi',
         ]);
 
-
         $Dosen = dosen::create([
             'nidn' => '24060123456789',
-            'name' => 'Julianto Hari Hungaria',
+            'name' => 'Dr. Aris Puji, S.Si., M.T.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -139,7 +138,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24050123456789',
-            'name' => 'Doel',
+            'name' => 'Dr. Aris, S.Si., M.Kom.',
             'dob' => '1987-03-11',
             'phone' => '084653221990',
             'address' => 'Jl. Jabodetabek IV No. 01',
@@ -148,7 +147,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24010123456789',
-            'name' => 'Doni',
+            'name' => 'Dr. Sutikno, S.T., M.Cs.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -157,7 +156,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24020123456789',
-            'name' => 'Rumi',
+            'name' => ' Drs. Eko Adi, M.Komp.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -166,7 +165,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24030123456789',
-            'name' => 'Siti',
+            'name' => 'Beta Noranita, S.Si., M.Kom.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -175,7 +174,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24040123456789',
-            'name' => 'Dina',
+            'name' => ' Khadijah, S.Kom., M.Cs.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -184,7 +183,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '22060123456789',
-            'name' => 'Ronald',
+            'name' => 'Rismiyati, B.Eng, M.Cs',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -193,7 +192,7 @@ class DatabaseSeeder extends Seeder
 
         $Dosen = dosen::create([
             'nidn' => '24062123456789',
-            'name' => 'Inul',
+            'name' => 'Nurdin Bahtiar, S.Si., M.T.',
             'dob' => '1992-01-21',
             'phone' => '089882741100',
             'address' => 'Jl. Kembangsari No. 80',
@@ -234,6 +233,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'ganz@students.undip.ac.id',
             'nidnWali' => '24050123456789',
             'thnmasuk' => 2022,
+            'status' => 'aktif',
         ]);
 
         $Ruangan = ruang::create([
@@ -241,27 +241,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $Ruangan = ruang::create([
-            'nama' => 'E102',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'E103',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'A301',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'A302',
-        ]);
-
-        $Ruangan = ruang::create([
             'nama' => 'A303',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'B101',
         ]);
 
         $Ruangan = ruang::create([
@@ -269,28 +249,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $Ruangan = ruang::create([
-            'nama' => 'B103',
-        ]);
-
-        $Ruangan = ruang::create([
             'nama' => 'A101',
         ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'A102',
-        ]);
-
-        $Ruangan = ruang::create([
-            'nama' => 'A103',
-        ]);
-
-
 
         $MK = matakuliah::create([
             'kodeMK' => 'PAIK6404',
             'namaMK' => 'Pyoyek Perangkat Lunak',
             'sks' => 3,
             'semester' => 5,
+            'nidn_dosen1' => '24010123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -298,13 +265,15 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Teori Bahasa dan Otomata',
             'sks' => 3,
             'semester' => 7,
+            'nidn_dosen1' => '24020123456789',
         ]);
 
         $MK = matakuliah::create([
             'kodeMK' => 'PAIK3201',
             'namaMK' => 'Basis Data',
             'sks' => 4,
-            'semester' => 3 ,
+            'semester' => 3,
+            'nidn_dosen1' => '24030123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -312,6 +281,7 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Pemrograman Berbasis Platform',
             'sks' => 4,
             'semester' => 5,
+            'nidn_dosen1' => '24040123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -319,6 +289,7 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Komputasi Tersebar Paralel',
             'sks' => 3,
             'semester' => 5,
+            'nidn_dosen1' => '24040123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -326,6 +297,7 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Pembelajaran Mesin',
             'sks' => 3,
             'semester' => 5,
+            'nidn_dosen1' => '24062123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -333,6 +305,7 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Pemrograman Berorientasi Objek',
             'sks' => 3,
             'semester' => 4,
+            'nidn_dosen1' => '24010123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -340,13 +313,15 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Kewirausahaan',
             'sks' => 2,
             'semester' => 4,
+            'nidn_dosen1' => '24020123456789',
         ]);
 
         $MK = matakuliah::create([
             'kodeMK' => 'PAIK3333',
             'namaMK' => 'Struktur Data',
             'sks' => 4,
-            'semester' => 4 ,
+            'semester' => 4,
+            'nidn_dosen1' => '24040123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -354,6 +329,7 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Keamanan dan Jaringan Komputer',
             'sks' => 2,
             'semester' => 5,
+            'nidn_dosen1' => '24030123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -361,6 +337,7 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Olahraga',
             'sks' => 1,
             'semester' => 5,
+            'nidn_dosen1' => '24040123456789',
         ]);
 
         $MK = matakuliah::create([
@@ -368,11 +345,11 @@ class DatabaseSeeder extends Seeder
             'namaMK' => 'Grafika Komputasi Visual',
             'sks' => 3,
             'semester' => 5,
+            'nidn_dosen1' => '24062123456789',
         ]);
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK6404',
-            'nidn' => '24010123456789',
             'kelas' => 'A',
             'hari' => 'Rabu',
             'mulai' => '13.00',
@@ -384,7 +361,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK1234',
-            'nidn' => '24020123456789',
             'kelas' => 'D',
             'hari' => 'Senin',
             'mulai' => '13.00',
@@ -396,7 +372,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK3202',
-            'nidn' => '24040123456789',
             'kelas' => 'A',
             'hari' => 'Senin',
             'mulai' => '07.00',
@@ -408,7 +383,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK3201',
-            'nidn' => '24030123456789',
             'kelas' => 'C',
             'hari' => 'Selasa',
             'mulai' => '13.00',
@@ -420,7 +394,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK1021',
-            'nidn' => '24040123456789',
             'kelas' => 'A',
             'hari' => 'Rabu',
             'mulai' => '07.00',
@@ -432,7 +405,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK2022',
-            'nidn' => '24062123456789',
             'kelas' => 'A',
             'hari' => 'Kamis',
             'mulai' => '13.00',
@@ -444,7 +416,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK1111',
-            'nidn' => '24010123456789',
             'kelas' => 'A',
             'hari' => 'Senin',
             'mulai' => '13.00',
@@ -456,7 +427,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK2222',
-            'nidn' => '24020123456789',
             'kelas' => 'D',
             'hari' => 'Selasa',
             'mulai' => '13.00',
@@ -468,7 +438,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK3333',
-            'nidn' => '24040123456789',
             'kelas' => 'A',
             'hari' => 'Senin',
             'mulai' => '07.00',
@@ -480,7 +449,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK4444',
-            'nidn' => '24030123456789',
             'kelas' => 'C',
             'hari' => 'Selasa',
             'mulai' => '07.00',
@@ -492,7 +460,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK5555',
-            'nidn' => '24040123456789',
             'kelas' => 'A',
             'hari' => 'Rabu',
             'mulai' => '07.00',
@@ -504,7 +471,6 @@ class DatabaseSeeder extends Seeder
 
         $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK6666',
-            'nidn' => '24062123456789',
             'kelas' => 'A',
             'hari' => 'Kamis',
             'mulai' => '13.00',
@@ -524,75 +490,61 @@ class DatabaseSeeder extends Seeder
             'smt' => 4,
             'nim' => '24160122131000',
             'kodeMK'=> 'PAIK3201',
-            'nidn' => '24030123456789',
             'kelas' => 'C',
-            'totalSKS' => 4,
             'ruang' => 'A303',
             'status' => 1,
         ]);
 
         $IRS = irs::create([
             'kodeMK' => 'PAIK1111',
-            'nidn' => '24010123456789',
             'smt' => 4,
             'nim' => '24160122131000',
             'kelas' => 'A',
-            'totalSKS' => 3,
             'ruang' => 'A303',
             'status' => 1,
         ]);
 
         $IRS = irs::create([
             'kodeMK' => 'PAIK2222',
-            'nidn' => '24020123456789',
             'kelas' => 'D',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 2,
             'ruang' => 'A303',
             'status' => 1,
         ]);
 
         $IRS = irs::create([
             'kodeMK' => 'PAIK3333',
-            'nidn' => '24040123456789',
             'kelas' => 'A',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 4,
             'ruang' => 'E101',
             'status' => 1,
         ]);
 
         $IRS = irs::create([
             'kodeMK' => 'PAIK4444',
-            'nidn' => '24030123456789',
             'kelas' => 'C',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 2,
             'ruang' => 'A303',
             'status' => 1,
         ]);
 
         $IRS = irs::create([
             'kodeMK' => 'PAIK5555',
-            'nidn' => '24040123456789',
             'kelas' => 'A',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 1,
             'ruang' => 'A303',
             'status' => 1,
         ]);
 
         $IRS = irs::create([
             'kodeMK' => 'PAIK6666',
-            'nidn' => '24062123456789',
             'kelas' => 'A',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 3,
             'ruang' => 'A303',
             'status' => 1,
         ]);
@@ -660,26 +612,25 @@ class DatabaseSeeder extends Seeder
             'ipk' => '1.90',
         ]);
 
-        $irshasil = irshasil::create([
+        /*$irshasil = irshasil::create([
+            'smt' => 5,
             'nim' => '24160122131000',
         ]);
 
         $IRS = irs::create([
+            'smt' => 5,
             'nim' => '24160122131000',
             'kodeMK'=> 'PAIK6404',
-            'nidn' => '24010123456789',
             'kelas' => 'A',
-            'totalSKS' => 3,
             'ruang' => 'A303',
         ]);
 
         $IRS = irs::create([
             'kodeMK' => 'PAIK1234',
-            'nidn' => '24020123456789',
+            'smt' => 5,
             'nim' => '24160122131000',
             'kelas' => 'D',
-            'totalSKS' => 3,
             'ruang' => 'A303',
-        ]);
+        ]);*/
     }
 }

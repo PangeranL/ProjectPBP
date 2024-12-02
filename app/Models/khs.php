@@ -32,23 +32,8 @@ class khs extends Model
         });
     }
 
-    public function mahasiswa()
+    public function irs()
     {
-        return $this->belongsTo(Mahasiswa::class, 'nim', 'nim');
-    }
-
-    public function jadwalKodeMK()
-    {
-        return $this->belongsTo(Jadwal::class, 'kodeMK', 'kodeMK');
-    }
-
-    public function jadwalNidn()
-    {
-        return $this->belongsTo(Jadwal::class, 'nidn', 'nidn');
-    }
-
-    public function jadwalRuang()
-    {
-        return $this->belongsTo(Jadwal::class, 'kelas', 'kelas');
+        return $this->belongsTo(irs::class, ['kodeMK', 'smt'], ['kodeMK', 'smt']);
     }
 }

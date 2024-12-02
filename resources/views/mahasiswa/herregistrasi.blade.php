@@ -3,36 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilih Status Akademik</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Tambahkan jika Anda menggunakan Tailwind atau CSS lainnya -->
+    <title>Dashboard Mahasiswa</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+    </style>
 </head>
-<body>
-    <div class="container mx-auto mt-10">
-        <h1 class="text-2xl font-bold">Pilih Status Akademik</h1>
-        <p class="mt-2">
-            <strong>Aktif:</strong> Mengikuti kegiatan kuliah dan mengisi IRS.<br>
-            <strong>Cuti:</strong> Berhenti kuliah sementara tanpa kehilangan status mahasiswa.
-        </p>
+<body class="bg-green-100">
+    <div class="content">
+        <div class="container mx-auto p-6">
+            <!-- Header -->
+            <div class="bg-green-700 text-white p-4 rounded-lg shadow-md">
+                <div class="flex justify-between">
+                    <div>
+                        <h1 class="text-xl font-bold">UNIVERSITAS DIPONEGORO</h1>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="mr-4">Ganz</span>
+                        <img class="w-10 h-10 rounded-full" src="https://i.pinimg.com/736x/ca/41/96/ca419684a96c3f255a8981444e6b9c89.jpg" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
 
-        <div class="mt-5 flex space-x-4">
-            <!-- Tombol untuk Mengubah Status ke Aktif -->
-            <form action="{{ route('herregistrasi.setAktif') }}" method="POST">
-                @csrf
-                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Set Aktif</button>
-            </form>
+            <!-- Daftar Mahasiswa dan Status -->
+            <div class="bg-white mt-4 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4">Herregistrasi</h2>
 
-            <!-- Tombol untuk Mengubah Status ke Cuti -->
-            <form action="{{ route('herregistrasi.setCuti') }}" method="POST">
-                @csrf
-                <button type="submit" class="px-4 py-2 bg-yellow-500 text-white rounded">Set Cuti</button>
-            </form>
-
-            <!-- Tombol untuk Membatalkan Status -->
-            <form action="{{ route('herregistrasi.batalkanStatus') }}" method="POST">
-                @csrf
-                <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded">Batalkan Status</button>
-            </form>
+                <div class="mt-5 flex space-x-4">
+                    <!-- Form untuk Mengubah Status Mahasiswa -->
+                    <form action="{{ route('herregistrasi.update') }}" method="POST" class="flex flex-col space-y-4">
+                        @csrf
+                        <div>
+                            <label for="nim" class="block font-medium">NIM:</label>
+                            <input type="text" name="nim" id="nim" class="border p-2 rounded w-full" placeholder="Masukkan NIM Mahasiswa" required>
+                        </div>
+                        <div>
+                            <label for="status" class="block font-medium">Status:</label>
+                            <select name="status" id="status" class="border p-2 rounded w-full" required>
+                                <option value="aktif">Aktif</option>
+                                <option value="cuti">Cuti</option>
+                                <option value="tidak_aktif">Tidak Aktif</option>
+                            </select>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">
+                                Update Status
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-green-700 text-white p-4 shadow-md text-center">
+        <p>TIM IT SIKAT © 2024 UNDIP, All rights reserved.</p>
     </div>
 </body>
 </html>
