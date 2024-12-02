@@ -3,19 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\irshasil;
+use App\Models\irs;
 
 class IRSController extends Controller
 {
     public function index()
     {
-        $semesters = [
-            ['title' => 'Semester - 1 | Tahun Ajaran 2022/2023 Ganjil', 'sks' => 'SKS 24'],
-            ['title' => 'Semester - 2 | Tahun Ajaran 2022/2023 Genap', 'sks' => 'SKS 24'],
-            ['title' => 'Semester - 3 | Tahun Ajaran 2023/2024 Ganjil', 'sks' => 'SKS 24'],
-            ['title' => 'Semester - 4 | Tahun Ajaran 2023/2024 Genap', 'sks' => 'SKS 24'],
-            ['title' => 'Semester - 5 | Tahun Ajaran 2024/2025 Ganjil', 'sks' => 'SKS 24'],
-        ];
+        $irs = irshasil::where('status', 1)->get();
 
-        return view('mahasiswa.irs', compact('semesters'));
+        return view('mahasiswa.lihatIRS', compact('irs'));
+    }
+
+    public function DetailIRS($nim, $smt){
+        $isi = irs::with('jadwal.matakuliah')->where('nim', $nim)->where('smt', $smt)->get();
+        $totalSKS = $isi->sum(function($irs){
+            return $irs->jadwal->matakuliah->sks;
+        });
+        return view('mahasiswa.DetailIRS', compact('isi', 'nim', 'smt', 'totalSKS'));
     }
 }

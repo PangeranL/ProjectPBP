@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIKAT - Verifikasi IRS</title>
+    <title>Detail KHS</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-100">
@@ -38,45 +38,27 @@
     <!-- Main Content -->
     <div class="mt-24 px-8">
         <!-- Verifikasi IRS Section -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-lg font-bold mb-4">IRS Dibuat</h3>
-            <div class="flex justify-end mt-5 mb-5">
-                <a href="{{ route('buatIRS', ['nim' => $nim, 'smt' => $smt]) }}" class="flex bg-green-700 justify-center text-white w-28 py-2 x-4 rounded shadow mb-5">Tambah IRS</a>
-            </div>
+        <div class="bg-white p-6 rounded-lg shadow-md mb-20">
+            <h3 class="text-lg font-bold mb-4">KHS</h3>
             <table class="table-auto w-full text-left border-collapse">
                 <thead>
                     <tr>
-                        <th class="border px-4 py-2">Kode Mata Kuliah</th>
-                        <th class="border px-4 py-2">Nama Mata Kuliah</th>
-                        <th class="border px-4 py-2">Kelas</th>
-                        <th class="border px-4 py-2">Ruang</th>
-                        <th class="border px-4 py-2">Hari</th>
-                        <th class="border px-4 py-2">Jam</th>
-                        <th class="border px-4 py-2">Aksi</th>
+                        <th class="border px-4 py-2">Nama Matakuliah</th>
+                        <th class="border px-4 py-2">Nilai</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($isi as $irs)
+                    <!-- Loop untuk menampilkan data unverified IRS -->
+                    @foreach ($KHSbefore as $khs)
                         <tr>
-                            <td class="border px-4 py-2">{{ $irs->kodeMK }}</td>
-                            <td class="border px-4 py-2">{{ $irs->jadwal->matakuliah->namaMK }}</td>
-                            <td class="border px-4 py-2">{{ $irs->kelas }}</td>
-                            <td class="border px-4 py-2">{{ $irs->ruang }}</td>
-                            <td class="border px-4 py-2">{{ $irs->jadwal->hari }}</td>
-                            <td class="border px-4 py-2">{{ $irs->jadwal->mulai }}-{{ $irs->jadwal->selesai }}</td>
-                            <td class="border px-4 py-2">
-                                <a class="text-blue-500" href="{{ route('editIRS', ['nim' => $nim, 'smt' => $smt, 'kodeMK' => $irs->kodeMK]) }}">Edit</a><br>
-                                <a class="text-red-500" href="{{ route('irsDelete', ['nim' => $nim, 'smt' => $smt, 'kodeMK' => $irs->kodeMK]) }}">Delete</a>
-                            </td>
+                            <td class="border px-4 py-2">{{ $khs->irs->jadwal->matakuliah->namaMK }}</td>
+                            <td class="border px-4 py-2">{{ $khs->nilai }}</td>
                         </tr>
-                    @empty
-                        <tr>
-                            <td class="border px-4 py-2 text-center" colspan="8">Tidak ada data IRS.</td>
-                        </tr>
-                    @endforelse
-                        <tr>
-                            <td class="border px-4 py-2 font-bold">Total SKS : {{ $totalSKS }}</td>
-                        </tr>
+                    @endforeach
+                    <tr>
+                        <td class="border px-4 py-2 font-bold">IPS : {{ $maxIPS }}</td>
+                        <td class="border px-4 py-2 font-bold">IPK : {{ $maxIPK }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

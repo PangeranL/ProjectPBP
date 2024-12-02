@@ -105,8 +105,11 @@ Route::get('/buatIRS/{nim}/{smt}', [BuatIrsController::class, 'create'])->name('
 Route::post('/simpanIRS', [BuatIrsController::class, 'store'])->name('simpanIRS');
 Route::get('/editIRS/{nim}/{smt}/{kodeMK}', [BuatIrsController::class, 'edit'])->name('editIRS');
 Route::post('/updateIRS/{nim}/{smt}/{kodeMK}', [BuatIrsController::class, 'update'])->name('updateIRS');
-Route::get('/irs', [IRSController::class, 'index'])->name('irs');
-Route::get('/khs', [KHSController::class, 'index'])->name('khs');
+Route::get('/irs/{nim}/{smt}/{kodeMK}', [BuatirsController::class, 'destroy'])->name('irsDelete');
+Route::get('/lihatIRS', [IRSController::class, 'index'])->name('lihatIRS');
+Route::get('/DetailIRS/{nim}/{smt}', [IRSController::class, 'DetailIRS'])->name('DetailIRS');
+Route::get('/lihatKHS', [KHSController::class, 'index'])->name('lihatKHS');
+Route::get('/DetailKHS/{nim}/{smt}', [KHSController::class, 'DetailKHS'])->name('DetailKHS');
 Route::middleware('auth')->get('/dashboard/mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard');
 Route::middleware('auth')->group(function () {
     Route::get('/herregistrasi', [HerregistrasiController::class, 'index'])->name('herregistrasi.index');

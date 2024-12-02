@@ -125,5 +125,34 @@ class BuatIrsController extends Controller
     
         return redirect()->route('irsan', ['nim' => $nim, 'smt' => $smt])
             ->with('success', 'IRS berhasil diperbarui!');
-    }     
+    }
+
+    public function destroy($nim, $smt, $kodeMK)
+    {
+        // Cari data IRS berdasarkan kombinasi nim, smt, dan kodeMK
+        $irs = DB::table('irs')
+            ->where('nim', $nim)
+            ->where('smt', $smt)
+            ->where('kodeMK', $kodeMK);
+
+        if ($irs->exists()) {
+            // Hapus data IRS
+            $irs->delete();
+
+        $irsH = DB::table('irshasil')
+            ->where('nim', $nim)
+            ->where('smt', $smt);
+        }
+
+        if ($irsH->exists()) {
+            // Hapus data IRS
+            $irsH->delete();
+
+            return redirect()->route('irsan', ['nim' => $nim, 'smt' => $smt])
+                ->with('success', 'IRS berhasil dihapus!');
+        }
+
+        return redirect()->route('irsan', ['nim' => $nim, 'smt' => $smt])
+            ->with('error', 'IRS tidak ditemukan.');
+    }
 }

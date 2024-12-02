@@ -83,6 +83,8 @@
                             <span class="mr-2">Registrasi</span>
                         </button>
                         <a class="text-sm font-bold text-black bg-green-600 py-2 rounded-lg w-full flex items-center pl-5 space-x-3" href="{{ route('irsan', ['nim' => $mhs->nim, 'smt' => $mhs->smt]) }}">Buat IRS</a>
+                        <a class="text-sm font-bold text-black bg-green-600 py-2 rounded-lg w-full flex items-center pl-5 space-x-3" href="{{ route('lihatIRS') }}">Lihat IRS</a>
+                        <a class="text-sm font-bold text-black bg-green-600 py-2 rounded-lg w-full flex items-center pl-5 space-x-3" href="{{ route('lihatKHS') }}">Lihat KHS</a>
                     </div>
                 </div>
             </div>

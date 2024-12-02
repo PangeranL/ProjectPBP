@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIKAT - Verifikasi IRS</title>
+    <title>Detail IRS</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-100">
@@ -12,16 +12,6 @@
             <img src="{{ asset('images/UNDIP.png') }}" alt="Universitas Diponegoro" class="w-14 mr-2">
             <h1 class="text-xl">DIPONEGORO UNIVERSITY</h1>
         </div>
-        @if(session('success'))
-            <div class="bg-green-500 text-white p-4 mb-4 rounded">
-                {{ session('success') }}
-            </div>
-        @endif
-        @if(session('error'))
-            <div class="bg-red-500 text-white p-4 mb-4 rounded">
-                {{ session('error') }}
-            </div>
-        @endif
         <div class="relative">
             <!-- Profile Section -->
             <button onclick="toggleDropdown()" class="flex items-center focus:outline-none">
@@ -35,14 +25,9 @@
             </div>
         </div>
     </div>
-    <!-- Main Content -->
     <div class="mt-24 px-8">
-        <!-- Verifikasi IRS Section -->
+        <h2 class="text-lg font-bold mb-4">Daftar IRS untuk NIM: {{ $nim }}, Semester: {{ $smt }}</h2>
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-lg font-bold mb-4">IRS Dibuat</h3>
-            <div class="flex justify-end mt-5 mb-5">
-                <a href="{{ route('buatIRS', ['nim' => $nim, 'smt' => $smt]) }}" class="flex bg-green-700 justify-center text-white w-28 py-2 x-4 rounded shadow mb-5">Tambah IRS</a>
-            </div>
             <table class="table-auto w-full text-left border-collapse">
                 <thead>
                     <tr>
@@ -52,7 +37,6 @@
                         <th class="border px-4 py-2">Ruang</th>
                         <th class="border px-4 py-2">Hari</th>
                         <th class="border px-4 py-2">Jam</th>
-                        <th class="border px-4 py-2">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,14 +48,10 @@
                             <td class="border px-4 py-2">{{ $irs->ruang }}</td>
                             <td class="border px-4 py-2">{{ $irs->jadwal->hari }}</td>
                             <td class="border px-4 py-2">{{ $irs->jadwal->mulai }}-{{ $irs->jadwal->selesai }}</td>
-                            <td class="border px-4 py-2">
-                                <a class="text-blue-500" href="{{ route('editIRS', ['nim' => $nim, 'smt' => $smt, 'kodeMK' => $irs->kodeMK]) }}">Edit</a><br>
-                                <a class="text-red-500" href="{{ route('irsDelete', ['nim' => $nim, 'smt' => $smt, 'kodeMK' => $irs->kodeMK]) }}">Delete</a>
-                            </td>
                         </tr>
                     @empty
                         <tr>
-                            <td class="border px-4 py-2 text-center" colspan="8">Tidak ada data IRS.</td>
+                            <td class="border px-4 py-2 text-center" colspan="5">Tidak ada data IRS.</td>
                         </tr>
                     @endforelse
                         <tr>
@@ -79,6 +59,9 @@
                         </tr>
                 </tbody>
             </table>
+            <div class="flex justify-end mt-5">
+                <a class="bg-green-700 justify-center text-white px-4 py-2 rounded shadow mb-5 w-20" href="{{ route('lihatIRS') }}">Kembali</a>
+            </div>
         </div>
     </div>
     <!-- Footer -->
@@ -86,19 +69,19 @@
         <h3 class="text-center">TIM IT SIKAT © 2024 UNDIP, All Right Reserved.</h3>
     </div>
     <script>
-        function toggleDropdown() {
-            const dropdown = document.getElementById('dropdownMenu');
-            dropdown.classList.toggle('hidden');
-        }
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdownMenu');
+        dropdown.classList.toggle('hidden');
+    }
 
-        // Close dropdown when clicking outside
-        window.addEventListener('click', function (e) {
-            const dropdown = document.getElementById('dropdownMenu');
-            const button = dropdown.previousElementSibling;
-            if (!dropdown.contains(e.target) && !button.contains(e.target)) {
-                dropdown.classList.add('hidden');
-            }
-        });
+    // Close dropdown when clicking outside
+    window.addEventListener('click', function (e) {
+        const dropdown = document.getElementById('dropdownMenu');
+        const button = dropdown.previousElementSibling;
+        if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
     </script>
 </body>
 </html>
