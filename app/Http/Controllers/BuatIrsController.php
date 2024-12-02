@@ -7,7 +7,7 @@ use App\Models\irs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class BuatirsController extends Controller
+class BuatIrsController extends Controller
 {
 
     public function irsan($nim, $smt){

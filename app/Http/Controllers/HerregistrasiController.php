@@ -41,13 +41,13 @@ class HerregistrasiController extends Controller
             'nim' => 'required|exists:mahasiswa,nim', // NIM harus ada di tabel mahasiswa
             'status' => 'required|in:aktif,cuti,tidak_aktif', // Validasi status
         ]);
-
+    
         // Update status mahasiswa
-        $updated = Mahasiswa::where('nim', $request->input('nim'))->update([
+        Mahasiswa::where('nim', $request->input('nim'))->update([
             'status' => $request->input('status'),
         ]);
-
-        // Redirect dengan pesan
-        return redirect()->back();
+    
+        // Redirect ke dashboard dengan pesan sukses
+        return redirect()->route('dashboard')->with('success', 'Status berhasil diperbarui.');
     }
 }

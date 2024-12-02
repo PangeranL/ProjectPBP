@@ -72,17 +72,17 @@
             </div>
 
             <div class="container mx-auto w-1/2 ml-1 p-7">
-                <div class="bg-[#80AF81] rounded-lg shadow-md p-6">
-                    <h1 class="text-2xl font-bold text-white mb-4">LAYANAN AKADEMIK</h1>
+                <div class="bg-[#fcfcfc] rounded-lg shadow-md p-6">
+                    <h1 class="text-2xl font-bold text-black mb-4">AKADEMIK</h1>
                     <div class="grid grid-cols-2 gap-4">
                         <!-- List Ruang Kuliah -->
-                        <button onclick="window.location.href='{{ url('/herregistrasi') }}'" class="text-sm font-bold text-white bg-green-600 py-2 rounded-lg w-full flex items-center space-x-3">
+                        <button onclick="window.location.href='{{ url('/herregistrasi')}}'" class="text-sm font-bold text-black bg-green-600 py-2 rounded-lg w-full flex items-center space-x-3">
                             <!-- Logo Gambar di sebelah kiri -->
-                            <img src="{{ asset('images/list.png')}}" alt="Logo" class="w-12 h-12">
+                            <img src="{{ asset('images/list.png') }}" alt="Logo" class="w-12 h-12">
                             <!-- Teks nempel kanan -->
-                            <span class="mr-2">Her Registrasi</span>
+                            <span class="mr-2">Registrasi</span>
                         </button>
-                        <a class="text-sm font-bold text-white bg-green-600 py-2 rounded-lg w-full flex items-center pl-5 space-x-3" href="{{ route('irsan', ['nim' => $mhs->nim, 'smt' => $mhs->smt]) }}">Buat IRS</a>
+                        <a class="text-sm font-bold text-black bg-green-600 py-2 rounded-lg w-full flex items-center pl-5 space-x-3" href="{{ route('irsan', ['nim' => $mhs->nim, 'smt' => $mhs->smt]) }}">Buat IRS</a>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="bg-green-700 text-white p-4 shadow-md text-center">
+    <div class="bg-green-700 text-white container mx-auto p-6 rounded-lg shadow-md text-center">
         <p>TIM IT SIKAT © 2024 UNDIP, All rights reserved.</p>
     </div>
 </body>
