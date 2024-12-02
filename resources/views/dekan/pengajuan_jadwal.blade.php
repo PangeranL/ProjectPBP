@@ -44,10 +44,10 @@
     <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-4">
         <div class="w-1/4 text-center text-sm">Informatika</div>
         <div class="w-1/4 text-center">
-            <a href="/detail-list-ruang-kuliah" 
+            <button onclick="window.location.href='{{ url('/jadwal')}}'"
             class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
             Detail
-            </a>
+            </button>
         </div>
     </div>
     

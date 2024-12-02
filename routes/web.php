@@ -79,8 +79,17 @@ Route ::get('/bagianAkademik/list_ruang_kuliah', function(){
 ;
 use App\Http\Controllers\RuangController;
 
+use App\Models\jadwal;
+
 Route::get('/ruang', [RuangController::class, 'index'])->name('ruang.index');
 Route::post('/ruang', [RuangController::class, 'store'])->name('ruang.store');
+use App\Http\Controllers\JadwalController;
+
+// Route for displaying the list of jadwals (Pengajuan Jadwal Kuliah)
+Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
+
+// Route for updating the status of a specific jadwal
+Route::post('/jadwal/{id}/update-status', [JadwalController::class, 'updateStatus'])->name('jadwal.updateStatus');  
 
 
 use App\Http\Controllers\UpdateStatusRuangController;
