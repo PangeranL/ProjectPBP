@@ -9,22 +9,16 @@ class Ruang extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'name'; 
+    protected $primaryKey = 'nama'; 
 
     public $incrementing = false;
     protected $keyType = 'string';
 
+    public $timestamp = false;
+
     protected $table = 'ruang';
 
     protected $fillable = [
-        'nama',   
-        'prodi',
-        'kuota',
+        'nama',      
     ];
-
-    // Define relationship with 'Prodi' model
-    public function prodi()
-    {
-        return $this->belongsTo(Prodi::class);
-    }
 }

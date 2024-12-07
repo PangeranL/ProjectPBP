@@ -54,9 +54,17 @@
                         <!-- Teks nempel kanan -->
                         <span class="mr-2">PENGAJUAN RUANG KULIAH</span>
                     </button>
+                    <button onclick="window.location.href='{{ url('/ruangs')}}'"" class="text-sm font-bold text-white bg-green-600 py-2 rounded-lg w-full flex items-center space-x-3">
+                        <!-- Logo Gambar di sebelah kiri -->
+                        <img src="{{ asset('images/list.png')}}" alt="Logo" class="w-12 h-12">
+                        <!-- Teks nempel kanan -->
+                        <span class="mr-2">LIST RUANG KULIAH</span>
+                    </button>
                 </div>
             </div>
         </div>
+
+        
         
 
         <!-- Footer -->

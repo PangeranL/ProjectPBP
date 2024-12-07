@@ -11,6 +11,7 @@ use App\Http\Controllers\PAController;
 use App\Http\Controllers\inputMKController;
 use App\Http\Controllers\inputJDController;
 use App\Http\Controllers\KaprodiController;
+use App\Http\Controllers\KelolaRuangController;
 
 
 /*
@@ -76,7 +77,21 @@ Route ::get('/bagianAkademik/list_ruang_kuliah', function(){
     return view('bagianAkademik.list_ruang_kuliah');
 });
 
-;
+Route ::get('/bagianAkademik/pengajuan_ruang_kuliah', function(){
+    return view('bagianAkademik.pengajuan_ruang_kuliah');
+});
+
+
+
+/*Bagian Akademik*/
+Route::get('/ruangs', [KelolaRuangController::class, 'getRuang'])->name('ruang.index');
+Route::post('tambah/ruangs', [KelolaRuangController::class, 'store'])->name('ruangs.store');
+Route::delete('/ruangs/{name}', [KelolaRuangController::class, 'destroy'])->name('ruang.destroy');
+Route::put('/ruang/{nama}', [KelolaRuangController::class, 'update'])->name('ruangs.update');
+
+
+
+
 use App\Http\Controllers\RuangController;
 
 use App\Models\jadwal;
