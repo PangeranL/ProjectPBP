@@ -491,7 +491,6 @@ class DatabaseSeeder extends Seeder
             'nim' => '24160122131000',
             'kodeMK'=> 'PAIK3201',
             'kelas' => 'C',
-            'totalSKS' => 4,
             'ruang' => 'A303',
             'status' => 1,
         ]);
@@ -501,7 +500,6 @@ class DatabaseSeeder extends Seeder
             'smt' => 4,
             'nim' => '24160122131000',
             'kelas' => 'A',
-            'totalSKS' => 3,
             'ruang' => 'A303',
             'status' => 1,
         ]);
@@ -511,7 +509,6 @@ class DatabaseSeeder extends Seeder
             'kelas' => 'D',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 2,
             'ruang' => 'A303',
             'status' => 1,
         ]);
@@ -521,7 +518,6 @@ class DatabaseSeeder extends Seeder
             'kelas' => 'A',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 4,
             'ruang' => 'E101',
             'status' => 1,
         ]);
@@ -531,7 +527,6 @@ class DatabaseSeeder extends Seeder
             'kelas' => 'C',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 2,
             'ruang' => 'A303',
             'status' => 1,
         ]);
@@ -541,7 +536,6 @@ class DatabaseSeeder extends Seeder
             'kelas' => 'A',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 1,
             'ruang' => 'A303',
             'status' => 1,
         ]);
@@ -551,7 +545,6 @@ class DatabaseSeeder extends Seeder
             'kelas' => 'A',
             'smt' => 4,
             'nim' => '24160122131000',
-            'totalSKS' => 3,
             'ruang' => 'A303',
             'status' => 1,
         ]);
@@ -619,7 +612,7 @@ class DatabaseSeeder extends Seeder
             'ipk' => '1.90',
         ]);
 
-        $irshasil = irshasil::create([
+        /*$irshasil = irshasil::create([
             'smt' => 5,
             'nim' => '24160122131000',
         ]);
@@ -629,7 +622,6 @@ class DatabaseSeeder extends Seeder
             'nim' => '24160122131000',
             'kodeMK'=> 'PAIK6404',
             'kelas' => 'A',
-            'totalSKS' => 3,
             'ruang' => 'A303',
         ]);
 
@@ -638,8 +630,7 @@ class DatabaseSeeder extends Seeder
             'smt' => 5,
             'nim' => '24160122131000',
             'kelas' => 'D',
-            'totalSKS' => 3,
             'ruang' => 'A303',
-        ]);
+        ]);*/
     }
 }

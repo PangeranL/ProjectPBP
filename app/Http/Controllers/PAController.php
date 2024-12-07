@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\khs;
 use App\Models\irs;
 use App\Models\irshasil;
-use App\Models\matakuliah;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PAController extends Controller
@@ -22,7 +20,10 @@ class PAController extends Controller
 
     public function isiIRS($nim, $smt){
         $isi = irs::with('jadwal.matakuliah')->where('nim', $nim)->where('smt', $smt)->get();
-        return view('pembimbingakademik.verifIRS', compact('isi', 'nim', 'smt'));
+        $totalSKS = $isi->sum(function($irs){
+            return $irs->jadwal->matakuliah->sks;
+        });
+        return view('pembimbingakademik.verifIRS', compact('isi', 'nim', 'smt', 'totalSKS'));
     }
 
     public function IRSterverifikasi(Request $request){

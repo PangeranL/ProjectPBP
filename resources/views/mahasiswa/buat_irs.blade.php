@@ -8,273 +8,140 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-100">
-    <div class="container mx-auto p-6">
-        <!-- Header -->
-        <div class="bg-green-700 text-white p-4 rounded-lg shadow-md flex justify-between items-center">
-            <h1 class="text-xl font-bold">UNIVERSITAS DIPONEGORO</h1>
-            <div class="flex items-center">
+    <div class="bg-green-700 h-20 flex justify-between items-center px-8 text-white fixed w-full top-0">
+        <div class="flex items-center">
+            <img src="{{ asset('images/UNDIP.png') }}" alt="Universitas Diponegoro" class="w-14 mr-2">
+            <h1 class="text-xl">DIPONEGORO UNIVERSITY</h1>
+        </div>
+        <div class="relative">
+            <!-- Profile Section -->
+            <button onclick="toggleDropdown()" class="flex items-center focus:outline-none">
                 <span class="mr-4">Kim Dokja</span>
                 <img class="w-10 h-10 rounded-full" src="https://i.pinimg.com/736x/ca/41/96/ca419684a96c3f255a8981444e6b9c89.jpg" alt="User Avatar">
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded shadow-lg">
+                <a type="submit" class="block w-full text-left px-4 py-2 hover:bg-green-100" href="/logout">Logout</a>
             </div>
-        </div>
-
-        <!-- Tabs Navigation -->
-        <div class="bg-white mt-4 p-6 rounded-lg shadow-md">
-            <nav class="flex space-x-4">
-                <a href="{{ route('buat_irs') }}" class="{{ request()->is('buat_irs') ? 'text-green-700 font-semibold' : 'text-gray-600 hover:text-green-700' }}">Buat IRS</a>
-                <a href="{{ route('irs') }}" class="{{ request()->is('irs') ? 'text-green-700 font-semibold' : 'text-gray-600 hover:text-green-700' }}">IRS</a>
-                <a href="{{ route('khs') }}" class="{{ request()->is('khs') ? 'text-green-700 font-semibold' : 'text-gray-600 hover:text-green-700' }}">KHS</a>
-            </nav>
-        </div>
-
-        <!-- Informasi Mahasiswa -->
-        <div class="bg-white mt-4 p-6 rounded-lg shadow-md">
-            <div class="mb-4">
-                <p><strong>Nama:</strong> Kim Dokja</p>
-                <p><strong>NIM:</strong> 11076120603764</p>
-                <p><strong>Tahun Ajaran:</strong> 2024/2025</p>
-                <p><strong>Semester:</strong> XX</p>
-                <p><strong>IPK:</strong> 4.00</p>
-                <p><strong>IPS:</strong> 4.00</p>
-                <p><strong>Max Beban SKS:</strong> 24</p>
-            </div>
-
-            <!-- Pilihan Mata Kuliah -->
-            <div class="flex">
-                <div class="w-1/3 pr-4">
-                    <select class="w-full p-2 border border-gray-300 rounded mb-4">
-                        <option>Pilih Mata Kuliah Wajib</option>
-                        <option>Pembelajaran Mesin - SMT 5 - PAI6065 (3 SKS)</option>
-                        <option>Proyek Perangkat Lunak - SMT 5 - PAI6066 (3 SKS)</option>
-                        <option>Komputasi Tersebar Dan Pararel - SMT 5 - PAI6067 (3 SKS)</option>
-                    </select>
-
-                    <ul class="space-y-2">
-                        <li class="bg-gray-100 p-4 rounded shadow-md flex justify-between items-center">
-                            <div>
-                                <p>Pembelajaran Mesin</p>
-                                <p>SMT 5 - PAI6065 (3 SKS)</p>
-                            </div>
-                            <button class="text-green-700">👁️</button>
-                        </li>
-                        <li class="bg-gray-100 p-4 rounded shadow-md flex justify-between items-center">
-                            <div>
-                                <p>Pembelajaran Mesin</p>
-                                <p>SMT 5 - PAI6065 (3 SKS)</p>
-                            </div>
-                            <button class="text-green-700">👁️</button>
-                        </li>
-                    </ul>
-
-                    <select class="w-full p-2 border border-gray-300 rounded mt-4">
-                        <option>Pilih Mata Kuliah Perbaikan</option>
-                        <option>Logika Informatika - SMT 1 - PAI6050 (3 SKS)</option>
-                    </select>
-
-                    <select class="w-full p-2 border border-gray-300 rounded mt-4">
-                        <option>Pilih Mata Kuliah Pilihan</option>
-                        <option>Teori Bahasa Dan Otomata - SMT 7 - PAI6068 (3 SKS)</option>
-                    </select>
-
-                    <button class="bg-green-700 text-white w-full p-2 rounded mt-4">Ajukan IRS</button>
-                </div>
-                
-                <!-- Jadwal Kuliah -->
-                <div class="w-2/3">
-                    <table class="w-full table-fixed border-collapse border border-gray-300">
-                        <thead>
-                            <tr>
-                                <th class="border border-gray-300 p-2">Waktu</th>
-                                <th class="border border-gray-300 p-2">Senin</th>
-                                <th class="border border-gray-300 p-2">Selasa</th>
-                                <th class="border border-gray-300 p-2">Rabu</th>
-                                <th class="border border-gray-300 p-2">Kamis</th>
-                                <th class="border border-gray-300 p-2">Jumat</th>
-                                <th class="border border-gray-300 p-2">Sabtu</th>
-                                <th class="border border-gray-300 p-2">Minggu</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border border-gray-300 p-2">07:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">08:00</td>
-                                <td class="border border-gray-300 p-2 bg-green-300">Pembelajaran Mesin - Kelas A <br> 09:00-11:15</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">09:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">10:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">11:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">12:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">13:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">14:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">15:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">16:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">17:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">18:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">19:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">20:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">21:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">22:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-300 p-2">23:00</td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                                <td class="border border-gray-300 p-2"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="mt-6 bg-green-700 text-white p-4 rounded-lg shadow-md text-center">
-            <p>TIM IT SIKAT © 2024 UNDIP, All rights reserved.</p>
         </div>
     </div>
+    @if(session('success'))
+        <div class="bg-green-500 text-white p-3 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="bg-red-500 text-white p-3 rounded mb-4">
+            {{ session('error') }}
+        </div>
+    @endif
+    <!-- Main Content -->
+    <div class="mt-24 px-8">
+        <!-- Verifikasi IRS Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold text-black mb-4">Buat IRS</h3>
+            <div class="bg-white mt-4 p-6 rounded-lg shadow-md">
+                <form action="{{ route('simpanIRS') }}" method="POST">
+                    @csrf
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold">NIM</label>
+                        <input type="text" name="nim" value="{{ $nim }}" class="border p-2 rounded w-full" readonly>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold">Semester</label>
+                        <input type="text" name="smt" value="{{ $smt }}" class="border p-2 rounded w-full" readonly>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="kodeMK" class="block text-gray-700 font-semibold">Mata Kuliah</label>
+                        <select name="kodeMK" id="kodeMK" class="border p-2 rounded w-full" required>
+                            <option value="" disabled selected>Pilih Mata Kuliah</option>
+                            @foreach($jadwals->groupBy('kodeMK') as $kodeMK => $jadwalsByKodeMK)
+                                <option value="{{ $kodeMK }}" 
+                                    data-kelas="{{ $jadwalsByKodeMK->pluck('kelas')->join(',') }}" data-ruang="{{ $jadwalsByKodeMK->pluck('ruang')->join(',') }}">
+                                    {{ $jadwalsByKodeMK->first()->matakuliah->namaMK }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="kelas" class="block text-gray-700 font-semibold">Kelas</label>
+                        <select name="kelas" id="kelas" class="border p-2 rounded w-full" required>
+                            <option value="" disabled selected>Pilih Kelas</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="ruang" class="block text-gray-700 font-semibold">Ruang</label>
+                        <select name="ruang" id="ruang" class="border p-2 rounded w-full" required>
+                            <option value="" disabled selected>Pilih Ruang</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="bg-green-700 text-white py-2 px-4 rounded w-full">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="bg-green-700 text-white h-16 flex items-center justify-center fixed bottom-0 w-full">
+        <h3 class="text-center">TIM IT SIKAT © 2024 UNDIP, All Right Reserved.</h3>
+    </div>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function (e) {
+            const dropdown = document.getElementById('dropdownMenu');
+            const button = dropdown.previousElementSibling;
+            if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const mataKuliahSelect = document.getElementById('kodeMK');
+            const kelasSelect = document.getElementById('kelas');
+            const ruangSelect = document.getElementById('ruang');
+
+            mataKuliahSelect.addEventListener('change', function () {
+                const selectedOption = this.options[this.selectedIndex];
+                const kelasData = selectedOption.getAttribute('data-kelas');
+                const ruangData = selectedOption.getAttribute('data-ruang');
+
+                // Bersihkan opsi sebelumnya
+                kelasSelect.innerHTML = '<option value="" disabled selected>Pilih Kelas</option>';
+                ruangSelect.innerHTML = '<option value="" disabled selected>Pilih Ruang</option>';
+
+                // Tambahkan opsi baru berdasarkan data-jadwal
+                if (kelasData) {
+                    const kelasList = kelasData.split(',');
+                    kelasList.forEach(kelas => {
+                        const option = document.createElement('option');
+                        option.value = kelas;
+                        option.textContent = kelas;
+                        kelasSelect.appendChild(option);
+                    });
+                }
+
+                if (ruangData) {
+                    const ruangList = ruangData.split(',');
+                    ruangList.forEach(ruang => {
+                        const option = document.createElement('option');
+                        option.value = ruang;
+                        option.textContent = ruang;
+                        ruangSelect.appendChild(option);
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -32,6 +32,11 @@ class khs extends Model
         });
     }
 
+    public function mahasiswa()
+    {
+        return $this->belongsTo(irs::class, 'nim', 'nim');
+    }
+
     public function irs()
     {
         return $this->belongsTo(irs::class, 'kodeMK', 'kodeMK');

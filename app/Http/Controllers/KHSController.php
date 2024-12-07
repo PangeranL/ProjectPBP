@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\khs;
+
 class KHSController extends Controller
 {
     public function index()
     {
-        $semesters = [
-            ['title' => 'Semester - 1 | Tahun Ajaran 2022/2023 Ganjil', 'sks' => 'SKS 24'],
-            ['title' => 'Semester - 2 | Tahun Ajaran 2022/2023 Genap', 'sks' => 'SKS 24'],
-            ['title' => 'Semester - 3 | Tahun Ajaran 2023/2024 Ganjil', 'sks' => 'SKS 24'],
-            ['title' => 'Semester - 4 | Tahun Ajaran 2023/2024 Genap', 'sks' => 'SKS 24'],
-            ['title' => 'Semester - 5 | Tahun Ajaran 2024/2025 Ganjil', 'sks' => 'SKS 24'],
-        ];
+        $khs = khs::select('nim', 'smt')
+            ->groupBy('nim', 'smt')
+            ->get();
+    
+        return view('mahasiswa.lihatKHS', compact('khs'));
+    }
+    
 
-        return view('mahasiswa.khs', compact('semesters'));
+    public function DetailKHS($nim, $smt) {
+        $KHSbefore = khs::with('irs.jadwal.matakuliah')->where('smt', $smt)->get();
+        $maxIPS = $KHSbefore->max('ips');
+        $maxIPK = $KHSbefore->max('ipk');
+        return view('mahasiswa.DetailKHS', compact('KHSbefore', 'nim', 'smt', 'maxIPS', 'maxIPK'));
     }
 }

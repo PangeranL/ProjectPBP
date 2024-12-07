@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifikasi IRS</title>
+    <title>Detail IRS</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-100">
@@ -15,8 +15,8 @@
         <div class="relative">
             <!-- Profile Section -->
             <button onclick="toggleDropdown()" class="flex items-center focus:outline-none">
-                <span class="mr-4">Doel</span>
-                <img class="w-10 h-10 rounded-full" src="{{ asset('images/dora.jpg') }}" alt="User Avatar">
+                <span class="mr-4">Kim Dokja</span>
+                <img class="w-10 h-10 rounded-full" src="https://i.pinimg.com/736x/ca/41/96/ca419684a96c3f255a8981444e6b9c89.jpg" alt="User Avatar">
             </button>
 
             <!-- Dropdown Menu -->
@@ -59,22 +59,8 @@
                         </tr>
                 </tbody>
             </table>
-            <div class="flex justify-end mt-5 space-x-5">
-                <div class="flex bg-green-900 justify-center text-white w-20 py-2 x-4 rounded shadow mb-5">
-                    <a href="{{ route('lihatKHS', ['nim' => $irs->nim, 'smt' => $irs->smt-1]) }}">Lihat KHS</a>
-                </div>
-                <form action="{{ route('IRSterverifikasi') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="nim" value="{{ $irs->nim }}">
-                    <input type="hidden" name="smt" value="{{ $irs->smt }}">
-                    <button type="submit" name="status" value="1" class="flex bg-green-700 justify-center text-white w-20 py-2 px-4 rounded shadow mb-5">Setuju</button>
-                </form>
-                <form action="{{ route('IRSterverifikasi') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="nim" value="{{ $irs->nim }}">
-                    <input type="hidden" name="smt" value="{{ $irs->smt }}">
-                    <button type="submit" name="status" value="0" class="flex bg-red-700 justify-center w-20 text-white py-2 px-4 rounded shadow mb-5">Tolak</button>
-                </form>
+            <div class="flex justify-end mt-5">
+                <a class="bg-green-700 justify-center text-white px-4 py-2 rounded shadow mb-5 w-20" href="{{ route('lihatIRS') }}">Kembali</a>
             </div>
         </div>
     </div>
