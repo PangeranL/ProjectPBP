@@ -51,10 +51,10 @@
             </div>
         </div>
         
-        <div class="bg-[#ffffff] rounded-lg shadow-md p-4 w-3/4 mt-10 mx-auto">
+        <div class="bg-[#ffffff] rounded-lg shadow-md p-4 w-3/4 mt-7 mx-auto">
             <!-- Table Data -->
             @foreach ($reqRuangs as $reqRuang)
-                <div class="flex justify-between items-center text-black text-sm py-2 mt-5">
+                <div class="flex justify-between items-center text-black text-sm py-1">
                     <div class="w-1/4 text-center">{{ $reqRuang->prodi }}</div>
                     <div class="w-1/4 text-center">{{ $reqRuang->nama }}</div>
                     <div class="w-1/4 text-center">{{ $reqRuang->kuota }}</div>
