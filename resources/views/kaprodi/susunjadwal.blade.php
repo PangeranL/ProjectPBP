@@ -9,6 +9,7 @@
 </head>
 <body class="bg-gray-100" style = "overflow: hidden">
     <div class="flex flex-col md:flex-row">
+
 <!-- Sidebar -->
 <div class="w-full md:w-1/4 h-full md:h-screen p-5 flex flex-col" style = "background-color: #80AF81">
             <div class="flex ">
@@ -19,6 +20,7 @@
                         <div class="text-white text-xs mb-8 text-center">Sistem Informasi Kuliah Akademik Terpadu<br>Universitas Diponegoro</div>
                     </div>
             </div>
+            
             <nav class="space-y-4 text-white text-lg">
                 <a href="/Dashboard" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/dashboard.png">
@@ -48,84 +50,66 @@
                     <img src="/images/atur.png" style="width: 35px" alt="">
                     <p class="font-semibold" style="color: #508D4E; font-size: 20px; margin-left: 5px">Pengaturan Jadwal Kuliah</p>
                 </div>
+                <form action="/kaprodi/susunjadwal/store" method="POST">
+                @csrf  
                 <div class="w-full h-1 mt-4" style="border: 2px solid #508D4E;"></div>
-                
-                     <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Tahun Ajaran
-                        <select name="" id="" style="width: 30%; margin-left: 100px">
-                            <option value="">Semester Ganjil 2025/2026</option>
-                            <option value="">Semester Genap 2025/2026</option>
-                        </select>
+                    <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Tahun Ajar
+                        <input type="text" name="thnAjar" id="thnAjar" style="margin-left: 152.5px; width: 30%">
                     </div>
 
-
-                    <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Semester
-                        <select name="" id="" style="width: 30%; margin-left: 126px">
-                            <option value="">Semester 1</option>
-                            <option value="">Semester 2</option>
-                            <option value="">Semester 3</option>
-                        </select>
+                    <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Kode Mata Kuliah
+                    <input type="text" name="kodeMK" id="kodeMK" style="margin-left: 152.5px; width: 30%">
                     </div>
-
-
-                    <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Mata Kuliah
-                        <select name="" id="" style="width: 30%; margin-left: 110.5px">
-                            <option value="">Basis Data</option>
-                            <option value="">Algoritma Pemrograman</option>
-                            <option value="">Dasar Pemrograman</option>
-                        </select>
-                    </div>
-
                     <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Kelas
-                        <select name="" id="" style="width: 30%; margin-left: 157px">
-                            <option value="">A</option>
-                            <option value="">B</option>
-                            <option value="">C</option>
-                            <option value="">D</option>
-                            <option value="">E</option>
+                        <select name="kelas" id="kelas" style="width: 30%; margin-left: 157px">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
                         </select>
                     </div>
                     
                     <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Hari
-                        <select name="" id="" style="width: 30%; margin-left: 166.5px">
-                            <option value="">Senin</option>
-                            <option value="">Selasa</option>
-                            <option value="">Rabu</option>
-                            <option value="">Kamis</option>
-                            <option value="">Jumat</option>
+                        <select name="hari" id="hari" style="width: 30%; margin-left: 166.5px">
+                            <option value="Senin">Senin</option>
+                            <option value="Selasa">Selasa</option>
+                            <option value="Rabu">Rabu</option>
+                            <option value="Kamis">Kamis</option>
+                            <option value="Jumat">Jumat</option>
                         </select>
                     </div>
 
 
                     <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Ruang
-                        <select name="" id="" style="width: 30%; margin-left: 150px">
-                            <option value="">E101</option>
-                            <option value="">E102</option>
-                            <option value="">E103</option>
-                            <option value="">K101</option>
-                            <option value="">K102</option>
-                            <option value="">K202</option>
+                        <select name="ruang" id="ruang" style="width: 30%; margin-left: 150px">
+                           @forelse($ruang as $item)
+                            <option value="{{$item -> nama}}">{{$item -> nama}}</option>
+                        @empty
+                        tidak ada data
+                        @endforelse
                         </select>
                     </div>
 
                     <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;" >Kuota
-                    <input type="number" name="" id="" style="margin-left: 152.5px; width: 30%">
+                        <input type="number" name="kuota" id="kuota" style="margin-left: 152.5px; width: 30%">
                     </div>
                     
                     <div>
                         <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Waktu Mulai
-                        <input type="time" style="width: 30%; margin-left: 105px">
+                        <input type="time" name="mulai" id="mulai" style="width: 30%; margin-left: 105px">
                         </div>
                         <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Waktu Selesai
-                        <input type="time" style="width: 30%; margin-left: 92px">
+                        <input type="time" name="selesai" id="selesai" style="width: 30%; margin-left: 92px">
                         </div>
                     <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2" style="margin-left:10px; margin-top: 40px">   
-                        <a href="{{route('kaprodi.tablejadwal')}}"class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">TAMBAH JADWAL</a>
+                        <button type="submit" class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full">TAMBAH JADWAL</button>
                     </div>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
-

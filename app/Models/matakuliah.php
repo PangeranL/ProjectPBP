@@ -25,23 +25,23 @@ class matakuliah extends Authenticatable
         'nidn_dosen3'
     ];
 
-    public function Jadwal()
+    public function jadwal()
     {
-        return $this->hasMany(jadwal::class);
+        return $this->hasMany(jadwal::class, 'kodeMK', 'kodeMK');
+    }    
+
+    public function dosen1()
+    {
+        return $this->belongsTo(Dosen::class, 'nidn_dosen1','nidn');
     }
 
-    public function Dosen()
+    public function dosen2()
     {
-        return $this->belongsTo(Dosen::class, 'nidn_dosen1', 'nidn');
+        return $this->belongsTo(Dosen::class, 'nidn_dosen2','nidn');
     }
 
-    public function pengampu2()
+    public function dosen3()
     {
-        return $this->belongsTo(Dosen::class, 'nidn_dosen2', 'nidn');
-    }
-
-    public function pengampu3()
-    {
-        return $this->belongsTo(Dosen::class, 'nidn_dosen2', 'nidn');
+        return $this->belongsTo(Dosen::class, 'nidn_dosen3','nidn');
     }
 }

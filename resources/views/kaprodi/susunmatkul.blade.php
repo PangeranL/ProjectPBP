@@ -9,6 +9,7 @@
 </head>
 <body class="bg-gray-100" style = "overflow: hidden">
     <div class="flex flex-col md:flex-row">
+        
 <!-- Sidebar -->
 <div class="w-full md:w-1/4 h-full md:h-screen p-5 flex flex-col" style = "background-color: #80AF81">
             <div class="flex ">
@@ -19,6 +20,7 @@
                         <div class="text-white text-xs mb-8 text-center">Sistem Informasi Kuliah Akademik Terpadu<br>Universitas Diponegoro</div>
                     </div>
             </div>
+
             <nav class="space-y-4 text-white text-lg">
                 <a href="/Dashboard" class="flex items-center space-x-2 hover:bg-green-400 p-2 rounded">
                     <img src="/images/dashboard.png">
@@ -125,4 +127,3 @@
     </div>
 </body>
 </html>
-
