@@ -67,14 +67,14 @@ class inputJDController extends Controller
         $jadwal_kuliah = jadwal::create([
             'thnAjar' => $request->thnAjar,
             'kodeMK' => $request->kodeMK,
-            'nidn' => $mataKuliah->nidn_dosen1, 
+            'nidn' => $mataKuliah->nidn_dosen1,
             'kelas' => $request->kelas,
             'hari' => $request->hari,
             'ruang' => $request->ruang,
             'kuota' => $request->kuota,
             'mulai' => $request->mulai,
             'selesai' => $request->selesai,
-            'status' => 'Pending', 
+            'status' => 'Pending',
         ]);
         // Redirect atau kirimkan respon sukses
         return redirect()->back();
@@ -110,26 +110,26 @@ class inputJDController extends Controller
     /**
      * Update status jadwal kuliah.
      */
-    // public function updateStatus(Request $request, $id)
+//     public function updateStatus(Request $request, $id)
     // {
-    //     // Validasi data yang diterima
-    //     $request->validate([
-    //         'status' => 'required|in:Pending,Disetujui,Ditolak',
-    //     ]);
+    //             // Validasi data yang diterima
+//             $request->validate([
+//                     'status' => 'required|in:Pending,Disetujui,Ditolak',
+//             ]);
 
-    //     // Ambil data jadwal berdasarkan ID
-    //     $jadwal = jadwal::find($id);
+//             // Ambil data jadwal berdasarkan ID
+//             $jadwal = jadwal::find($id);
 
-    //     if (!$jadwal) {
-    //         return response()->json(['message' => 'Jadwal tidak ditemukan!'], 404);
-    //     }
+//             if (!$jadwal) {
+//                     return response()->json(['message' => 'Jadwal tidak ditemukan!'], 404);
+//             }
 
-    //     // Update status jadwal
-    //     $jadwal->status = $request->status;
-    //     $jadwal->save();
+//             // Update status jadwal
+//             $jadwal->status = $request->status;
+//             $jadwal->save();
 
-    //     return redirect()->back();
-    // }
+//             return redirect()->back();
+//     }
 
     /**
      * Display the specified resour
@@ -166,17 +166,17 @@ class inputJDController extends Controller
     public function updateJadwal(Request $request, $id)
     {
         // Validasi input
-        $request->validate([
-            'kodeMK' => 'required|exists:matakuliah,kodeMK',
-            'kelas' => 'required|string',
-            'ruang' => 'required|string',
-            'hari' => 'required|string',
-            'mulai' => 'required|date_format:H:i',
-            'selesai' => 'required|date_format:H:i',
-            'kuota' => 'required|integer',
-        ]);
+    $request->validate([
+        'kodeMK' => 'required|exists:matakuliah,kodeMK',
+        'kelas' => 'required|string',
+                'ruang' => 'required|string',
+        'hari' => 'required|string',
+        'mulai' => 'required|date_format:H:i',
+        'selesai' => 'required|date_format:H:i',
+        'kuota' => 'required|integer',
+    ]);
     
-        // Perbarui kodeMK di tabel `irs` jika diperlukan
+    // Perbarui kodeMK di tabel `irs` jika diperlukan
         DB::table('irs')
             ->where('kodeMK', function ($query) use ($id) {
                 $query->select('kodeMK')
@@ -201,22 +201,21 @@ class inputJDController extends Controller
         // Perbarui data di tabel `jadwal`
         $updated = DB::table('jadwal')
             ->where('id', $id)
-            ->update([
-                'kodeMK' => $request->input('kodeMK'),
-                'kelas' => $request->input('kelas'),
-                'ruang' => $request->input('ruang'),
-                'hari' => $request->input('hari'),
-                'mulai' => $request->input('mulai'),
-                'selesai' => $request->input('selesai'),
-                'kuota' => $request->input('kuota'),
+->update([
+        'kodeMK' => $request->input('kodeMK'),
+        'kelas' => $request->input('kelas'),
+        'ruang' => $request->input('ruang'),
+        'hari' => $request->input('hari'),
+        'mulai' => $request->input('mulai'),
+        'selesai' => $request->input('selesai'),
+        'kuota' => $request->input('kuota'),
             ]);
     
         // Cek apakah ada perubahan
         if ($updated) {
             return redirect()->back()->with('success', 'Jadwal berhasil diperbarui!');
         } else {
-            return redirect()->back()->with('error', 'Jadwal gagal diperbarui!');
-        }
-    }
-}    
-
+    return redirect()->back()->with('error', 'Jadwal gagal diperbarui!');
+}
+}
+}
