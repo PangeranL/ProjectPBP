@@ -59,20 +59,19 @@
                     <td class="py-2 px-4 text-center">{{ $jadwal->selesai }}</td>
                     <td class="py-2 px-4 text-center">{{ ucfirst($jadwal->status) }}</td>
                     <td class="py-2 px-4 text-center">
-                    <td class="py-2 px-4 text-center">
-                    <form action="{{ route('jadwal.updateStatus', ['id' => $jadwal->id]) }}" method="POST" class="inline">
-                        @csrf
-                        @method('PATCH')
-                        <input type="hidden" name="status" value="approved">
-                        <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded">Setuju</button>
-                    </form>
-                    <form action="{{ route('jadwal.updateStatus', ['id' => $jadwal->id]) }}" method="POST" class="inline">
-                        @csrf
-                        @method('PATCH')
-                        <input type="hidden" name="status" value="rejected">
-                        <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded">Tolak</button>
-                    </form>
-                </td>
+                        <form action="{{ route('jadwal.updateStatus', ['id' => $jadwal->id]) }}" method="POST" class="inline">
+                            @csrf
+                            @method('PUT') <!-- Menggunakan metode PUT -->
+                            <input type="hidden" name="status" value="Disetujui">
+                            <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded">Setuju</button>
+                        </form>
+                        <form action="{{ route('jadwal.updateStatus', ['id' => $jadwal->id]) }}" method="POST" class="inline">
+                            @csrf
+                            @method('PUT') <!-- Menggunakan metode PUT -->
+                            <input type="hidden" name="status" value="Ditolak">
+                            <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded">Tolak</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -101,11 +101,7 @@ use App\Http\Controllers\JadwalController;
 
 // Route for displaying the list of jadwals (Pengajuan Jadwal Kuliah)
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
-Route::patch('/jadwal/{id}/status', [JadwalController::class, 'updateStatus'])->name('jadwal.updateStatus');
-
-// Route for updating the status of a specific jadwal
-Route::post('/jadwal/{id}/update-status', [JadwalController::class, 'updateStatus'])->name('jadwal.updateStatus');  
-
+Route::put('/jadwal/{id}/update-status', [JadwalController::class, 'updateStatus'])->name('jadwal.updateStatus');
 
 use App\Http\Controllers\UpdateStatusRuangController;
 
