@@ -37,16 +37,16 @@ class Dosen extends Model
 
     public function pengampu1()
     {
-        return $this->hasMany(matakuliah::class);
+        return $this->hasMany(matakuliah::class, nidn_dosen1);
     }
 
     public function pengampu2()
     {
-        return $this->hasMany(matakuliah::class);
+        return $this->hasMany(matakuliah::class, nidn_dosen2);
     }
 
     public function pengampu3()
     {
-        return $this->hasMany(matakuliah::class);
+        return $this->hasMany(matakuliah::class, nidn_dosen3);
     }
 }

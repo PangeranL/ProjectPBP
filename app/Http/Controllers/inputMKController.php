@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dosen;
 use App\Models\matakuliah;
+use App\Models\ruang;
 use Illuminate\Validation;
 use App\Http\Controllers\DB;
+
 
 class inputMKController extends Controller
 {
@@ -56,7 +58,7 @@ class inputMKController extends Controller
             'sks' => $request -> sks,
             'nidn_dosen1' => $request -> nidn_dosen1,
             'nidn_dosen2' => $request -> nidn_dosen2,
-            'nidn_dose3' => $request -> nidn_dosen3,
+            'nidn_dosen3' => $request -> nidn_dosen3,
         ]);
 
         return redirect('/kaprodi/inputMK');

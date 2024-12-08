@@ -122,8 +122,14 @@ Route::get('/Dashboard', [KaprodiController::class, 'index']);
 Route::get('/TabelMK', [KaprodiController::class, 'tabelmatkul']);
 Route::get('kaprodi/TabelJD', [KaprodiController::class, 'tabeljadwal'])->name('kaprodi.tablejadwal');
 Route::get('/SusunMK', [KaprodiController::class, 'susunmatkul']);
-Route::get('kaprodi/SusunJD', [KaprodiController::class, 'susunjadwal'])->name('kaprodi.susunjadwal');
+// Route::get('kaprodi/SusunJD', [KaprodiController::class, 'susunjadwal'])->name('kaprodi.susunjadwal');
 Route::resource('/kaprodi/inputMK', inputMKController::class);
 Route::post('/kaprodi/susunmatkul/store',[KaprodiController::class, 'store']);
+Route::post('/kaprodi/susunjadwal/store',[inputJDController::class, 'store']);
 Route::resource('/kaprodi/inputJD', inputJDController::class);
+Route::get('kaprodi/tabelkelas',[KaprodiController::class, 'tabelkelas'])->name('kaprodi.tabelkelas');
+// Route::POST('/kaprodi/inputJD', [inputJDController::class, 'store'])->name('inputJD.store');
+Route::get('/kaprodi/filter-jadwal', [inputJDController::class, 'filterByKodeMK'])->name('kaprodi.filter-jadwal');
+Route::get('/kaprodi/editJadwal/{kodeMK}', [inputJDController::class, 'edit'])->name('kaprodi.editJadwal');
+Route::put('/kaprodi/updateJadwal/{id}', [inputJDController::class, 'update'])->name('kaprodi.updateJadwal');
 
