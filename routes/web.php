@@ -83,7 +83,6 @@ Route ::get('/bagianAkademik/pengajuan_ruang_kuliah', function(){
 
 
 
-/*Bagian Akademik*/
 Route::get('/ruangs', [KelolaRuangController::class, 'getRuang'])->name('ruang.index');
 Route::post('tambah/ruangs', [KelolaRuangController::class, 'store'])->name('ruangs.store');
 Route::delete('/ruangs/{name}', [KelolaRuangController::class, 'destroy'])->name('ruang.destroy');
@@ -102,6 +101,7 @@ use App\Http\Controllers\JadwalController;
 
 // Route for displaying the list of jadwals (Pengajuan Jadwal Kuliah)
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
+Route::patch('/jadwal/{id}/status', [JadwalController::class, 'updateStatus'])->name('jadwal.updateStatus');
 
 // Route for updating the status of a specific jadwal
 Route::post('/jadwal/{id}/update-status', [JadwalController::class, 'updateStatus'])->name('jadwal.updateStatus');  
@@ -147,4 +147,3 @@ Route::get('kaprodi/tabelkelas',[KaprodiController::class, 'tabelkelas'])->name(
 Route::get('/kaprodi/filter-jadwal', [inputJDController::class, 'filterByKodeMK'])->name('kaprodi.filter-jadwal');
 Route::get('/kaprodi/editJadwal/{kodeMK}', [inputJDController::class, 'edit'])->name('kaprodi.editJadwal');
 Route::put('/kaprodi/updateJadwal/{id}', [inputJDController::class, 'update'])->name('kaprodi.updateJadwal');
-
