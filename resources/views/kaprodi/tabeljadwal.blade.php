@@ -107,7 +107,7 @@
                         <td class="border px-4 py-2">{{$value -> sks}}</td>
                         <td class="border px-4 py-2">{{$value -> semester}}</td>
                         <td class="border px-4 py-2">
-                            <a href="/kaprodi/input" class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full" style="margin-top: 10px">Detail</a>
+                            <a href="/kaprodi/tabelkelas" class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full" style="margin-top: 10px">Detail</a>
                         </td>
                     </tr>
                     @empty
