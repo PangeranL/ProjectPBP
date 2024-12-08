@@ -53,7 +53,7 @@
             </div>
         </div>
         
-        <div class="bg-[#ffffff] rounded-lg shadow-md p-4 w-3/4 mt-5 mx-auto">
+        <div class="bg-[#ffffff] rounded-lg shadow-md p-2 w-3/4 mb-3 mt-7 mx-auto">
             <!-- Data Tabel -->
             @foreach ($reqRuangs as $reqRuang)
             <div class="flex justify-between items-center text-black text-sm py-2">

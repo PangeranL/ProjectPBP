@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Ruang Kuliah</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Agar footer selalu berada di bawah */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            margin-top: auto; /* Pastikan footer selalu berada di bawah */
+        }
+    </style>
 </head>
 <body class="bg-[#D6EFD8]">
     <!-- Header -->
@@ -20,87 +37,90 @@
     <main>
         <!-- Title Section -->
         <div class="flex items-center justify-between px-6 mt-10">
-            <a href="/dashboard-bagian-akademik" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
-            <h1 class="text-3xl font-bold text-center flex-grow mr-16">PENGAJUAN RUANG KULIAH</h1>
+            <a href="/dashboard/bagianakademik" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
+            <h1 class="text-3xl font-bold text-center flex-grow mr-16">LIST RUANG KULIAH</h1>
         </div>
 
-	<div class="bg-[#D9D9D9] rounded-lg shadow-md p-2 mb-2 w-3/4 mt-10 mx-auto">
-        <!-- Header -->
-        <div class="flex justify-between items-center text-black font-semibold text-sm">
-            <div class="w-1/4 text-center">Departemen</div>
-            <div class="w-1/4 text-center">Request</div>
+        <div class="bg-[#D9D9D9] rounded-lg shadow-md p-2 mb-2 w-3/4 mt-10 mx-auto">
+            <!-- Header -->
+            <div class="flex justify-between items-center text-black font-semibold text-sm">
+                <div class="w-1/4 text-center">Departemen</div>
+                <div class="w-1/4 text-center">Detail</div>
+            </div>
         </div>
-    	</div>
+
         <!-- Table Wrapper -->
-        <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-4">
-        <div class="w-1/4 text-center text-sm">Informatika</div>
-        <div class="w-1/4 text-center">
-            <a href="request-ruang-kuliah" 
-            class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
-            Request
-            </a>
+        <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-7">
+            <div class="w-1/4 text-center text-sm">Informatika</div>
+            <div class="w-1/4 text-center">
+                <a href="detail_list_ruang_kuliah" 
+                class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
+                Detail
+                </a>
+            </div>
         </div>
-    </div>
     
-    <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
-        <div class="w-1/4 text-center text-sm">Matematika</div>
-        <div class="w-1/4 text-center">
-            <a href="request-ruang-kuliah" 
-            class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
-            Request
-            </a>
+        <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
+            <div class="w-1/4 text-center text-sm">Matematika</div>
+            <div class="w-1/4 text-center">
+                <a href="request-ruang-kuliah" 
+                class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
+                Detail
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
-        <div class="w-1/4 text-center text-sm">Fisika</div>
-        <div class="w-1/4 text-center">
-            <a href="request-ruang-kuliah" 
-            class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
-            Request
-            </a>
+        <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
+            <div class="w-1/4 text-center text-sm">Fisika</div>
+            <div class="w-1/4 text-center">
+                <a href="request-ruang-kuliah" 
+                class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
+                Detail
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
-        <div class="w-1/4 text-center text-sm">Kimia</div>
-        <div class="w-1/4 text-center">
-            <a href="request-ruang-kuliah" 
-            class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
-            Request
-            </a>
+        <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
+            <div class="w-1/4 text-center text-sm">Kimia</div>
+            <div class="w-1/4 text-center">
+                <a href="request-ruang-kuliah" 
+                class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
+                Detail
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
-        <div class="w-1/4 text-center text-sm">Statistika</div>
-        <div class="w-1/4 text-center">
-            <a href="request-ruang-kuliah" 
-            class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
-            Request
-            </a>
+        <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
+            <div class="w-1/4 text-center text-sm">Statistika</div>
+            <div class="w-1/4 text-center">
+                <a href="request-ruang-kuliah" 
+                class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
+                Detail
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
-        <div class="w-1/4 text-center text-sm">Biologi</div>
-        <div class="w-1/4 text-center">
-            <a href="request-ruang-kuliah" 
-            class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
-            Request
-            </a>
+        <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
+            <div class="w-1/4 text-center text-sm">Biologi</div>
+            <div class="w-1/4 text-center">
+                <a href="request-ruang-kuliah" 
+                class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
+                Detail
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
-        <div class="w-1/4 text-center text-sm">Bio Teknologi</div>
-        <div class="w-1/4 text-center">
-            <a href="request-ruang-kuliah" 
-            class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
-            Request
-            </a>
+        <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-3">
+            <div class="w-1/4 text-center text-sm">Bio Teknologi</div>
+            <div class="w-1/4 text-center">
+                <a href="request-ruang-kuliah" 
+                class="bg-[#80AF81] text-white font-semibold py-1 px-3 rounded-full hover:bg-green-400 text-sm">
+                Detail
+                </a>
+            </div>
         </div>
-    </div>
+
+    </main>
 
     <!-- Footer -->
     <footer class="bg-[#508D4E] text-white text-center py-3">

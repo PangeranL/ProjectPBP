@@ -17,6 +17,10 @@
         main {
             flex: 1;
         }
+
+        footer {
+            margin-top: auto; /* Pastikan footer selalu berada di bawah */
+        }
     </style>
 </head>
 
@@ -33,7 +37,7 @@
     <!-- Title Section -->
     <div class="flex items-center justify-between px-6 mt-10">
         <a href="/dashboard/bagianakademik" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
-        <h1 class="text-3xl font-bold text-center flex-grow mr-16">LIST RUANG KULIAH</h1>
+        <h1 class="text-3xl font-bold text-center flex-grow mr-16">PENGAJUAN RUANG KULIAH</h1>
     </div>
 
     <!-- Table Wrapper -->
@@ -46,7 +50,7 @@
     </div>
     
     <!-- Baris Data -->
-    <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-4">
+    <div class="bg-white rounded-lg shadow-md p-2 flex justify-between items-center mb-2 w-3/4 mx-auto mt-5">
         <div class="w-1/4 text-center text-sm">Informatika</div>
         <div class="w-1/4 text-center">
             <button onclick="window.location.href='{{ url('/ruang')}}'"" 
