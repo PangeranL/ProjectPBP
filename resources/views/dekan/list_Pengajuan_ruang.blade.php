@@ -26,8 +26,8 @@
     <header class="bg-[#508D4E] text-white p-4 flex justify-between items-center">
         <h1 class="text-2xl font-bold">UNIVERSITAS DIPONEGORO</h1>
         <div class="flex items-center">
-            <span class="mr-4 font-semibold">Smith Welson</span>
-            <img class="w-12 h-12 rounded-full" src="image/SW2.png" alt="User Avatar">
+            <span class="mr-4 font-semibold">Julianto</span>
+            <img class="w-12 h-12 rounded-full" src="{{ asset('images/Julianto.png') }}" alt="User Avatar">
         </div>
     </header>
 
@@ -35,7 +35,7 @@
     <main>
         <!-- Title Section -->
         <div class="flex items-center justify-between px-6 mt-10">
-            <a href="/bagianAkademik/list_ruang_kuliah" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
+            <a href="/dekan/pengajuan_ruangan" class="text-lg font-semibold ml-5 text-gray-700">< Kembali</a>
             <h1 class="text-3xl font-bold text-center flex-grow mr-16">LIST PENGAJUAN RUANG KULIAH</h1>
         </div>
 
