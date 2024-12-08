@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class jadwal extends Model
+class Jadwal extends Model
 {
     use HasFactory;
 
     protected $table = 'jadwal';
 
-    protected $primaryKey = null;
-    public $incrementing = false;
-    protected $keyType = 'string';
+    protected $primaryKey = 'id'; // Menggunakan kolom 'id' sebagai primary key
+    public $incrementing = true;  // Aktifkan auto increment
+    protected $keyType = 'int';   // Tipe data primary key adalah integer
     
     protected $fillable = [
         'kodeMK',
@@ -25,25 +25,25 @@ class jadwal extends Model
         'kelas',
         'thnAjar',
         'kuota',
-        'status',  // Tambahkan status ke dalam fillable
+        'status',
     ];
 
     // Relasi dengan tabel matakuliah
     public function matakuliah()
     {
-        return $this->belongsTo(matakuliah::class, 'kodeMK', 'kodeMK');
+        return $this->belongsTo(Matakuliah::class, 'kodeMK', 'kodeMK');
     }
     
     // Relasi dengan tabel dosen
     public function dosen()
     {
-        return $this->belongsTo(dosen::class, 'nidn', 'nidn');
+        return $this->belongsTo(Dosen::class, 'nidn', 'nidn');
     }
 
     // Relasi dengan tabel ruang
     public function ruang()
     {
-        return $this->hasOne(ruang::class);
+        return $this->hasOne(Ruang::class);
     }
 
     // Menentukan atribut status default jika tidak ada nilai yang diberikan

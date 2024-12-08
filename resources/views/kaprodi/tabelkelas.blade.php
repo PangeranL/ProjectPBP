@@ -35,7 +35,7 @@
 
         <!-- Sidebar -->
         <div class="w-full md:w-1/4 h-full md:h-screen p-5 flex flex-col" style="background-color: #80AF81">
-            <div class="flex ">
+            <div class="flex">
                 <img src="/images/logo.png" class="w-20 h-20 object-cover">
                 <div class="flex flex-col items-center justify-center">
                     <div class="text-4 text-white text-2xl font-bold">SIKAT UNDIP</div>
@@ -123,17 +123,16 @@
                                     <td>{{ $j->selesai }}</td>
                                     <td>{{ $j->ruang }}</td>
                                     <td>{{ $j->status }}</td>
-
-                                    <!-- Kolom Aksi -->
                                     <td class="flex flex-col items-center space-y-2">
                                         <!-- Tombol Edit -->
                                         <button type="button"
-                                            onclick="openModal('{{ $j->id }}','{{ $j->kodeMK }}', '{{ $j->thnAjar }}', '{{ $j->kelas }}', '{{ $j->hari }}', '{{ $j->ruang }}', '{{ $j->kuota }}', '{{ $j->mulai }}', '{{ $j->selesai }}', '{{ $j->status }}')"
+                                            onclick="openModal('{{ $j->id }}', '{{ $j->kodeMK }}', '{{ $j->thnAjar }}', '{{ $j->kelas }}', '{{ $j->hari }}', '{{ $j->ruang }}', '{{ $j->kuota }}', '{{ $j->mulai }}', '{{ $j->selesai }}')"
                                             class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-3 rounded">
                                             Edit
                                         </button>
-                                        <!-- Tombol Hapus -->
-                                        <form action="/kaprodi/deleteJadwal/{{ $j->id }}" method="POST" class="inline-block">
+
+                                        <!-- Tombol Delete -->
+                                        <form action="/kaprodi/deleteJadwal/{{ $j->id }}" method="POST" style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="bg-red-600 hover:bg-red-800 text-white font-bold py-1 px-3 rounded"
@@ -145,6 +144,7 @@
                                 </tr>
                             @endforeach
                         </tbody>
+
                     </table>
                 </div>
             </div>
@@ -159,14 +159,17 @@
                 ✖
             </button>
             <h2 class="text-2xl font-semibold mb-4" style="color: #508D4E">Edit Jadwal</h2>
-            <form id="editForm" method="POST">
+            <!-- Form Edit -->
+            <form action="#" id="editForm" method="POST">
                 @csrf
                 @method('PUT')
+
+                <input type="hidden" id="id" name="id">
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label for="kodeMK" class="block font-semibold">Kode MK:</label>
-                        <input type="text" id="kodeMK" name="kodeMK" class="w-full p-2 border rounded-md" >
+                        <input type="text" id="kodeMK" name="kodeMK" class="w-full p-2 border rounded-md">
                     </div>
                     <div>
                         <label for="thnAjar" class="block font-semibold">Tahun Ajaran:</label>
@@ -177,12 +180,16 @@
                         <input type="text" id="kelas" name="kelas" class="w-full p-2 border rounded-md">
                     </div>
                     <div>
-                        <label for="kuota" class="block font-semibold">Kuota:</label>
-                        <input type="number" id="kuota" name="kuota" class="w-full p-2 border rounded-md">
+                        <label for="ruang" class="block font-semibold">Ruang:</label>
+                        <input type="text" id="ruang" name="ruang" class="w-full p-2 border rounded-md">
                     </div>
                     <div>
                         <label for="hari" class="block font-semibold">Hari:</label>
                         <input type="text" id="hari" name="hari" class="w-full p-2 border rounded-md">
+                    </div>
+                    <div>
+                        <label for="kuota" class="block font-semibold">Kuota:</label>
+                        <input type="text" id="kuota" name="kuota" class="w-full p-2 border rounded-md">
                     </div>
                     <div>
                         <label for="mulai" class="block font-semibold">Waktu Mulai:</label>
@@ -192,48 +199,40 @@
                         <label for="selesai" class="block font-semibold">Waktu Selesai:</label>
                         <input type="time" id="selesai" name="selesai" class="w-full p-2 border rounded-md">
                     </div>
-                    <div>
-                        <label for="ruang" class="block font-semibold">Ruang:</label>
-                        <input type="text" id="ruang" name="ruang" class="w-full p-2 border rounded-md">
-                    </div>
                 </div>
 
-                <div class="flex justify-end mt-4">
-                    <button type="button" onclick="closeModal()"
-                        class="bg-gray-400 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md mr-2">
-                        Batal
-                    </button>
-                    <button type="submit" class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">
-                        Simpan
-                    </button>
-                </div>
+                <button type="submit"
+                    class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-4 w-full">
+                    Simpan
+                </button>
             </form>
         </div>
     </div>
 
     <script>
-        function openModal(id, kodeMK, thnAjar, kelas, hari, ruang, kuota, mulai, selesai, status) {
+        function openModal(id, kodeMK, thnAjar, kelas, hari, ruang, kuota, mulai, selesai) {
             document.getElementById('editModal').classList.remove('hidden');
-            
+            document.getElementById('id').value = id;
             document.getElementById('kodeMK').value = kodeMK;
             document.getElementById('thnAjar').value = thnAjar;
             document.getElementById('kelas').value = kelas;
             document.getElementById('hari').value = hari;
             document.getElementById('ruang').value = ruang;
             document.getElementById('kuota').value = kuota;
-            document.getElementById('mulai').value = mulai;
-            document.getElementById('selesai').value = selesai;
 
-            // Update action URL
-            const form = document.getElementById('editForm');
-            form.action = "/kaprodi/updateJadwal/" + id;  // Update action URL dengan kodeMK
+            // Pastikan format waktu HH:MM
+            let mulaiFormatted = mulai ? mulai.substring(0, 5) : '';
+            let selesaiFormatted = selesai ? selesai.substring(0, 5) : '';
+            
+            document.getElementById('mulai').value = mulaiFormatted;
+            document.getElementById('selesai').value = selesaiFormatted;
+
+            document.getElementById('editForm').action = "/kaprodi/updateJadwal/" + id;
         }
-
         function closeModal() {
             document.getElementById('editModal').classList.add('hidden');
-        }
+}
     </script>
-
 </body>
 
 </html>
