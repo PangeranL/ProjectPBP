@@ -145,9 +145,11 @@ Route::resource('/kaprodi/inputJD', inputJDController::class);
 Route::get('kaprodi/tabelkelas',[KaprodiController::class, 'tabelkelas'])->name('kaprodi.tabelkelas');
 // Route::POST('/kaprodi/inputJD', [inputJDController::class, 'store'])->name('inputJD.store');
 Route::get('/kaprodi/filter-jadwal', [inputJDController::class, 'filterByKodeMK'])->name('kaprodi.filter-jadwal');
-Route::put('/kaprodi/updateJadwal/{id}', [inputJDController::class, 'updateJadwal'])->name('kaprodi.updateJadwal');
+Route::put('/kaprodi/updateJadwal', [inputJDController::class, 'updateJadwal'])->name('kaprodi.updateJadwal');
 // Route untuk menampilkan form edit jadwal
 Route::get('/kaprodi/editJadwal/{id}', [KaprodiController::class, 'editJadwal'])->name('kaprodi.editJadwal');
 // Route untuk mengupdate jadwal
 Route::put('/kaprodi/updateJadwal/{id}', [KaprodiController::class, 'updateJadwal'])->name('kaprodi.updateJadwal');
+//Route untuk menghapus jadwaql
+Route::delete('/kaprodi/deleteJadwal/{id}', [inputJDController::class, 'deleteAndUpdateJadwal']);
 
