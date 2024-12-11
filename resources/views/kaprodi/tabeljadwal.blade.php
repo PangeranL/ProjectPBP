@@ -70,24 +70,6 @@
             <div class="text-3xl font-semibold mb-8 "  style="color: #508D4E">Tabel Input Jadwal Kuliah</div>
 
             <div class="p-6 rounded-lg  mb-8" style="background-color: #D6EFD8; height: auto;">
-                <div class="font-semibold text-green-800 mb-4">
-                    Tahun Ajaran
-                    <select name="" id="" class="w-full md:w-1/3 p-2 mt-2 border rounded-md">
-                        <option value="">Semester Ganjil 2025/2026</option>
-                        <option value="">Semester Genap 2025/2026</option>
-                    </select>
-                </div>
-
-
-                <div class="p-6 rounded-lg  mb-8" style="background-color: #D6EFD8; height: auto;">
-                    <div class="font-semibold text-green-800 mb-4">
-                        Semester
-                        <select name="" id="" class="w-full md:w-1/3 p-2 mt-2 border rounded-md">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                        </select>
-                    </div>
-
 
                 <div class="scrollable-table">
                 <table class="w-full border text-center table-auto mt-6">
