@@ -73,8 +73,9 @@
                             <div>{{$message}}</div>
                         @enderror
                     </div>
-                    <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">Jumlah SKS
-                    <input type="number" name="sks" id="sks" style="margin-left: 107.5px; width: 30%">
+                    <div class="font-semibold" style="color: #508D4E; margin-top: 30px; margin-left: 5px;">
+                        Jumlah SKS
+                        <input type="number" name="sks" id="sks" style="margin-left: 107.5px; width: 30%" min="1">
                         @error('sks')
                             <div>{{$message}}</div>
                         @enderror

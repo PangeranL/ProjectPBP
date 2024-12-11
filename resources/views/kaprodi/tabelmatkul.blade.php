@@ -72,14 +72,6 @@
 
                 <!-- Semester Select and Add Button -->
                 <div class="flex justify-between items-center mb-6">
-                    <div class="font-semibold text-green-800 flex items-center">
-                        <label for="semester" class="mr-2">Semester</label>
-                        <select name="semester" id="semester" class="w-1/3 p-2 border rounded-md">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                        </select>
-                    </div>
-
                     <a href="/kaprodi/inputMK/create"
                         class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full" style="margin-top: 10px">TAMBAH</a>
                 </div>
