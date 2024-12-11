@@ -61,7 +61,7 @@
                     <input type="text" name="kodeMK" id="kodeMK" style="margin-left: 152.5px; width: 30%">
                     </div> -->
                     <input type="hidden" name="kodeMK" value="{{ request()->get('kodeMK') }}">
-                    
+
                     <div class="font-semibold" style="color: #508D4E; margin-top: 20px; margin-left: 5px;">Kelas
                         <select name="kelas" id="kelas" style="width: 30%; margin-left: 157px">
                             <option value="A">A</option>
@@ -111,7 +111,14 @@
                 </form>
                 </div>
             </div>
+            @if(session('error'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Error!</strong>
+            <span class="block sm:inline">{{ session('error') }}</span>
+        </div>
+    @endif
         </div>
     </div>
+
 </body>
 </html>

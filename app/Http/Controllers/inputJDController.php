@@ -36,10 +36,7 @@ class inputJDController extends Controller
     public function store(Request $request)
     {
         // Validasi data yang diterima
-        error_log('sini');
-        error_log(json_encode($request->input()));
         $request->validate([
-            // 'thnAjar' => 'required|string',
             'kodeMK' => 'required|string',
             'kelas' => 'required|string',
             'hari' => 'required|string',
@@ -48,40 +45,59 @@ class inputJDController extends Controller
             'mulai' => 'required|date_format:H:i',
             'selesai' => 'required|date_format:H:i',
         ]);
-
-        // Cek apakah jadwal dengan kodeMK dan kelas yang sama sudah ada
-        $existingJadwal = jadwal::where('kodeMK', $request->kodeMK)
-            ->where('kelas', $request->kelas)
-            ->first();
-
-        if ($existingJadwal) {
-            return response()->json(['message' => 'Jadwal dengan kode MK dan kelas ini sudah ada!'], 400);
+    
+        // Validasi 1: Cek apakah kodeMK sudah ada pada hari dan jam yang sama
+        $isConflictMK = jadwal::where('kodeMK', $request->kodeMK)
+            ->where('hari', $request->hari)
+            ->where(function ($query) use ($request) {
+                $query->whereBetween('mulai', [$request->mulai, $request->selesai])
+                      ->orWhereBetween('selesai', [$request->mulai, $request->selesai])
+                      ->orWhere(function ($subQuery) use ($request) {
+                          $subQuery->where('mulai', '<=', $request->mulai)
+                                   ->where('selesai', '>=', $request->selesai);
+                      });
+            })
+            ->exists();
+    
+        if ($isConflictMK) {
+            return redirect()->back()->with('error', 'Kode MK sudah ada pada hari dan waktu tersebut!');
         }
-
-        // Ambil data mata kuliah berdasarkan kodeMK
-        $mataKuliah = matakuliah::where('kodeMK', $request->kodeMK)->first();
-
-        if (!$mataKuliah) {
-            return response()->json(['message' => 'Mata kuliah tidak ditemukan!'], 404);
+    
+        // Validasi 2: Cek apakah ruangan sudah digunakan pada hari dan jam yang sama
+        $isConflictRuang = jadwal::where('ruang', $request->ruang)
+            ->where('hari', $request->hari)
+            ->where(function ($query) use ($request) {
+                $query->whereBetween('mulai', [$request->mulai, $request->selesai])
+                      ->orWhereBetween('selesai', [$request->mulai, $request->selesai])
+                      ->orWhere(function ($subQuery) use ($request) {
+                          $subQuery->where('mulai', '<=', $request->mulai)
+                                   ->where('selesai', '>=', $request->selesai);
+                      });
+            })
+            ->exists();
+    
+        if ($isConflictRuang) {
+            error_log("konflik");
+            return redirect()->back()->with('error', 'Ruangan sudah digunakan pada hari dan waktu tersebut!');
         }
-
-        // Simpan jadwal kuliah dengan status default 'Pending'
+    
+        // Simpan jadwal kuliah
         $jadwal_kuliah = jadwal::create([
-            'thnAjar' => 'Semester Ganjil 2025/2026',//$request->thnAjar,
+            'thnAjar' => 'Semester Ganjil 2025/2026', // Hardcoded tahun ajar
             'kodeMK' => $request->kodeMK,
-            // 'nidn' => $mataKuliah->nidn_dosen1, 
             'kelas' => $request->kelas,
             'hari' => $request->hari,
             'ruang' => $request->ruang,
             'kuota' => $request->kuota,
             'mulai' => $request->mulai,
             'selesai' => $request->selesai,
-            'status' => 'Pending', 
+            'status' => 'Pending', // Status default
         ]);
-        // Redirect atau kirimkan respon sukses
-        return redirect('kaprodi/tabelkelas');
+    
+        // Redirect ke halaman sukses
+        return redirect('kaprodi.tabelkelas');
     }
-
+    
     /**
      * Filter jadwal berdasarkan kodeMK.
      */
@@ -100,38 +116,10 @@ class inputJDController extends Controller
         // Log hasil untuk debugging
         Log::info('Filter jadwal berdasarkan kodeMK:', ['kodeMK' => $request->kodeMK, 'jadwal' => $jadwal]);
 
-        // Jika data tidak ditemukan, kirim respon kosong
-        // if ($jadwal->isEmpty()) {
-        //     return response()->json(['message' => 'Tidak ada jadwal dengan kodeMK ini.'], 404);
-        // }
-
         // Kirim data ke view atau sebagai JSON (jika digunakan untuk API)
         return view('kaprodi.tabelkelas', compact('jadwal'));
     }
 
-    /**
-     * Update status jadwal kuliah.
-     */
-    // public function updateStatus(Request $request, $id)
-    // {
-    //     // Validasi data yang diterima
-    //     $request->validate([
-    //         'status' => 'required|in:Pending,Disetujui,Ditolak',
-    //     ]);
-
-    //     // Ambil data jadwal berdasarkan ID
-    //     $jadwal = jadwal::find($id);
-
-    //     if (!$jadwal) {
-    //         return response()->json(['message' => 'Jadwal tidak ditemukan!'], 404);
-    //     }
-
-    //     // Update status jadwal
-    //     $jadwal->status = $request->status;
-    //     $jadwal->save();
-
-    //     return redirect()->back();
-    // }
 
     /**
      * Display the specified resour
@@ -177,28 +165,6 @@ class inputJDController extends Controller
             'selesai' => 'required|date_format:H:i',
             'kuota' => 'required|integer',
         ]);
-    
-        // Perbarui kodeMK di tabel `irs` jika diperlukan
-        // DB::table('irs')
-        //     ->where('kodeMK', function ($query) use ($id) {
-        //         $query->select('kodeMK')
-        //               ->from('jadwal')
-        //               ->where('id', $id);
-        //     })
-        //     ->update(['kodeMK' => $request->input('kodeMK')]);
-    
-        // // Perbarui kodeMK di tabel `khs`
-        // DB::table('khs')
-        //     ->where('kodeMK', function ($query) use ($id) {
-        //         $query->select('kodeMK')
-        //               ->from('irs')
-        //               ->where('kodeMK', function ($subQuery) use ($id) {
-        //                   $subQuery->select('kodeMK')
-        //                            ->from('jadwal')
-        //                            ->where('id', $id);
-        //               });
-        //     })
-        //     ->update(['kodeMK' => $request->input('kodeMK')]);
     
         // Perbarui data di tabel `jadwal`
         $updated = DB::table('jadwal')
