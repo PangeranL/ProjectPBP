@@ -81,7 +81,7 @@
                         </select>
                     </div>
 
-                    <a href='/kaprodi/inputJD/create'
+                    <a href='/kaprodi/inputJD/create?kodeMK={{ request()->get('kodeMK') }}'
                         class="bg-green-800 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full" style="margin-top: 10px">TAMBAH</a>
                 </div>
 
@@ -160,24 +160,24 @@
             </button>
             <h2 class="text-2xl font-semibold mb-4" style="color: #508D4E">Edit Jadwal</h2>
             <!-- Form Edit -->
-            <form action="#" id="editForm" method="POST">
+            <form action="" id="editForm" method="POST">
                 @csrf
                 @method('PUT')
 
-                <input type="hidden" id="id" name="id">
+                <!-- <input type="hidden" id="id" name="id"> -->
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label for="kodeMK" class="block font-semibold">Kode MK:</label>
-                        <input type="text" id="kodeMK" name="kodeMK" class="w-full p-2 border rounded-md">
+                        <input type="text" id="kodeMk" name="kodeMk" class="w-full p-2 border rounded-md bg-gray-200" readOnly>
                     </div>
                     <div>
                         <label for="thnAjar" class="block font-semibold">Tahun Ajaran:</label>
-                        <input type="text" id="thnAjar" name="thnAjar" class="w-full p-2 border rounded-md">
+                        <input type="text" id="thnAjar" name="thnAjar" class="w-full p-2 border rounded-md bg-gray-200" readOnly>
                     </div>
                     <div>
                         <label for="kelas" class="block font-semibold">Kelas:</label>
-                        <input type="text" id="kelas" name="kelas" class="w-full p-2 border rounded-md">
+                        <input type="text" id="kelas" name="kelas" class="w-full p-2 border rounded-md bg-gray-200" readOnly>
                     </div>
                     <div>
                         <label for="ruang" class="block font-semibold">Ruang:</label>
@@ -211,9 +211,10 @@
 
     <script>
         function openModal(id, kodeMK, thnAjar, kelas, hari, ruang, kuota, mulai, selesai) {
+            console.log(id, kodeMK, thnAjar, kelas, hari, ruang, kuota, mulai, selesai);
             document.getElementById('editModal').classList.remove('hidden');
-            document.getElementById('id').value = id;
-            document.getElementById('kodeMK').value = kodeMK;
+            // document.getElementById('id').value = id;
+            document.getElementById('kodeMk').value = kodeMK;
             document.getElementById('thnAjar').value = thnAjar;
             document.getElementById('kelas').value = kelas;
             document.getElementById('hari').value = hari;
@@ -227,7 +228,7 @@
             document.getElementById('mulai').value = mulaiFormatted;
             document.getElementById('selesai').value = selesaiFormatted;
 
-            document.getElementById('editForm').action = "/kaprodi/updateJadwal/" + id;
+            document.getElementById('editForm').action = "/kaprodi/updateJadwal/";
         }
         function closeModal() {
             document.getElementById('editModal').classList.add('hidden');
