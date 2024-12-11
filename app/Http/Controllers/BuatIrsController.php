@@ -91,13 +91,16 @@ class BuatIrsController extends Controller
             return redirect()->route('irsan', ['nim' => $validated['nim'], 'smt' => $validated['smt']])->with('error', 'Mata kuliah ini sudah ada dalam IRS Anda atau sudah anda ambil di kelas lain!');
         }
 
+        $smt = DB::table('mahasiswa')
+        ->where('nim', $validated['nim'])
+        ->first();
+
         $totalSKS = DB::table('irs')
-            ->join('jadwal', 'irs.kodeMK', '=', 'jadwal.kodeMK')
-            ->join('matakuliah', 'jadwal.kodeMK', '=', 'matakuliah.kodeMK')
-            ->where('irs.nim', $validated['nim'])
-            ->where('irs.smt', $validated['smt'])
-            ->where('irs.kelas', $validated['kelas'])
-            ->sum('matakuliah.sks');
+        ->join('jadwal', 'irs.idJadwal', '=', 'jadwal.id')
+        ->join('matakuliah', 'jadwal.kodeMK', '=', 'matakuliah.kodeMK')
+        ->where('irs.nim', $validated['nim'])
+        ->where('irs.smt', $smt->smt)
+        ->sum('matakuliah.sks');
 
         // Dapatkan SKS mata kuliah yang akan ditambahkan
         $sksMataKuliah = DB::table('matakuliah')
@@ -115,7 +118,6 @@ class BuatIrsController extends Controller
         } else {
             $maks = 24;
         }
-        dd($totalSKS);
 
         if (($totalSKS + $sksMataKuliah->sks) > $maks) {
             return redirect()->route('irsan', ['nim' => $validated['nim'], 'smt' => $validated['smt']])
@@ -135,14 +137,16 @@ class BuatIrsController extends Controller
             return redirect()->route('irsan', ['nim' => $validated['nim'], 'smt' => $validated['smt']])->with('error', 'Mata kuliah ini bentrok dengan yang sudah anda pilih!');
         }
 
+
         DB::table('irs')->insert([
             'nim' => $validated['nim'],
-            'smt' => $validated['smt'],
+            'smt' => $smt->smt,
             'kodeMK' => $validated['kodeMK'],
             'kelas' => $validated['kelas'],
             'ruang' => $jadwal->ruang,
             'created_at' => now(),
             'updated_at' => now(),
+            'idJadwal' => $jadwal->id,
         ]);
 
         $existingIrshasil = DB::table('irshasil')
@@ -211,7 +215,7 @@ class BuatIrsController extends Controller
     
         // Update data IRS
         if ($irs) {
-            if ($kodeMK = $validated['kodeMK'] && $irs->kelas = $validated['kelas']){
+            if ($kodeMK == $validated['kodeMK'] && $irs->kelas == $validated['kelas']){
                 return redirect()->route('irsan', ['nim' => $nim, 'smt' => $smt])
                 ->with('error', 'IRS sama seperti sebelum diedit!');
             }
@@ -223,6 +227,7 @@ class BuatIrsController extends Controller
                 ->update(['kodeMK' => $validated['kodeMK'],
                 'kelas' => $validated['kelas'],
                 'ruang' => $jadwals->ruang,
+                'idJadwal' => $jadwals->id,
                 'status' => NULL,
                 ]);
             }
@@ -234,7 +239,6 @@ class BuatIrsController extends Controller
 
     public function destroy($nim, $smt, $kodeMK)
     {
-        // Cari data IRS berdasarkan kombinasi nim, smt, dan kodeMK
         $irs = DB::table('irs')
             ->where('nim', $nim)
             ->where('smt', $smt)
@@ -255,9 +259,9 @@ class BuatIrsController extends Controller
             ->where('nim', $nim)
             ->where('kodeMK', $kodeMK)
             ->where('smt', $smt)
-            ->where('smt', '<', $smt);
+            ->get();
 
-        if ($existingKhs) {
+        if (!$existingKhs->isEmpty()) {
             return redirect()->route('irsan', ['nim' => $nim, 'smt' => $smt])
             ->with('error', 'Terdapat KHS yang bersangkutan!');
         }
