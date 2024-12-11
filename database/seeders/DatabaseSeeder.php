@@ -385,6 +385,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $Jadwal = jadwal::create([
+            'kodeMK' => 'PAIK3202',
+            'kelas' => 'B',
+            'hari' => 'Selasa',
+            'mulai' => '07.00',
+            'selesai' => '10.20',
+            'thnAjar'=> 'Gasal 2024/2025',
+            'kuota' => '100',
+            'ruang' => 'E101',
+            'status' => 'Disetujui',
+        ]);
+
+        $Jadwal = jadwal::create([
             'kodeMK' => 'PAIK3201',
             'kelas' => 'C',
             'hari' => 'Selasa',
@@ -499,6 +511,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $IRS = irs::create([
+            'idJadwal' => 5,
             'smt' => 4,
             'nim' => '24160122131000',
             'kodeMK'=> 'PAIK3201',
@@ -508,6 +521,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $IRS = irs::create([
+            'idJadwal' => 8,
             'kodeMK' => 'PAIK1111',
             'smt' => 4,
             'nim' => '24160122131000',
@@ -517,6 +531,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $IRS = irs::create([
+            'idJadwal' => 9,
             'kodeMK' => 'PAIK2222',
             'kelas' => 'D',
             'smt' => 4,
@@ -526,6 +541,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $IRS = irs::create([
+            'idJadwal' => 10,
             'kodeMK' => 'PAIK3333',
             'kelas' => 'A',
             'smt' => 4,
@@ -535,6 +551,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $IRS = irs::create([
+            'idJadwal' => 11,
             'kodeMK' => 'PAIK4444',
             'kelas' => 'C',
             'smt' => 4,
@@ -544,6 +561,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $IRS = irs::create([
+            'idJadwal' => 12,
             'kodeMK' => 'PAIK5555',
             'kelas' => 'A',
             'smt' => 4,
@@ -553,6 +571,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $IRS = irs::create([
+            'idJadwal' => 13,
             'kodeMK' => 'PAIK6666',
             'kelas' => 'A',
             'smt' => 4,
@@ -562,6 +581,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $KHS = khs::create([
+            'idIRS' => 1,
             'smt' => 4,
             'nim' => '24160122131000',
             'kodeMK'=> 'PAIK3201',
@@ -571,6 +591,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $KHS = khs::create([
+            'idIRS' => 2,
             'kodeMK' => 'PAIK1111',
             'smt' => 4,
             'nim' => '24160122131000',
@@ -580,6 +601,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $KHS = khs::create([
+            'idIRS' => 3,
             'kodeMK' => 'PAIK2222',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -589,6 +611,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $KHS = khs::create([
+            'idIRS' => 4,
             'kodeMK' => 'PAIK3333',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -598,6 +621,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $KHS = khs::create([
+            'idIRS' => 5,
             'kodeMK' => 'PAIK4444',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -607,6 +631,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $KHS = khs::create([
+            'idIRS' => 6,
             'kodeMK' => 'PAIK5555',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -616,6 +641,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $KHS = khs::create([
+            'idIRS' => 7,
             'kodeMK' => 'PAIK6666',
             'nim' => '24160122131000',
             'smt' => 4,
@@ -623,26 +649,5 @@ class DatabaseSeeder extends Seeder
             'ips' => '0.0',
             'ipk' => '1.90',
         ]);
-
-        /*$irshasil = irshasil::create([
-            'smt' => 5,
-            'nim' => '24160122131000',
-        ]);
-
-        $IRS = irs::create([
-            'smt' => 5,
-            'nim' => '24160122131000',
-            'kodeMK'=> 'PAIK6404',
-            'kelas' => 'A',
-            'ruang' => 'A303',
-        ]);
-
-        $IRS = irs::create([
-            'kodeMK' => 'PAIK1234',
-            'smt' => 5,
-            'nim' => '24160122131000',
-            'kelas' => 'D',
-            'ruang' => 'A303',
-        ]);*/
     }
 }
