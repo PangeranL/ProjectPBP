@@ -176,8 +176,7 @@ class inputJDController extends Controller
                 'mulai' => $request->input('mulai'),
                 'selesai' => $request->input('selesai'),
                 'kuota' => $request->input('kuota'),
-            ]);
-    
+
         // Cek apakah ada perubahan
         if ($updated) {
             return redirect()->back()->with('success', 'Jadwal berhasil diperbarui!');
@@ -185,4 +184,4 @@ class inputJDController extends Controller
             return redirect()->back()->with('error', 'Jadwal gagal diperbarui!');
         }
     }
-}    
+}

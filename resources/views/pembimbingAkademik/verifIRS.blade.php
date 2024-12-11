@@ -27,7 +27,7 @@
     </div>
     <div class="mt-24 px-8">
         <h2 class="text-lg font-bold mb-4">Daftar IRS untuk NIM: {{ $nim }}, Semester: {{ $smt }}</h2>
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-white p-6 rounded-lg shadow-md mb-20">
             <table class="table-auto w-full text-left border-collapse">
                 <thead>
                     <tr>
@@ -68,12 +68,6 @@
                     <input type="hidden" name="nim" value="{{ $irs->nim }}">
                     <input type="hidden" name="smt" value="{{ $irs->smt }}">
                     <button type="submit" name="status" value="1" class="flex bg-green-700 justify-center text-white w-20 py-2 px-4 rounded shadow mb-5">Setuju</button>
-                </form>
-                <form action="{{ route('IRSterverifikasi') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="nim" value="{{ $irs->nim }}">
-                    <input type="hidden" name="smt" value="{{ $irs->smt }}">
-                    <button type="submit" name="status" value="0" class="flex bg-red-700 justify-center w-20 text-white py-2 px-4 rounded shadow mb-5">Tolak</button>
                 </form>
             </div>
         </div>

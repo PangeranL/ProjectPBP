@@ -15,8 +15,8 @@
                     <h1 class="text-xl font-bold p-3">UNIVERSITAS DIPONEGORO</h1>
                 </div>
                 <div class="flex items-center">
-                    <span class="mr-4">Smith Wilson</span>
-                    <img class="w-14 h-14 rounded-full" src="https://i.pinimg.com/736x/ca/41/96/ca419684a96c3f255a8981444e6b9c89.jpg" alt="User Avatar">
+                    <span class="mr-4">Julianto</span>
+                    <img class="w-14 h-14 rounded-full" src="{{ asset('images/Julianto.png') }}" alt="User Avatar">
                 </div>
             </div>
         </div>

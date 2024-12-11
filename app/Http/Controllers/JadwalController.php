@@ -23,19 +23,15 @@ class JadwalController extends Controller
      */
     public function updateStatus(Request $request, $id)
     {
-        // Fetch the jadwal by its ID
-        $jadwal = Jadwal::findOrFail($id);
+        // Validasi input status
+        if ($request->has('status')) {
+            // Menggunakan query builder untuk langsung memperbarui status
+            Jadwal::where('id', $id)->update([
+                'status' => $request->input('status'),
+            ]);
+        }
 
-        // Validate the incoming status
-        $validated = $request->validate([
-            'status' => 'required|in:approved,rejected,pending',
-        ]);
-
-        // Update the status
-        $jadwal->status = $validated['status'];
-        $jadwal->save();
-
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Status updated successfully!');
+        // Redirect kembali ke halaman sebelumnya dengan pesan sukses
+        return redirect()->back();
     }
 }

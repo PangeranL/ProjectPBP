@@ -61,8 +61,8 @@ class DatabaseSeeder extends Seeder
 
         $userAcc = useracc::create([
             #bagian akademik
-            'email' => 'vtuber@lectures.undip.ac.id',
-            'password' => bcrypt('akuVtuberGen2'),
+            'email' => 'smithwilson@lectures.undip.ac.id',
+            'password' => bcrypt('Smith12345'),
         ]);
         
         $Roles = roles::create([
@@ -110,7 +110,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $userRoles = userroles::create([
-            'email' => 'vtuber@lectures.undip.ac.id',
+            'email' => 'smithwilson@lectures.undip.ac.id',
             'role' => 'Bagian Akademik',
         ]);
 
@@ -205,7 +205,7 @@ class DatabaseSeeder extends Seeder
             'dob' => '2002-01-01',
             'phone' => '085445635412',
             'address' => 'Jl. Apel Hijau No. 65',
-            'email' => 'vtuber@lectures.undip.ac.id',
+            'email' => 'smithwilson@lectures.undip.ac.id',
             'fakultas' => 'Sains dan Matematika',
         ]);
 
@@ -357,7 +357,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Gasal 2024/2025',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -369,7 +369,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Gasal 2024/2025',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -381,7 +381,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Gasal 2024/2025',
             'kuota' => '100',
             'ruang' => 'E101',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -393,7 +393,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Genap 2023/2024',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -405,7 +405,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Gasal 2024/2025',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -417,7 +417,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Gasal 2024/2025',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -429,7 +429,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Genap 2023/2024',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -441,7 +441,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Genap 2023/2024',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -453,7 +453,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Genap 2023/2024',
             'kuota' => '100',
             'ruang' => 'E101',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -465,7 +465,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Genap 2023/2024',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -477,7 +477,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Genap 2023/2024',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $Jadwal = jadwal::create([
@@ -489,7 +489,7 @@ class DatabaseSeeder extends Seeder
             'thnAjar'=> 'Genap 2023/2024',
             'kuota' => '50',
             'ruang' => 'A303',
-            'status' => 'Pending',
+            'status' => 'Disetujui',
         ]);
 
         $irshasil = irshasil::create([

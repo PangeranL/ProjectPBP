@@ -30,7 +30,7 @@ class PAController extends Controller
         $validated = $request->validate([
             'nim' => 'required|string',
             'smt' => 'required|integer',
-            'status' => 'required|in:0,1',
+            'status' => 'required|in:1',
         ]);
 
         $irs = DB::table('irshasil')->where('nim', $validated['nim'])->where('smt', $validated['smt'])->first();
@@ -48,6 +48,7 @@ class PAController extends Controller
                     ->update(['status' => $validated['status']]);
     
                 DB::commit();
+                session()->forget('status');
                 return redirect()->route('showVerif')
                                  ->with('success', 'IRS Berhasil Diverifikasi!');
             } catch (\Exception) {

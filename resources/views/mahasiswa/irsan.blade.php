@@ -38,10 +38,12 @@
     <!-- Main Content -->
     <div class="mt-24 px-8">
         <!-- Verifikasi IRS Section -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-white p-6 rounded-lg shadow-md mb-20">
             <h3 class="text-lg font-bold mb-4">IRS Dibuat</h3>
             <div class="flex justify-end mt-5 mb-5">
-                <a href="{{ route('buatIRS', ['nim' => $nim, 'smt' => $smt]) }}" class="flex bg-green-700 justify-center text-white w-28 py-2 x-4 rounded shadow mb-5">Tambah IRS</a>
+                @if ($edit)
+                    <a href="{{ route('buatIRS', ['nim' => $nim, 'smt' => $smt]) }}" class="flex bg-green-500 justify-center text-white w-28 py-2 x-4 rounded shadow mb-5">Tambah IRS</a>
+                @endif
             </div>
             <table class="table-auto w-full text-left border-collapse">
                 <thead>
@@ -65,8 +67,10 @@
                             <td class="border px-4 py-2">{{ $irs->jadwal->hari }}</td>
                             <td class="border px-4 py-2">{{ $irs->jadwal->mulai }}-{{ $irs->jadwal->selesai }}</td>
                             <td class="border px-4 py-2">
-                                <a class="text-blue-500" href="{{ route('editIRS', ['nim' => $nim, 'smt' => $smt, 'kodeMK' => $irs->kodeMK]) }}">Edit</a><br>
-                                <a class="text-red-500" href="{{ route('irsDelete', ['nim' => $nim, 'smt' => $smt, 'kodeMK' => $irs->kodeMK]) }}">Delete</a>
+                                @if ($edit)
+                                    <a class="text-blue-500" href="{{ route('editIRS', ['nim' => $nim, 'smt' => $smt, 'kodeMK' => $irs->kodeMK]) }}">Edit</a><br>
+                                    <a class="text-red-500" href="{{ route('irsDelete', ['nim' => $nim, 'smt' => $smt, 'kodeMK' => $irs->kodeMK]) }}" onclick="return confirm('Hapus Matakuliah?')">Delete</a>
+                                @endif
                             </td>
                         </tr>
                     @empty
@@ -76,6 +80,7 @@
                     @endforelse
                         <tr>
                             <td class="border px-4 py-2 font-bold">Total SKS : {{ $totalSKS }}</td>
+                            <td class="border px-4 py-2 font-bold">Status : {{ $Status }}</td>
                         </tr>
                 </tbody>
             </table>

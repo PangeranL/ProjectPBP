@@ -26,23 +26,16 @@
             </div>
         </div>
     </div>
-    @if(session('success'))
-        <div class="bg-green-500 text-white p-3 rounded mb-4">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if(session('error'))
-        <div class="bg-red-500 text-white p-3 rounded mb-4">
-            {{ session('error') }}
-        </div>
-    @endif
     <!-- Main Content -->
     <div class="mt-24 px-8">
         <!-- Verifikasi IRS Section -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-white p-6 pb-1 mb-20 rounded-lg shadow-md">
             <h3 class="text-lg font-bold text-black mb-4">Buat IRS</h3>
-            <div class="bg-white mt-4 p-6 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label for="sks" class="block text-gray-700 font-semibold">Total SKS yang Dapat Diambil</label>
+                <input type="text" id="sks" name="sks" class="border p-2 rounded w-10 bg-gray-200" value="{{ $maks }}" readonly>
+            </div>
+            <div class="bg-white mt-4 p-6 mb-16 rounded-lg shadow-md">
                 <form action="{{ route('simpanIRS') }}" method="POST">
                     @csrf
 
@@ -62,7 +55,8 @@
                             <option value="" disabled selected>Pilih Mata Kuliah</option>
                             @foreach($jadwals->groupBy('kodeMK') as $kodeMK => $jadwalsByKodeMK)
                                 <option value="{{ $kodeMK }}" 
-                                    data-kelas="{{ $jadwalsByKodeMK->pluck('kelas')->join(',') }}" data-ruang="{{ $jadwalsByKodeMK->pluck('ruang')->join(',') }}">
+                                    data-kelas="{{ $jadwalsByKodeMK->pluck('kelas')->join(',') }}"
+                                    data-kuota="{{ json_encode($kuotaData[$kodeMK] ?? []) }}">
                                     {{ $jadwalsByKodeMK->first()->matakuliah->namaMK }}
                                 </option>
                             @endforeach
@@ -77,13 +71,11 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="ruang" class="block text-gray-700 font-semibold">Ruang</label>
-                        <select name="ruang" id="ruang" class="border p-2 rounded w-full" required>
-                            <option value="" disabled selected>Pilih Ruang</option>
-                        </select>
+                        <label for="kuota" class="block text-gray-700 font-semibold">Sisa Kuota</label>
+                        <input type="text" id="kuota" class="border p-2 rounded w-12 bg-gray-200" value="" disabled>
                     </div>
 
-                    <button type="submit" class="bg-green-700 text-white py-2 px-4 rounded w-full">Submit</button>
+                    <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded w-full">Submit</button>
                 </form>
             </div>
         </div>
@@ -109,37 +101,32 @@
         document.addEventListener('DOMContentLoaded', function () {
             const mataKuliahSelect = document.getElementById('kodeMK');
             const kelasSelect = document.getElementById('kelas');
-            const ruangSelect = document.getElementById('ruang');
+            const kuotaInput = document.getElementById('kuota');
 
+            // Ketika mata kuliah dipilih
             mataKuliahSelect.addEventListener('change', function () {
                 const selectedOption = this.options[this.selectedIndex];
                 const kelasData = selectedOption.getAttribute('data-kelas');
-                const ruangData = selectedOption.getAttribute('data-ruang');
+                const kuotaData = JSON.parse(selectedOption.getAttribute('data-kuota') || '{}');
 
-                // Bersihkan opsi sebelumnya
                 kelasSelect.innerHTML = '<option value="" disabled selected>Pilih Kelas</option>';
-                ruangSelect.innerHTML = '<option value="" disabled selected>Pilih Ruang</option>';
+                kuotaInput.value = '';
 
-                // Tambahkan opsi baru berdasarkan data-jadwal
                 if (kelasData) {
                     const kelasList = kelasData.split(',');
                     kelasList.forEach(kelas => {
                         const option = document.createElement('option');
                         option.value = kelas;
                         option.textContent = kelas;
+                        option.setAttribute('data-kuota', kuotaData[kelas] || 0);
                         kelasSelect.appendChild(option);
                     });
                 }
-
-                if (ruangData) {
-                    const ruangList = ruangData.split(',');
-                    ruangList.forEach(ruang => {
-                        const option = document.createElement('option');
-                        option.value = ruang;
-                        option.textContent = ruang;
-                        ruangSelect.appendChild(option);
-                    });
-                }
+            });
+            kelasSelect.addEventListener('change', function () {
+                const selectedOption = this.options[this.selectedIndex];
+                const kuota = selectedOption.getAttribute('data-kuota') || 0;
+                kuotaInput.value = kuota; // Update kuota input
             });
         });
     </script>
