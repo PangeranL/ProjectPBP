@@ -35,17 +35,14 @@
 
             <!-- Daftar Mahasiswa dan Status -->
             <div class="bg-white mt-4 p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4">Registrasi Mahasiswa</h2>
+                <h2 class="text-xl font-bold">Registrasi Mahasiswa</h2>
 
-                <div class="mt-5 flex space-x-4">
+                <div class="flex space-x-4">
                     <!-- Form untuk Mengubah Status Mahasiswa -->
                     <form action="{{ route('herregistrasi.update') }}" method="POST" class="flex flex-col space-y-4">
                         @csrf
                         <div>
-                            <label for="nim" class="block font-medium">NIM:</label>
-                            <input type="text" name="nim" id="nim" class="border p-2 rounded w-full" placeholder="Masukkan NIM" required>
-                        </div>
-                        <div>
+                            <input type="hidden" name="nim" value="{{ $mahasiswa->first()->nim }}">
                             <label for="status" class="block font-medium">Status:</label>
                             <select name="status" id="status" class="border p-2 rounded w-full" required>
                                 <option value="aktif">Aktif</option>

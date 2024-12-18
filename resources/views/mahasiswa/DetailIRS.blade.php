@@ -15,7 +15,7 @@
         <div class="relative">
             <!-- Profile Section -->
             <button onclick="toggleDropdown()" class="flex items-center focus:outline-none">
-                <span class="mr-4">Kim Dokja</span>
+                <span class="mr-4">Ganz</span>
                 <img class="w-10 h-10 rounded-full" src="https://i.pinimg.com/736x/ca/41/96/ca419684a96c3f255a8981444e6b9c89.jpg" alt="User Avatar">
             </button>
 

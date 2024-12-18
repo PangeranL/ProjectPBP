@@ -31,7 +31,7 @@ class IRSController extends Controller
         });
 
         // Generate PDF view
-        $pdf = Pdf::loadView('mahasiswa.DetailIRS', compact('isi', 'nim', 'smt', 'totalSKS'));
+        $pdf = Pdf::loadView('mahasiswa.pdf', compact('isi', 'nim', 'smt', 'totalSKS'));
 
         // Return PDF download
         return $pdf->download('IRS_' . $nim . '_Semester_' . $smt . '.pdf');
