@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\irshasil;
 use App\Models\irs;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class IRSController extends Controller
 {
@@ -21,5 +21,19 @@ class IRSController extends Controller
             return $irs->jadwal->matakuliah->sks;
         });
         return view('mahasiswa.DetailIRS', compact('isi', 'nim', 'smt', 'totalSKS'));
+    }
+
+    public function downloadIRS($nim, $smt)
+    {
+        $isi = Irs::where('nim', $nim)->where('smt', $smt)->get();
+        $totalSKS = $isi->sum(function($irs){
+            return $irs->jadwal->matakuliah->sks;
+        });
+
+        // Generate PDF view
+        $pdf = Pdf::loadView('mahasiswa.DetailIRS', compact('isi', 'nim', 'smt', 'totalSKS'));
+
+        // Return PDF download
+        return $pdf->download('IRS_' . $nim . '_Semester_' . $smt . '.pdf');
     }
 }

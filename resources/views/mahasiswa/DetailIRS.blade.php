@@ -27,7 +27,7 @@
     </div>
     <div class="mt-24 px-8">
         <h2 class="text-lg font-bold mb-4">Daftar IRS untuk NIM: {{ $nim }}, Semester: {{ $smt }}</h2>
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-white p-6 rounded-lg shadow-md pb-20">
             <table class="table-auto w-full text-left border-collapse">
                 <thead>
                     <tr>
@@ -60,7 +60,8 @@
                 </tbody>
             </table>
             <div class="flex justify-end mt-5">
-                <a class="bg-green-700 justify-center text-white px-4 py-2 rounded shadow mb-5 w-20" href="{{ route('lihatIRS') }}">Kembali</a>
+                <a class="bg-green-900 justify-center text-white px-4 py-2 rounded shadow mb-5 w-25 mr-5" href="{{ route('downloadIRS', ['nim' => $nim, 'smt' => $smt]) }}">Download</a>
+                <a class="bg-green-700 justify-center text-white px-4 py-2 rounded shadow mb-5 w-22" href="{{ route('lihatIRS') }}">Kembali</a>
             </div>
         </div>
     </div>

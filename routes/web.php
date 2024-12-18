@@ -119,6 +119,7 @@ Route::post('/updateIRS/{nim}/{smt}/{kodeMK}', [BuatIrsController::class, 'updat
 Route::get('/irs/{nim}/{smt}/{kodeMK}', [BuatirsController::class, 'destroy'])->name('irsDelete');
 Route::get('/lihatIRS', [IRSController::class, 'index'])->name('lihatIRS');
 Route::get('/DetailIRS/{nim}/{smt}', [IRSController::class, 'DetailIRS'])->name('DetailIRS');
+Route::get('/download-irs/{nim}/{smt}', [IrsController::class, 'downloadIRS'])->name('downloadIRS');
 Route::get('/lihatKHS', [KHSController::class, 'index'])->name('lihatKHS');
 Route::get('/DetailKHS/{nim}/{smt}', [KHSController::class, 'DetailKHS'])->name('DetailKHS');
 Route::middleware('auth')->get('/dashboard/mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard');
@@ -146,4 +147,3 @@ Route::put('/kaprodi/updateJadwal/{id}', [inputJDController::class, 'updateJadwa
 Route::get('/kaprodi/editJadwal/{id}', [KaprodiController::class, 'editJadwal'])->name('kaprodi.editJadwal');
 // Route untuk mengupdate jadwal
 Route::put('/kaprodi/updateJadwal/{id}', [KaprodiController::class, 'updateJadwal'])->name('kaprodi.updateJadwal');
-

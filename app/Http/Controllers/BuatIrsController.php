@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\jadwal;
 use App\Models\irs;
 use App\Models\irshasil;
-use App\Models\matakuliah;
 use App\Models\khs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -115,7 +114,6 @@ class BuatIrsController extends Controller
         } else {
             $maks = 24;
         }
-        dd($totalSKS);
 
         if (($totalSKS + $sksMataKuliah->sks) > $maks) {
             return redirect()->route('irsan', ['nim' => $validated['nim'], 'smt' => $validated['smt']])
