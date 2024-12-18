@@ -11,6 +11,10 @@ class khs extends Model
 
     protected $table = 'khs';
 
+    protected $primaryKey = 'id'; // Menggunakan kolom 'id' sebagai primary key
+    public $incrementing = true;  // Aktifkan auto increment
+    protected $keyType = 'int';   // Tipe data primary key adalah integer
+
     protected $fillable = [
         'nim',
         'kodeMK',

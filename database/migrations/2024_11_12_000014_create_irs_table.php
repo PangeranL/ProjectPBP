@@ -12,17 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('irs', function (Blueprint $table) {
-            $table->integer('smt');
+            $table->id();
+            $table->unsignedBigInteger('idJadwal');
+            $table->unsignedInteger('smt');
             $table->char('nim', 14);
             $table->char('kodeMK', 8);
-            $table->primary(['nim', 'smt', 'kodeMK']);
             $table->char('kelas', 1);
             $table->char('ruang', 4);
             $table->integer('status')->nullable();
-            $table->foreign('kelas')->references('kelas')->on('jadwal')->onDelete('cascade');
-            $table->foreign('ruang')->references('ruang')->on('jadwal')->onDelete('cascade');
+            $table->foreign('idJadwal')->references('id')->on('jadwal')->onDelete('cascade');
             $table->foreign('nim')->references('nim')->on('mahasiswa')->onDelete('cascade');
-            $table->foreign('kodeMK')->references('kodeMK')->on('jadwal')->onDelete('cascade');
             $table->timestamps();
         });
     }

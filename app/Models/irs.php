@@ -11,8 +11,9 @@ class irs extends Model
 
     protected $table = 'irs';
 
-    protected $primaryKey = ['nim', 'smt', 'kodeMK'];
-    public $incrementing = false;
+    protected $primaryKey = 'id'; // Menggunakan kolom 'id' sebagai primary key
+    public $incrementing = true;  // Aktifkan auto increment
+    protected $keyType = 'int';   // Tipe data primary key adalah integer
 
     protected $fillable = [
         'nim',

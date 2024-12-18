@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email', 50);
             $table->integer('thnmasuk');
             $table->string('status',25);
-            $table->integer('smt');
+            $table->unsignedInteger('smt');
             $table->foreign('email')->references('email')->on('useracc')->onDelete('cascade');
             $table->foreign('nidnWali')->references('nidn')->on('pembimbingakademik')->onDelete('cascade');
             $table->timestamps();

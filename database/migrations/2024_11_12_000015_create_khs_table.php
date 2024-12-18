@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('khs', function (Blueprint $table) {
-            $table->integer('smt');
+            $table->id();
+            $table->unsignedBigInteger('idIRS');
+            $table->unsignedInteger('smt');
             $table->char('nim', 14);
             $table->char('kodeMK', 8);
-            $table->primary(['nim', 'kodeMK', 'smt']);
             $table->char('nilai', 1)->nullable();
             $table->float('ips');
             $table->float('ipk');
-            $table->foreign('nim')->references('nim')->on('irs')->onDelete('cascade');
-            $table->foreign('kodeMK')->references('kodeMK')->on('irs')->onDelete('cascade');
+            $table->foreign('idIRS')->references('id')->on('irs')->onDelete('cascade');
             $table->timestamps();
         });
     }
