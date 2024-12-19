@@ -123,6 +123,10 @@ Route::get('/download-irs/{nim}/{smt}', [IrsController::class, 'downloadIRS'])->
 Route::get('/lihatKHS', [KHSController::class, 'index'])->name('lihatKHS');
 Route::get('/DetailKHS/{nim}/{smt}', [KHSController::class, 'DetailKHS'])->name('DetailKHS');
 Route::middleware('auth')->get('/dashboard/mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard');
+Route::get('/irs', [IRSController::class, 'index'])->name('lihatIRS');
+Route::get('/irs/edit/{nim}/{smt}', [IRSController::class, 'editIRS'])->name('editIRS');
+Route::put('/irs/update/{nim}/{smt}', [IRSController::class, 'updateIRS'])->name('updateIRS');
+Route::delete('/irs/delete/{nim}/{smt}', [IRSController::class, 'deleteIRS'])->name('deleteIRS');
 Route::middleware('auth')->group(function () {
     Route::get('/herregistrasi', [HerregistrasiController::class, 'index'])->name('herregistrasi.index');
     Route::post('/herregistrasi/update', [HerregistrasiController::class, 'updateStatus'])->name('herregistrasi.update');

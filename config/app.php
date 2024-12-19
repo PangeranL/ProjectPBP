@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,4 +185,17 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /*
+    |-------------------------------------------------------------------------- 
+    | Semester Start Date
+    |-------------------------------------------------------------------------- 
+    | This is the start date of the academic semester, used for IRS validation 
+    | such as changes and cancellations.
+    |
+    */
+
+    'semester_start_date' => '19-12-2024', // Tanggal awal semester
+
 ];
+
+    

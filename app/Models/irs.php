@@ -24,6 +24,12 @@ class irs extends Model
         'status'
     ];
 
+    const STATUS = [
+        0 => 'Dibatalkan',
+        1 => 'Aktif',
+        2 => 'Diubah',
+    ];
+    
     protected static function booted()
     {
         static::creating(function ($irs) {
